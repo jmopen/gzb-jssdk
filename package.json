@@ -1,0 +1,68 @@
+{
+  "name": "gzb-jssdk",
+  "version": "0.0.1",
+  "description": "JiaMi typescript boilerplate",
+  "main": "dist/index.js",
+  "umd:main": "dist/index.umd.js",
+  "module": "dist/index.module.js",
+  "typings": "dist/index.d.ts",
+  "author": "ivan",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc && npm run cp-declarations && rollup --config rollup.config.js && npm run build:doc",
+    "build:doc": "rimraf doc/api && typedoc --out ./doc/api --readme ./README.md ./src",
+    "cp-declarations": "cpr lib dist --delete-first --filter \"\\.js\" # copy Typescript declarations to dist",
+    "watch": "tsc --watch",
+    "clean": "rimraf lib dist doc/api",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "tslint -c tslint.json \"src/**/*.ts?(x)\"",
+    "prettier": "prettier --single-quote --trailing-comma all --no-semi --write \"src/**/*.ts?(x)\"",
+    "precommit": "lint-staged",
+    "presetup": "npm i shelljs && npm init",
+    "setup": "node setup.js"
+  },
+  "lint-staged": {
+    "*.ts?(x)": [
+      "npm run prettier",
+      "npm run lint",
+      "git add"
+    ]
+  },
+  "keywords": [
+    "typescript"
+  ],
+  "devDependencies": {
+    "cpr": "^2.2.0",
+    "husky": "^0.14.3",
+    "jh-tslint": "^1.0.0",
+    "lodash": "^4.17.4",
+    "prettier": "^1.5.3",
+    "rimraf": "^2.6.1",
+    "rollup": "^0.48.2",
+    "rollup-plugin-commonjs": "^8.1.0",
+    "rollup-plugin-filesize": "^1.4.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-progress": "^0.4.0",
+    "rollup-plugin-uglify": "^2.0.1",
+    "tslint": "^5.6.0",
+    "tslint-eslint-rules": "^4.1.1",
+    "tslint-react": "^3.2.0",
+    "typedoc": "^0.8.0",
+    "typescript": "^2.4.2"
+  },
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "dependencies": {
+    "shelljs": "^0.7.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GDJiaMi/jh-ts-boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GDJiaMi/jh-ts-boilerplate/issues"
+  },
+  "homepage": "https://github.com/GDJiaMi/jh-ts-boilerplate#readme"
+}
