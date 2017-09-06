@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="setTitle">setTitle</button>
+  <button id="phone">phone</button>
+  <button id="sms">sms</button>
+  <button id="openContact">openContact</button>
+  <button id="locationTo">locationTo</button>
+  <button id="qrcode">QRcode</button>
+  <button id="share">ShareTo</button>
+  <button id="dialog">openDialog</button>
+  <button id="selectContact">selectContact</button>
+  <button id="selectSession">selectSession</button>
+  <button id="getLanguage">getLanguage</button>
+  <button id="chooseImg">chooseImg</button>
+  <button id="bridgeAvailable">is Bridge Avalable</button>
+  <button id="setBarColor">setBarColor</button>
+  <button id="showBar">showBar</button>
+  <button id="hideBar">hideBar</button>
+  <button id="toggleBackButton">toggleBackButton</button>
+  <button id="toggleCloseButton">toggleCloseButton</button>
+  <button id="toggleMoreButton">toggleMoreButton</button>
+  <button id="getLocation">getLocation</button>
+  <button id="mail">mail</button>
+  <a href="/">link</a>
+  <script src="../node_modules/eruda/eruda.min.js"></script>
+  <script>
+    eruda.init();
+  </script>
+  <script src="../dist/index.umd.js"></script>
+  <script>
+    var api = GzbJssdk.default.getInstance()
+    document.getElementById('setTitle').addEventListener('click', function () {
+      api.setTitle('test test')
+    })
+    document.getElementById('phone').addEventListener('click', function () {
+      api.phone('13750007059')
+    })
+    document.getElementById('openContact').addEventListener('click', function () {
+      api.openContact('u116115')
+    })
+    document.getElementById('sms').addEventListener('click', function () {
+      api.sms('13750007059')
+    })
+    document.getElementById('locationTo').addEventListener('click', function () {
+      console.log('call locationTo')
+      api.url({
+        url: 'http://baidu.com',
+        showMode: 'inner'
+      })
+    })
+    document.getElementById('qrcode').addEventListener('click', function () {
+      console.log('call scanQRCode')
+      api.scanQRCode(true, function (res) {
+        console.log('result: ', res)
+      })
+    })
+    document.getElementById('share').addEventListener('click', function () {
+      console.log('call share')
+      api.shareTo()
+    })
+
+    document.getElementById('dialog').addEventListener('click', function () {
+      console.log('call openDialog')
+      api.openDialog({
+        type: 2,
+        id: 'u116115',
+      })
+    })
+
+    document.getElementById('chooseImg').addEventListener('click', function () {
+      api.chooseImg()
+    })
+
+    document.getElementById('selectContact').addEventListener('click', function () {
+      console.log('call selectContact')
+      api.selectContact({
+        'user': [{
+          'id': 'u116115',
+          'name': '陈天送'
+        }],
+        'type': 'unsingle',
+        'tenementId': 't140050483060650196',
+        'unselect': false,
+        'limit': 10
+      }).then(function (res) {
+        console.log('selectContact', res)
+      })
+    })
+
+    document.getElementById('selectSession').addEventListener('click', function () {
+      console.log('call selectSession')
+      api.selectSession({
+        multiple: true,
+        title: 'test SelectionSession',
+      }).then((res) => {
+        console.log(res)
+      }).catch(err => {
+        console.log(err.errCode, err.message)
+      })
+    })
+
+    document.getElementById('getLanguage').addEventListener('click', function () {
+      console.log('call getLanguage')
+      api.getLanguage((res) => {
+        console.log(res)
+      })
+    })
+
+    document.getElementById('bridgeAvailable').addEventListener('click', function () {
+      JH.Detector.bridgeAvailable().then((res) => {
+        alert(res)
+      })
+    })
+
+    document.getElementById('setBarColor').addEventListener('click', function () {
+      api.setBarColor('#F1F1F1')
+    })
+
+    document.getElementById('showBar').addEventListener('click', function () {
+      api.showBar()
+    })
+
+    var backButton = true
+    document.getElementById('toggleBackButton').addEventListener('click', function () {
+      backButton = !backButton
+      api.setBackButtonVisible(backButton)
+    })
+
+    var closeButton = true
+    document.getElementById('toggleCloseButton').addEventListener('click', function () {
+      closeButton = !closeButton
+      api.setCloseButtonVisible(closeButton)
+    })
+
+    var moreButton = true
+    document.getElementById('toggleMoreButton').addEventListener('click', function () {
+      moreButton = !moreButton
+      api.setMoreButtonVisible(moreButton)
+    })
+
+
+    document.getElementById('hideBar').addEventListener('click', function () {
+      api.hideBar()
+    })
+
+    document.getElementById('getLocation').addEventListener('click', function () {
+      api.getLocation().then(res => {
+          console.log(res)
+        })
+        .catch(err => {
+          console.error(err)
+        })
+    })
+
+    document.getElementById('mail').addEventListener('click', function () {
+      api.mail('carney520@hotmail.com')
+    })
+    api.addListener('beforeunload', function (event) {
+      return 'beforeunload触发, 确认退出？'
+    })
+
+    api.addListener('beforegoback', function (event) {
+      if (window.confirm('绑定了goback事件，是否阻止返回')) {
+        console.log('阻止')
+        event.preventDefault()
+      } else {}
+    })
+  </script>
+</body>
+
+</html>

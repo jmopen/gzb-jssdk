@@ -1,30 +1,11 @@
-# jh-ts-boilerplate
-Typescript 库模板
+![logo]("./logo.jpg")
+# GZB JSSDK 
+工作宝JSSDK, 应用于工作宝应用webview内调用APP 服务.
 
-## 目录结构
-```
-├─src   # Typescript源代码目录
-├─lib   # Typescript 编译输出目录
-├─doc   # 文档目录
-| └─api # 自动生成的API文档
-├─dist  # npm 分发目录
-└─test  # 测试用例
-```
+## 安装
 
-## 使用
-```
-git clone <当前项目> my-project
-cd my-project && yarn setup
-```
+## 文档
 
-## CLI
-+ watch:     TODO
-+ test:      TODO
-+ build:     编译文件，输出在dist, 并且生成API文档
-+ build:doc: 生成API文档
-+ prettier:  格式化源代码
-+ lint:      使用TSLint 检查代码 
-+ clean:     清理编译输出
-
-## License
-[MIT](./LICENSE)
+## 已知问题
++ `setBar` 不能应用于多页应用，如果在当前页面绑定了close和goback事件， 当跳转到其他页面时，close，goback按钮将会失效,
+ 因为没办法找到原来的回调，所以目前只建议在单页应用只使用`api.addListener('beforeunload')` 和`api.addListener('beforegoback')`

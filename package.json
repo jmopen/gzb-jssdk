@@ -1,7 +1,7 @@
 {
   "name": "gzb-jssdk",
-  "version": "0.0.1",
-  "description": "JiaMi typescript boilerplate",
+  "version": "0.1.0",
+  "description": "MyGZB JSSDK",
   "main": "dist/index.js",
   "umd:main": "dist/index.umd.js",
   "module": "dist/index.module.js",
@@ -9,10 +9,11 @@
   "author": "ivan",
   "license": "MIT",
   "scripts": {
-    "build": "tsc && npm run cp-declarations && rollup --config rollup.config.js && npm run build:doc",
-    "build:doc": "rimraf doc/api && typedoc --out ./doc/api --readme ./README.md ./src",
-    "cp-declarations": "cpr lib dist --delete-first --filter \"\\.js\" # copy Typescript declarations to dist",
-    "watch": "tsc --watch",
+    "build": "npm run build:ts && npm run build:copy && rollup --config rollup.config.js && npm run build:doc",
+    "build:ts": "rimraf lib && tsc",
+    "build:doc": "rimraf doc/api && typedoc --out ./doc/api --readme ./README.md --ignoreCompilerErrors ./src",
+    "build:copy": "cpr lib dist --delete-first --filter \"\\.js\" # copy Typescript declarations to dist",
+    "watch": "npm run build:ts && concurrently --kill-others  \"tsc --watch\" \"rollup --config rollup.config.js --watch\"",
     "clean": "rimraf lib dist doc/api",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "tslint -c tslint.json \"src/**/*.ts?(x)\"",
@@ -32,10 +33,12 @@
     "typescript"
   ],
   "devDependencies": {
+    "concurrently": "^3.5.0",
     "cpr": "^2.2.0",
+    "eruda": "^1.2.6",
     "husky": "^0.14.3",
     "jh-tslint": "^1.0.0",
-    "lodash": "^4.17.4",
+    "lint-staged": "^4.0.4",
     "prettier": "^1.5.3",
     "rimraf": "^2.6.1",
     "rollup": "^0.48.2",
@@ -43,26 +46,29 @@
     "rollup-plugin-filesize": "^1.4.2",
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-progress": "^0.4.0",
+    "rollup-plugin-replace": "^1.1.1",
     "rollup-plugin-uglify": "^2.0.1",
+    "shelljs": "^0.7.8",
     "tslint": "^5.6.0",
     "tslint-eslint-rules": "^4.1.1",
     "tslint-react": "^3.2.0",
     "typedoc": "^0.8.0",
+    "typedoc-plugin-external-module-name": "^1.0.9",
     "typescript": "^2.4.2"
+  },
+  "dependencies": {
+    "tslib": "^1.7.1"
   },
   "directories": {
     "doc": "doc",
     "test": "test"
   },
-  "dependencies": {
-    "shelljs": "^0.7.8"
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GDJiaMi/jh-ts-boilerplate.git"
+    "url": "git+https://github.com/GDJiaMi/gzb-jssdk.git"
   },
   "bugs": {
-    "url": "https://github.com/GDJiaMi/jh-ts-boilerplate/issues"
+    "url": "https://github.com/GDJiaMi/gzb-jssdk/issues"
   },
-  "homepage": "https://github.com/GDJiaMi/jh-ts-boilerplate#readme"
+  "homepage": "https://github.com/GDJiaMi/gzb-jssdk#readme"
 }
