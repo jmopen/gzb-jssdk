@@ -15,7 +15,8 @@
     "build:copy": "cpr lib dist --delete-first --filter \"\\.js\" # copy Typescript declarations to dist",
     "watch": "npm run build:ts && concurrently --kill-others  \"tsc --watch\" \"rollup --config rollup.config.js --watch\"",
     "clean": "rimraf lib dist doc/api",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "lint": "tslint -c tslint.json \"src/**/*.ts?(x)\"",
     "prettier": "prettier --single-quote --trailing-comma all --no-semi --write \"src/**/*.ts?(x)\"",
     "precommit": "lint-staged",
@@ -23,20 +24,23 @@
     "setup": "node setup.js"
   },
   "lint-staged": {
-    "*.ts?(x)": [
-      "npm run prettier",
-      "npm run lint",
-      "git add"
-    ]
+    "*.ts?(x)": ["npm run prettier", "npm run lint", "git add"]
   },
-  "keywords": [
-    "typescript"
-  ],
+  "keywords": ["typescript"],
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json"]
+  },
   "devDependencies": {
+    "@types/jest": "^20.0.8",
     "concurrently": "^3.5.0",
     "cpr": "^2.2.0",
     "eruda": "^1.2.6",
     "husky": "^0.14.3",
+    "jest": "^21.0.1",
     "jh-tslint": "^1.0.0",
     "lint-staged": "^4.0.4",
     "prettier": "^1.5.3",
@@ -49,6 +53,7 @@
     "rollup-plugin-replace": "^1.1.1",
     "rollup-plugin-uglify": "^2.0.1",
     "shelljs": "^0.7.8",
+    "ts-jest": "^21.0.0",
     "tslint": "^5.6.0",
     "tslint-eslint-rules": "^4.1.1",
     "tslint-react": "^3.2.0",

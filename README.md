@@ -1,4 +1,4 @@
-![logo]("./logo.jpg")
+![logo](./logo.jpg)
 # GZB JSSDK 
 工作宝JSSDK, 应用于工作宝应用webview内调用APP 服务.
 
