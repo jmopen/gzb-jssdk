@@ -1,8 +1,9 @@
 /node_modules/
-test/
+__tests__
 src
-doc
+docs
 lib
 rollup.config.js
 tsconfig.json
 tslint.json
+yarn-debug.log*

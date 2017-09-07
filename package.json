@@ -1,10 +1,10 @@
 {
-  "name": "gzb-jssdk",
-  "version": "1.0.0",
+  "name": "@gdjiami/gzb-jssdk",
+  "version": "1.0.0-beta",
   "description": "MyGZB JSSDK",
-  "main": "dist/index.js",
-  "umd:main": "dist/index.umd.js",
-  "module": "dist/index.module.js",
+  "main": "dist/gzb-jssdk.js",
+  "umd:main": "dist/gzb-jssdk.umd.js",
+  "module": "dist/gzb-jssdk.module.js",
   "typings": "dist/index.d.ts",
   "author": "ivan",
   "license": "MIT",
@@ -24,15 +24,27 @@
     "setup": "node setup.js"
   },
   "lint-staged": {
-    "*.ts?(x)": ["npm run prettier", "npm run lint", "git add"]
+    "*.ts?(x)": [
+      "npm run prettier",
+      "npm run lint",
+      "git add"
+    ]
   },
-  "keywords": ["typescript"],
+  "keywords": [
+    "typescript"
+  ],
   "jest": {
     "transform": {
       "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json"]
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ]
   },
   "devDependencies": {
     "@types/jest": "^20.0.8",
@@ -65,8 +77,7 @@
     "tslib": "^1.7.1"
   },
   "directories": {
-    "docs": "docs",
-    "test": "test"
+    "doc": "docs"
   },
   "repository": {
     "type": "git",

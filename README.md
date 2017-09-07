@@ -13,6 +13,15 @@
 
 ## 安装
 
+```
+yarn add @gdjiami/gzb-jssdk
+```
+
+或者
+```
+npm install @gdjiami/gzb-jssdk --save
+```
+
 ## 使用
 基本使用
 

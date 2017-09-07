@@ -12,7 +12,7 @@ const RESOLVE_CONFIG = {
   jsnext: true,
   main: true,
 }
-const FILE_NAME = pkg.name
+const FILE_NAME = 'gzb-jssdk'
 const UMD_NAME = _.upperFirst(_.camelCase(pkg.name))
 const BANNER = `
 /**
@@ -24,10 +24,10 @@ const BANNER = `
 export default [
   // commonJS for development
   {
-    input: `./lib/${FILE_NAME}.js`,
+    input: './lib/index.js',
     external: ['tslib'],
     output: {
-      file: './dist/index.js',
+      file: `./dist/${FILE_NAME}.js`,
       format: 'cjs',
       banner: BANNER,
     },
@@ -43,10 +43,10 @@ export default [
   },
   // ES6 for development
   {
-    input: `./lib/${FILE_NAME}.js`,
+    input: './lib/index.js',
     external: ['tslib'],
     output: {
-      file: './dist/index.module.js',
+      file: `./dist/${FILE_NAME}.module.js`,
       format: 'es',
       banner: BANNER,
     },
