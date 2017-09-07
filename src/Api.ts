@@ -788,8 +788,10 @@ export default abstract class Api extends EventEmitter {
           const event = new CustomEvent(Events.beforeunload, {
             cancelable: true,
           })
-          this.emit(Events.beforegoback, event)
-          if (!event.defaultPrevented) {
+          const res = this.emit(Events.beforegoback, event)
+          const defaultPrevented =
+            event.defaultPrevented || res.some(v => v === false)
+          if (!defaultPrevented) {
             // 默认行为
             window.history.go(-1)
             // 如何判断当前页面时第一个页面？即不能后退

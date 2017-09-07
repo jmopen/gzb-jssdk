@@ -1,6 +1,6 @@
 {
   "name": "gzb-jssdk",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "MyGZB JSSDK",
   "main": "dist/index.js",
   "umd:main": "dist/index.umd.js",
@@ -11,10 +11,10 @@
   "scripts": {
     "build": "npm run build:ts && npm run build:copy && rollup --config rollup.config.js && npm run build:doc",
     "build:ts": "rimraf lib && tsc",
-    "build:doc": "rimraf doc/api && typedoc --out ./doc/api --readme ./README.md --ignoreCompilerErrors ./src",
+    "build:doc": "rimraf docs/api && typedoc --out ./docs/api --readme ./README.md --ignoreCompilerErrors --exclude \"**/__tests__/*\" ./src",
     "build:copy": "cpr lib dist --delete-first --filter \"\\.js\" # copy Typescript declarations to dist",
     "watch": "npm run build:ts && concurrently --kill-others  \"tsc --watch\" \"rollup --config rollup.config.js --watch\"",
-    "clean": "rimraf lib dist doc/api",
+    "clean": "rimraf lib dist docs/api",
     "test": "jest",
     "test:watch": "jest --watch",
     "lint": "tslint -c tslint.json \"src/**/*.ts?(x)\"",
@@ -65,7 +65,7 @@
     "tslib": "^1.7.1"
   },
   "directories": {
-    "doc": "doc",
+    "docs": "docs",
     "test": "test"
   },
   "repository": {

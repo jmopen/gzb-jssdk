@@ -5,6 +5,7 @@
 import Device, { DeviceDector } from './DeviceDetector'
 import EventEmitter from './EventEmitter'
 import * as Utils from './utils'
+import Api from './Api'
 import MobileApi from './MobileApi'
 import DesktopApi from './DesktopApi'
 import { BridgeResponseError } from './Bridge'
@@ -19,6 +20,7 @@ declare global {
 }
 
 export {
+  Api,
   BridgeResponseError,
   DesktopApi,
   Device,
@@ -27,8 +29,12 @@ export {
   MobileApi,
   Utils,
 }
-const DefaultAPI = Device.mobile() ? MobileApi : DesktopApi
-export default DefaultAPI
+
+export function api() {
+  const DefaultAPI = Device.mobile() ? MobileApi : DesktopApi
+  return DefaultAPI.getInstance()
+}
+export default api
 
 // for browser only(will remove by uglify or rollup)
 if (process.env.MODULE_TYPE === 'umd') {
@@ -46,9 +52,7 @@ if (process.env.MODULE_TYPE === 'umd') {
   }
 
   window.customApi = {
-    init() {
-      return DefaultAPI.getInstance()
-    },
+    init: api,
   }
   window.JH = {
     Detector: new JHDetector(),

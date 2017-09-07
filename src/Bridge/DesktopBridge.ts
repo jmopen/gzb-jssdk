@@ -252,11 +252,9 @@ export default class DesktopBridge {
 
   private constructor() {
     if (typeof window.HandleEvent === 'undefined') {
-      throw new Error(
-        `[Window Bridge] 初始化异常，window.HandleEvent 为undefined. 这可能说明SDK运行在没有Bridge的环境
+      console.warn(`[Window Bridge] 初始化异常，window.HandleEvent 为undefined. 这可能说明SDK运行在没有Bridge的环境
         请使用Device.bridgeAvailable()来判断当前环境是否支持。
-        `,
-      )
+        `)
     }
   }
 }

@@ -12,7 +12,7 @@ const RESOLVE_CONFIG = {
   jsnext: true,
   main: true,
 }
-
+const FILE_NAME = pkg.name
 const UMD_NAME = _.upperFirst(_.camelCase(pkg.name))
 const BANNER = `
 /**
@@ -24,7 +24,7 @@ const BANNER = `
 export default [
   // commonJS for development
   {
-    input: './lib/index.js',
+    input: `./lib/${FILE_NAME}.js`,
     external: ['tslib'],
     output: {
       file: './dist/index.js',
@@ -43,7 +43,7 @@ export default [
   },
   // ES6 for development
   {
-    input: './lib/index.js',
+    input: `./lib/${FILE_NAME}.js`,
     external: ['tslib'],
     output: {
       file: './dist/index.module.js',
@@ -64,7 +64,7 @@ export default [
   {
     input: './lib/index.js',
     output: {
-      file: './dist/index.umd.js',
+      file: `./dist/${FILE_NAME}.umd.js`,
       format: 'umd',
       name: UMD_NAME,
       banner: BANNER,
@@ -74,7 +74,7 @@ export default [
       replace({
         'process.env.MODULE_TYPE': JSON.stringify('umd'),
         'process.env.NODE_ENV': JSON.stringify(
-          process.env.NODE_ENV || 'production',
+          process.env.NODE_ENV || 'production'
         ),
       }),
       resolve(RESOLVE_CONFIG),
