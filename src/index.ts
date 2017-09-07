@@ -3,6 +3,7 @@
  * @module
  */ /** */
 import Device, { DeviceDector } from './DeviceDetector'
+import EventEmitter from './EventEmitter'
 import * as Utils from './utils'
 import MobileApi from './MobileApi'
 import DesktopApi from './DesktopApi'
@@ -18,12 +19,13 @@ declare global {
 }
 
 export {
+  BridgeResponseError,
+  DesktopApi,
   Device,
   DeviceDector,
-  DesktopApi,
+  EventEmitter,
   MobileApi,
   Utils,
-  BridgeResponseError,
 }
 const DefaultAPI = Device.mobile() ? MobileApi : DesktopApi
 export default DefaultAPI
@@ -32,15 +34,15 @@ export default DefaultAPI
 if (process.env.MODULE_TYPE === 'umd') {
   const WARN = "JH.Detector已经废弃，请使用`import { Device } from 'gzb-jssdk'`代替"
   class JHDetector extends DeviceDector {
-    public isWebkit = Utils.deprecated(WARN, this.webkit, this)
     public Android = Utils.deprecated(WARN, this.android, this)
     public BlackBerry = Utils.deprecated(WARN, this.blackberry, this)
     public IOS = Utils.deprecated(WARN, this.ios, this)
     public Windows = Utils.deprecated(WARN, this.windows, this)
-    public isiPhone = Utils.deprecated(WARN, this.iphone, this)
-    public isiPad = Utils.deprecated(WARN, this.ipad, this)
-    public isiPod = Utils.deprecated(WARN, this.ipod, this)
     public isMobile = Utils.deprecated(WARN, this.mobile, this)
+    public isWebkit = Utils.deprecated(WARN, this.webkit, this)
+    public isiPad = Utils.deprecated(WARN, this.ipad, this)
+    public isiPhone = Utils.deprecated(WARN, this.iphone, this)
+    public isiPod = Utils.deprecated(WARN, this.ipod, this)
   }
 
   window.customApi = {
