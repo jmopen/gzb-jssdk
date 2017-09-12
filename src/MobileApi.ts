@@ -29,7 +29,6 @@ export default class MobileApi extends Api {
     beforegoback: 0,
     beforeunload: 0,
   }
-  private beforeUnloadListened: boolean = false
   // 因为setBar 是全局性的，只能有一个回调， 然后这个接口没有设计好， 混合了多个职责，
   // 所以出此下策
   private setBarOptions: SetBarParams = {
@@ -75,6 +74,17 @@ export default class MobileApi extends Api {
         break
       case Events.beforegoback:
         this.setUpGobackWatcher(callback)
+        break
+      default:
+        throw new Error(`未知事件: ${eventName}`)
+    }
+  }
+
+  protected teardownEventWatcher(eventName: string) {
+    switch (eventName) {
+      case Events.beforeunload:
+      case Events.beforegoback:
+        this._teardownBeforeUnloadWatcher()
         break
       default:
         throw new Error(`未知事件: ${eventName}`)
@@ -140,25 +150,17 @@ export default class MobileApi extends Api {
     })
   }
 
-  /**
+  /*
    * 切换到其他页面， 解除捕获
    * 这是工作宝移动端的一个bug
    * FIXME: 移动端返回和关闭按钮切换到其他页面后点击无响应
    */
-  private teardownBarWatcher() {
-    if (this.beforeUnloadListened) {
-      return
-    }
-    this.beforeUnloadListened = true
-    // 浏览器重载或者导航到其他页面
-    window.addEventListener('beforeunload', e => {
-      this.setUpBridge(bridge => {
-        bridge.callHandler(Handlers.SET_BAR, DEFAULT_SET_BAR_OPTIONS)
+  private _teardownBeforeUnloadWatcher() {
+    this.setUpBridge(bridge => {
+      bridge.callHandler(Handlers.SET_BAR, {
+        ...DEFAULT_SET_BAR_OPTIONS,
+        hideMoreBtn: 'false',
       })
-      setTimeout(() => {
-        console.log('hey i still alive')
-        this.beforeUnloadListened = false
-      }, 500)
     })
   }
 
@@ -184,7 +186,6 @@ export default class MobileApi extends Api {
         this.setupBarWatcher()
       })
     }
-    this.teardownBarWatcher()
   }
 
   private setUpBeforeUnloadWatcher(callback: () => void) {

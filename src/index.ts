@@ -10,6 +10,8 @@ import MobileApi from './MobileApi'
 import DesktopApi from './DesktopApi'
 import { BridgeResponseError } from './Bridge'
 
+export * from './protocol'
+
 // 兼容旧版API入口
 // tslint:disable-next-line:no-namespace
 declare global {

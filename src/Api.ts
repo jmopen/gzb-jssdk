@@ -88,8 +88,10 @@ export default abstract class Api extends EventEmitter {
     eventName: string,
     callback: () => void,
   ): void
+  protected abstract teardownEventWatcher(eventName: string): void
 
   public isReady: boolean = false
+  private beforeUnloadHandler: (e: Event) => any
 
   public addListener(
     eventType: EventType,
@@ -195,10 +197,15 @@ export default abstract class Api extends EventEmitter {
           bridge.callHandler(Handlers.OPEN_URL, payload)
         })
       } else {
-        window.open(payload.url)
+        if (payload.showMode === 'outer') {
+          window.open(payload.url)
+        } else {
+          location.href = payload.url
+        }
       }
     })
   }
+
   /**
    * 打开指定链接
    * @platform `Windows` | `Android` | `IOS` | `Web`
@@ -766,9 +773,19 @@ export default abstract class Api extends EventEmitter {
     })
   }
 
+  public teardown() {
+    this.teardownEventWatchers()
+  }
+
   private setupEventWatchers() {
     this.setupBeforeUnloadWatcher()
     this.setupBeforeGoBackWatcher()
+  }
+
+  // 解除事件捕获
+  private teardownEventWatchers() {
+    this.teardownBeforeUnloadWatcher()
+    this.teardownBeforeGoBackWatcher()
   }
 
   protected innerAddEventListener(
@@ -806,6 +823,28 @@ export default abstract class Api extends EventEmitter {
     })
   }
 
+  private teardownBeforeGoBackWatcher() {
+    Device.bridgeAvailable().then(avail => {
+      if (avail) {
+        this.teardownEventWatcher(Events.beforegoback)
+      } else {
+        // web 暂无绑定事件
+      }
+    })
+  }
+
+  private teardownBeforeUnloadWatcher() {
+    Device.bridgeAvailable().then(avail => {
+      if (avail) {
+        this.teardownEventWatcher(Events.beforeunload)
+      } else {
+        if (this.beforeUnloadHandler) {
+          window.removeEventListener('beforeunload', this.beforeUnloadHandler)
+        }
+      }
+    })
+  }
+
   /**
    * 捕获窗口关闭事件
    */
@@ -836,7 +875,7 @@ export default abstract class Api extends EventEmitter {
         })
       } else {
         // 这里只能是同步的
-        window.addEventListener('beforeunload', e => {
+        this.beforeUnloadHandler = e => {
           const event = new CustomEvent(Events.beforeunload, {
             cancelable: true,
           })
@@ -851,7 +890,8 @@ export default abstract class Api extends EventEmitter {
             return confirm
           }
           return undefined
-        })
+        }
+        window.addEventListener('beforeunload', this.beforeUnloadHandler)
       }
     })
   }

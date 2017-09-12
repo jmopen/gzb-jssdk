@@ -35,6 +35,19 @@ export default class DesktopApi extends Api {
     }
   }
 
+  protected teardownEventWatcher(eventName: string) {
+    switch (eventName) {
+      case Events.beforeunload:
+        this._teardownBeforeUnloadWatcher()
+        break
+      case Events.beforegoback:
+        this._teardownBeforeGoBackWatcher()
+        break
+      default:
+        throw new Error(`未知事件: ${eventName}`)
+    }
+  }
+
   private setUpBeforeUnloadWatcher(callback: () => void) {
     this.setUpBridge(bridge => {
       bridge.callHandler(Handlers.WINDOW_CLOSE, null, () => {
@@ -45,6 +58,12 @@ export default class DesktopApi extends Api {
     })
   }
 
+  private _teardownBeforeUnloadWatcher() {
+    this.setUpBridge(bridge => {
+      bridge.callHandler(Handlers.WINDOW_CLOSE, null)
+    })
+  }
+
   private setUpBeforeGoBackWatcher(callback: () => void) {
     this.setUpBridge(bridge => {
       bridge.callHandler(Handlers.PAGE_GO_BACK, null, () => {
@@ -52,6 +71,12 @@ export default class DesktopApi extends Api {
         // 重新监听
         this.setUpBeforeGoBackWatcher(callback)
       })
+    })
+  }
+
+  private _teardownBeforeGoBackWatcher() {
+    this.setUpBridge(bridge => {
+      bridge.callHandler(Handlers.PAGE_GO_BACK, null)
     })
   }
 

@@ -14,6 +14,7 @@
   <button id="sms">sms</button>
   <button id="openContact">openContact</button>
   <button id="locationTo">locationTo</button>
+  <button id="locationToOuter">locationToOuter</button>
   <button id="qrcode">QRcode</button>
   <button id="share">ShareTo</button>
   <button id="dialog">openDialog</button>
@@ -35,7 +36,7 @@
   <script>
     eruda.init();
   </script>
-  <script src="../dist/index.umd.js"></script>
+  <script src="../dist/gzb-jssdk.umd.js"></script>
   <script>
     var api = GzbJssdk.api()
     document.getElementById('setTitle').addEventListener('click', function () {
@@ -55,6 +56,13 @@
       api.url({
         url: 'http://baidu.com',
         showMode: 'inner'
+      })
+    })
+    document.getElementById('locationToOuter').addEventListener('click', function () {
+      console.log('call locationTo')
+      api.url({
+        url: 'http://baidu.com',
+        showMode: 'outer'
       })
     })
     document.getElementById('qrcode').addEventListener('click', function () {

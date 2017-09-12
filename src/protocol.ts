@@ -220,7 +220,7 @@ export interface SelectContactParams {
   /**
    * 限制数，只有在type为multple时有效
    */
-  limit?: boolean
+  limit?: number
   /**
    * 是否可以取消选择
    */
@@ -234,11 +234,11 @@ export interface SelectContactParams {
 /**
  * 选择联系人响应
  */
-export interface SelectContactResponse {
+export type SelectContactResponse = Array<{
   id: string
   name: string
   avatar: string
-}
+}>
 
 /**
  * 选择会话请求参数

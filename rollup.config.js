@@ -13,7 +13,7 @@ const RESOLVE_CONFIG = {
   main: true,
 }
 const FILE_NAME = 'gzb-jssdk'
-const UMD_NAME = _.upperFirst(_.camelCase(pkg.name))
+const UMD_NAME = 'GzbJssdk'
 const BANNER = `
 /**
  * ${pkg.name} - ${pkg.version}
