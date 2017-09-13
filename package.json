@@ -1,6 +1,6 @@
 {
   "name": "@gdjiami/gzb-jssdk",
-  "version": "1.0.0-beta",
+  "version": "1.0.1-beta",
   "description": "MyGZB JSSDK",
   "main": "dist/gzb-jssdk.js",
   "umd:main": "dist/gzb-jssdk.umd.js",
@@ -11,7 +11,7 @@
   "scripts": {
     "build": "npm run build:ts && npm run build:copy && rollup --config rollup.config.js && npm run build:doc",
     "build:ts": "rimraf lib && tsc",
-    "build:doc": "rimraf docs/api && typedoc --out ./docs/api --readme ./README.md --ignoreCompilerErrors --exclude \"**/__tests__/*\" ./src",
+    "build:doc": "rimraf docs/api && typedoc --out ./docs/api --theme markdown --readme ./README.md --ignoreCompilerErrors --exclude \"**/__tests__/*\" ./src",
     "build:copy": "cpr lib dist --delete-first --filter \"\\.js\" # copy Typescript declarations to dist",
     "watch": "npm run build:ts && concurrently --kill-others  \"tsc --watch\" \"rollup --config rollup.config.js --watch\"",
     "clean": "rimraf lib dist docs/api",
@@ -21,7 +21,7 @@
     "prettier": "prettier --single-quote --trailing-comma all --no-semi --write \"src/**/*.ts?(x)\"",
     "precommit": "lint-staged",
     "presetup": "npm i shelljs && npm init",
-    "setup": "node setup.js"
+    "deploy:docs": "gh-pages -d docs/api"
   },
   "lint-staged": {
     "*.ts?(x)": [
@@ -51,7 +51,6 @@
     "concurrently": "^3.5.0",
     "cpr": "^2.2.0",
     "eruda": "^1.2.6",
-    "git-pages": "^0.8.1",
     "husky": "^0.14.3",
     "jest": "^21.0.1",
     "jh-tslint": "^1.0.0",
@@ -72,6 +71,7 @@
     "tslint-react": "^3.2.0",
     "typedoc": "^0.8.0",
     "typedoc-plugin-external-module-name": "^1.0.9",
+    "typedoc-plugin-markdown": "^1.0.8",
     "typescript": "^2.4.2"
   },
   "dependencies": {
