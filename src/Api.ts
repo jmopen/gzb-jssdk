@@ -594,6 +594,7 @@ export default abstract class Api extends EventEmitter {
   /**
    * 分享
    * @platform `Android` | `IOS`
+   * TODO: 可以改进， 允许自定义分享内容
    */
   public shareTo(): void {
     this.setUpBridge(bridge => {

@@ -43,11 +43,23 @@ export default class MobileApi extends Api {
     return this.instance
   }
 
+  public getBackButtonVisible() {
+    return this.setBarOptions.left.indexOf('goback') !== -1
+  }
+
+  public getCloseButtonVisible() {
+    return this.setBarOptions.left.indexOf('close') !== -1
+  }
+
+  public getMoreButtonVisible() {
+    return !this.setBarOptions.hideMoreBtn
+  }
+
   /**
    * 设置'更多'的可见性
    */
   public setMoreButtonVisible(visible: boolean = true) {
-    this.setBarOptions.hideMoreBtn = visible
+    this.setBarOptions.hideMoreBtn = !visible
     this.setupBarWatcher()
   }
 
