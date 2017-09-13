@@ -111,10 +111,11 @@ export default class MobileApi extends Api {
     const index = this.setBarOptions.left.indexOf(name)
     if (visible && index === -1) {
       this.setBarOptions.left.push(name)
+      this.setupBarWatcher()
     } else if (!visible && index !== -1) {
-      this.setBarOptions.left.splice(index)
+      this.setBarOptions.left.splice(index, 1)
+      this.setupBarWatcher()
     }
-    this.setupBarWatcher()
   }
 
   private checkBarWatcher(name: 'goback' | 'close', eventName: string) {
