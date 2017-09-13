@@ -182,7 +182,7 @@ export enum DialogType {
   /**
    * 群聊
    */
-  GroupChat,
+  GroupChat = 1,
   /**
    * 单聊
    */

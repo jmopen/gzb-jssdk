@@ -6,5 +6,7 @@ export default class BridgeResponseError extends Error {
   constructor(errCode: number, errMsg: string) {
     super(errMsg)
     this.errCode = errCode
+    // support error instanceof BridgeResponseError
+    Object.setPrototypeOf(this, BridgeResponseError.prototype)
   }
 }

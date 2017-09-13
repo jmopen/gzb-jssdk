@@ -639,11 +639,11 @@ export default abstract class Api extends EventEmitter {
    * 选择图片
    * @platform *
    */
+  public chooseImg(params?: ChooseImgParams): Promise<ChooseImgResponse>
   public chooseImg(
     params?: ChooseImgParams,
     callback?: LegacyCallback<ChooseImgResponseOld>,
   ): void
-  public chooseImg(params?: ChooseImgParams): Promise<ChooseImgResponse>
   public chooseImg(
     params?: ChooseImgParams | LegacyCallback<ChooseImgResponseOld>,
     callback?: LegacyCallback<ChooseImgResponseOld>,
