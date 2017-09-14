@@ -15,7 +15,7 @@
 
 **●  actionType**:  *"default"⎮"camera"⎮"gallery"* 
 
-*Defined in [protocol.ts:55](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L55)*
+*Defined in [protocol.ts:55](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L55)*
 
 
 
@@ -32,7 +32,7 @@ ___
 
 **●  extType**:  *[ImageType](../modules/_protocol_.md#imagetype)[]* 
 
-*Defined in [protocol.ts:59](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L59)*
+*Defined in [protocol.ts:59](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L59)*
 
 
 
@@ -49,7 +49,7 @@ ___
 
 **●  maxSizeKb**:  *`undefined`⎮`number`* 
 
-*Defined in [protocol.ts:63](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L63)*
+*Defined in [protocol.ts:63](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L63)*
 
 
 
@@ -66,7 +66,7 @@ ___
 
 **●  quality**:  *`undefined`⎮`number`* 
 
-*Defined in [protocol.ts:42](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L42)*
+*Defined in [protocol.ts:42](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L42)*
 
 
 
@@ -83,7 +83,7 @@ ___
 
 **●  target**:  *`undefined`⎮`number`* 
 
-*Defined in [protocol.ts:46](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L46)*
+*Defined in [protocol.ts:46](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L46)*
 
 
 
@@ -100,7 +100,7 @@ ___
 
 **●  targetType**:  *"default"⎮"width"⎮"height"* 
 
-*Defined in [protocol.ts:50](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L50)*
+*Defined in [protocol.ts:50](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L50)*
 
 
 

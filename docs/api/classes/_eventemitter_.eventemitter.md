@@ -55,7 +55,7 @@
 
 
 
-*Defined in [EventEmitter.ts:87](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/EventEmitter.ts#L87)*
+*Defined in [EventEmitter.ts:87](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/EventEmitter.ts#L87)*
 
 
 
@@ -94,7 +94,7 @@ ___
 
 
 
-*Defined in [EventEmitter.ts:169](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/EventEmitter.ts#L169)*
+*Defined in [EventEmitter.ts:169](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/EventEmitter.ts#L169)*
 
 
 
@@ -133,7 +133,7 @@ ___
 
 
 
-*Defined in [EventEmitter.ts:119](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/EventEmitter.ts#L119)*
+*Defined in [EventEmitter.ts:119](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/EventEmitter.ts#L119)*
 
 
 
@@ -164,7 +164,7 @@ ___
 
 
 
-*Defined in [EventEmitter.ts:115](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/EventEmitter.ts#L115)*
+*Defined in [EventEmitter.ts:115](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/EventEmitter.ts#L115)*
 
 
 
@@ -202,7 +202,7 @@ ___
 
 
 
-*Defined in [EventEmitter.ts:128](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/EventEmitter.ts#L128)*
+*Defined in [EventEmitter.ts:128](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/EventEmitter.ts#L128)*
 
 
 
@@ -238,7 +238,7 @@ ___
 
 
 
-*Defined in [EventEmitter.ts:144](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/EventEmitter.ts#L144)*
+*Defined in [EventEmitter.ts:144](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/EventEmitter.ts#L144)*
 
 
 

@@ -33,7 +33,7 @@ TODO: remove in future version
 
 *Inherited from [BridgeCommonResponse](_protocol_.bridgecommonresponse.md).[errCode](_protocol_.bridgecommonresponse.md#errcode)*
 
-*Defined in [protocol.ts:17](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L17)*
+*Defined in [protocol.ts:17](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L17)*
 
 
 
@@ -52,7 +52,7 @@ ___
 
 *Inherited from [BridgeCommonResponse](_protocol_.bridgecommonresponse.md).[errMsg](_protocol_.bridgecommonresponse.md#errmsg)*
 
-*Defined in [protocol.ts:21](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L21)*
+*Defined in [protocol.ts:21](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L21)*
 
 
 
@@ -69,7 +69,7 @@ ___
 
 **●  imgData**:  *`string`* 
 
-*Defined in [protocol.ts:74](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L74)*
+*Defined in [protocol.ts:74](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L74)*
 
 
 
@@ -83,7 +83,7 @@ ___
 
 **●  imgHeight**:  *`number`* 
 
-*Defined in [protocol.ts:78](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L78)*
+*Defined in [protocol.ts:78](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L78)*
 
 
 
@@ -97,7 +97,7 @@ ___
 
 **●  imgType**:  *[ImageType](../modules/_protocol_.md#imagetype)* 
 
-*Defined in [protocol.ts:76](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L76)*
+*Defined in [protocol.ts:76](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L76)*
 
 
 
@@ -111,7 +111,7 @@ ___
 
 **●  imgWidth**:  *`number`* 
 
-*Defined in [protocol.ts:77](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L77)*
+*Defined in [protocol.ts:77](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L77)*
 
 
 
@@ -125,7 +125,7 @@ ___
 
 **●  name**:  *`undefined`⎮`string`* 
 
-*Defined in [protocol.ts:75](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L75)*
+*Defined in [protocol.ts:75](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L75)*
 
 
 
@@ -139,7 +139,7 @@ ___
 
 **●  quality**:  *`number`* 
 
-*Defined in [protocol.ts:73](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L73)*
+*Defined in [protocol.ts:73](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L73)*
 
 
 
@@ -155,7 +155,7 @@ ___
 
 *Inherited from [BridgeCommonResponse](_protocol_.bridgecommonresponse.md).[result](_protocol_.bridgecommonresponse.md#result)*
 
-*Defined in [protocol.ts:13](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L13)*
+*Defined in [protocol.ts:13](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L13)*
 
 
 

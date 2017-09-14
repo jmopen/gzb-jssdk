@@ -30,7 +30,7 @@
 
 *Inherited from [BridgeCommonResponse](_protocol_.bridgecommonresponse.md).[errCode](_protocol_.bridgecommonresponse.md#errcode)*
 
-*Defined in [protocol.ts:17](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L17)*
+*Defined in [protocol.ts:17](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L17)*
 
 
 
@@ -49,7 +49,7 @@ ___
 
 *Inherited from [BridgeCommonResponse](_protocol_.bridgecommonresponse.md).[errMsg](_protocol_.bridgecommonresponse.md#errmsg)*
 
-*Defined in [protocol.ts:21](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L21)*
+*Defined in [protocol.ts:21](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L21)*
 
 
 
@@ -68,7 +68,7 @@ ___
 
 *Inherited from [BridgeCommonResponse](_protocol_.bridgecommonresponse.md).[result](_protocol_.bridgecommonresponse.md#result)*
 
-*Defined in [protocol.ts:13](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L13)*
+*Defined in [protocol.ts:13](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L13)*
 
 
 
@@ -85,7 +85,7 @@ ___
 
 **●  session**:  *`Array`.<object>* 
 
-*Defined in [protocol.ts:261](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L261)*
+*Defined in [protocol.ts:261](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L261)*
 
 
 

@@ -15,7 +15,7 @@
 
 **●  multiple**:  *`undefined`⎮`true`⎮`false`* 
 
-*Defined in [protocol.ts:250](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L250)*
+*Defined in [protocol.ts:250](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L250)*
 
 
 
@@ -32,7 +32,7 @@ ___
 
 **●  title**:  *`undefined`⎮`string`* 
 
-*Defined in [protocol.ts:254](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L254)*
+*Defined in [protocol.ts:254](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L254)*
 
 
 

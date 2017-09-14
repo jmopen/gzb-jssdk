@@ -15,7 +15,7 @@
 
 **●  dataUrl**:  *`string`* 
 
-*Defined in [protocol.ts:90](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L90)*
+*Defined in [protocol.ts:90](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L90)*
 
 
 
@@ -29,7 +29,7 @@ ___
 
 **●  extension**:  *[ImageType](../modules/_protocol_.md#imagetype)* 
 
-*Defined in [protocol.ts:89](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L89)*
+*Defined in [protocol.ts:89](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L89)*
 
 
 
@@ -43,7 +43,7 @@ ___
 
 **●  height**:  *`number`* 
 
-*Defined in [protocol.ts:86](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L86)*
+*Defined in [protocol.ts:86](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L86)*
 
 
 
@@ -57,7 +57,7 @@ ___
 
 **●  name**:  *`undefined`⎮`string`* 
 
-*Defined in [protocol.ts:87](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L87)*
+*Defined in [protocol.ts:87](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L87)*
 
 
 
@@ -71,7 +71,7 @@ ___
 
 **●  quality**:  *`number`* 
 
-*Defined in [protocol.ts:88](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L88)*
+*Defined in [protocol.ts:88](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L88)*
 
 
 
@@ -85,7 +85,7 @@ ___
 
 **●  width**:  *`number`* 
 
-*Defined in [protocol.ts:85](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L85)*
+*Defined in [protocol.ts:85](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L85)*
 
 
 

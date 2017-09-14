@@ -15,7 +15,7 @@
 
 **●  id**:  *`string`* 
 
-*Defined in [protocol.ts:201](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L201)*
+*Defined in [protocol.ts:201](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L201)*
 
 
 
@@ -29,7 +29,7 @@ ___
 
 **●  messageId**:  *`undefined`⎮`string`* 
 
-*Defined in [protocol.ts:202](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L202)*
+*Defined in [protocol.ts:202](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L202)*
 
 
 
@@ -43,7 +43,7 @@ ___
 
 **●  type**:  *`DialogType.GroupChat`⎮`DialogType.Chat`⎮`DialogType.Announcement`* 
 
-*Defined in [protocol.ts:200](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L200)*
+*Defined in [protocol.ts:200](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L200)*
 
 
 

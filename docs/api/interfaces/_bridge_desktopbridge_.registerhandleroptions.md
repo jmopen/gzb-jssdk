@@ -15,14 +15,14 @@
 
 **●  afterReceived**:  *function* 
 
-*Defined in [Bridge/DesktopBridge.ts:13](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/DesktopBridge.ts#L13)*
+*Defined in [Bridge/DesktopBridge.ts:13](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/DesktopBridge.ts#L13)*
 
 
 #### Type declaration
 (data: *`R`*): `any`
 
 
-*Defined in [Bridge/DesktopBridge.ts:13](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/DesktopBridge.ts#L13)*
+*Defined in [Bridge/DesktopBridge.ts:13](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/DesktopBridge.ts#L13)*
 
 
 
@@ -51,14 +51,14 @@ ___
 
 **●  beforeSend**:  *function* 
 
-*Defined in [Bridge/DesktopBridge.ts:12](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/DesktopBridge.ts#L12)*
+*Defined in [Bridge/DesktopBridge.ts:12](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/DesktopBridge.ts#L12)*
 
 
 #### Type declaration
 (data: *`S`*): `string`⎮`undefined`
 
 
-*Defined in [Bridge/DesktopBridge.ts:12](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/DesktopBridge.ts#L12)*
+*Defined in [Bridge/DesktopBridge.ts:12](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/DesktopBridge.ts#L12)*
 
 
 
@@ -87,7 +87,7 @@ ___
 
 **●  bridgeHandleName**:  *`undefined`⎮`string`* 
 
-*Defined in [Bridge/DesktopBridge.ts:15](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/DesktopBridge.ts#L15)*
+*Defined in [Bridge/DesktopBridge.ts:15](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/DesktopBridge.ts#L15)*
 
 
 
@@ -101,7 +101,7 @@ ___
 
 **●  preserveName**:  *`boolean`* 
 
-*Defined in [Bridge/DesktopBridge.ts:14](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/DesktopBridge.ts#L14)*
+*Defined in [Bridge/DesktopBridge.ts:14](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/DesktopBridge.ts#L14)*
 
 
 

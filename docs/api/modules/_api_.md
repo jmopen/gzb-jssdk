@@ -47,14 +47,14 @@
 
 **Τ Callback**:  *function* 
 
-*Defined in [Api.ts:37](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L37)*
+*Defined in [Api.ts:37](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L37)*
 
 
 #### Type declaration
 (payload: *`any`*): `any`
 
 
-*Defined in [Api.ts:37](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L37)*
+*Defined in [Api.ts:37](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L37)*
 
 
 
@@ -83,14 +83,14 @@ ___
 
 **Τ EventCallback**:  *function* 
 
-*Defined in [Api.ts:39](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L39)*
+*Defined in [Api.ts:39](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L39)*
 
 
 #### Type declaration
 (event: *[CustomEvent](../classes/_eventemitter_.customevent.md)*): `any`
 
 
-*Defined in [Api.ts:39](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L39)*
+*Defined in [Api.ts:39](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L39)*
 
 
 
@@ -119,7 +119,7 @@ ___
 
 **Τ EventType**:  *"beforeunload"⎮"beforegoback"⎮"ready"* 
 
-*Defined in [Api.ts:38](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L38)*
+*Defined in [Api.ts:38](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L38)*
 
 
 
@@ -138,7 +138,7 @@ ___
 
 
 
-*Defined in [Api.ts:81](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L81)*
+*Defined in [Api.ts:81](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L81)*
 
 
 
@@ -169,7 +169,7 @@ ___
 
 
 
-*Defined in [Api.ts:77](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L77)*
+*Defined in [Api.ts:77](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L77)*
 
 
 
@@ -201,7 +201,7 @@ ___
 
 
 
-*Defined in [Api.ts:69](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L69)*
+*Defined in [Api.ts:69](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L69)*
 
 
 
@@ -238,7 +238,7 @@ ___
 
 **●  extType**:  *`never`[]*  =  []
 
-*Defined in [Api.ts:59](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L59)*
+*Defined in [Api.ts:59](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L59)*
 
 
 
@@ -251,7 +251,7 @@ ___
 
 **●  maxSizeKb**:  *`number`*  = 0
 
-*Defined in [Api.ts:60](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L60)*
+*Defined in [Api.ts:60](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L60)*
 
 
 
@@ -264,7 +264,7 @@ ___
 
 **●  quality**:  *`number`*  = 100
 
-*Defined in [Api.ts:57](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L57)*
+*Defined in [Api.ts:57](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L57)*
 
 
 
@@ -277,7 +277,7 @@ ___
 
 **●  targetType**:  *`string`*  = "default"
 
-*Defined in [Api.ts:58](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L58)*
+*Defined in [Api.ts:58](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L58)*
 
 
 
@@ -296,7 +296,7 @@ ___
 
 **●  enableHighAccuracy**:  *`boolean`*  = true
 
-*Defined in [Api.ts:50](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L50)*
+*Defined in [Api.ts:50](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L50)*
 
 
 
@@ -309,7 +309,7 @@ ___
 
 **●  maximumAge**:  *`number`*  = 0
 
-*Defined in [Api.ts:53](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L53)*
+*Defined in [Api.ts:53](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L53)*
 
 
 
@@ -322,7 +322,7 @@ ___
 
 **●  preferNative**:  *`boolean`*  = true
 
-*Defined in [Api.ts:51](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L51)*
+*Defined in [Api.ts:51](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L51)*
 
 
 
@@ -335,7 +335,7 @@ ___
 
 **●  timeout**:  *`number`*  =  Infinity
 
-*Defined in [Api.ts:52](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L52)*
+*Defined in [Api.ts:52](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L52)*
 
 
 
@@ -354,7 +354,7 @@ ___
 
 **●  multiple**:  *`boolean`*  = true
 
-*Defined in [Api.ts:63](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L63)*
+*Defined in [Api.ts:63](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L63)*
 
 
 
@@ -373,7 +373,7 @@ ___
 
 **●  gobackUrl**:  *`string`*  = ""
 
-*Defined in [Api.ts:45](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L45)*
+*Defined in [Api.ts:45](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L45)*
 
 
 
@@ -386,7 +386,7 @@ ___
 
 **●  hideMoreBtn**:  *`boolean`*  = false
 
-*Defined in [Api.ts:42](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L42)*
+*Defined in [Api.ts:42](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L42)*
 
 
 
@@ -399,7 +399,7 @@ ___
 
 **●  left**:  *`Object`*  =  ['close', 'goback']
 
-*Defined in [Api.ts:43](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L43)*
+*Defined in [Api.ts:43](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L43)*
 
 
 
@@ -412,7 +412,7 @@ ___
 
 **●  onlyCallBack**:  *`never`[]*  =  []
 
-*Defined in [Api.ts:44](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L44)*
+*Defined in [Api.ts:44](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L44)*
 
 
 
@@ -425,7 +425,7 @@ ___
 
 **●  right**:  *`string`*  = ""
 
-*Defined in [Api.ts:46](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L46)*
+*Defined in [Api.ts:46](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L46)*
 
 
 

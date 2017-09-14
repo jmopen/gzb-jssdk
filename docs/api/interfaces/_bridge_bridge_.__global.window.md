@@ -12,7 +12,7 @@
 
 **●  WVJBCallbacks**:  *[BridgeCallback](../modules/_bridge_bridge_.md#bridgecallback)[]* 
 
-*Defined in [Bridge/Bridge.ts:26](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/Bridge.ts#L26)*
+*Defined in [Bridge/Bridge.ts:26](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/Bridge.ts#L26)*
 
 
 
@@ -26,7 +26,7 @@ ___
 
 **●  WebViewJavascriptBridge**:  *[Bridge](_bridge_bridge_.bridge.md)* 
 
-*Defined in [Bridge/Bridge.ts:25](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/Bridge.ts#L25)*
+*Defined in [Bridge/Bridge.ts:25](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/Bridge.ts#L25)*
 
 
 

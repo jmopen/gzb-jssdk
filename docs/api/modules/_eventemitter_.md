@@ -36,14 +36,14 @@ Event Emitter
 
 **Τ Callback**:  *function* 
 
-*Defined in [EventEmitter.ts:7](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/EventEmitter.ts#L7)*
+*Defined in [EventEmitter.ts:7](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/EventEmitter.ts#L7)*
 
 
 #### Type declaration
 (data: *`any`*): `any`
 
 
-*Defined in [EventEmitter.ts:7](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/EventEmitter.ts#L7)*
+*Defined in [EventEmitter.ts:7](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/EventEmitter.ts#L7)*
 
 
 
@@ -72,14 +72,14 @@ ___
 
 **Τ Disposer**:  *function* 
 
-*Defined in [EventEmitter.ts:58](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/EventEmitter.ts#L58)*
+*Defined in [EventEmitter.ts:58](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/EventEmitter.ts#L58)*
 
 
 #### Type declaration
 (): `void`
 
 
-*Defined in [EventEmitter.ts:58](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/EventEmitter.ts#L58)*
+*Defined in [EventEmitter.ts:58](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/EventEmitter.ts#L58)*
 
 
 

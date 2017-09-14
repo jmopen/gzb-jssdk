@@ -15,7 +15,7 @@
 
 
 
-*Defined in [Bridge/DesktopBridge.ts:35](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/DesktopBridge.ts#L35)*
+*Defined in [Bridge/DesktopBridge.ts:35](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/DesktopBridge.ts#L35)*
 
 
 
@@ -51,7 +51,7 @@ ___
 
 
 
-*Defined in [Bridge/DesktopBridge.ts:26](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/DesktopBridge.ts#L26)*
+*Defined in [Bridge/DesktopBridge.ts:26](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/DesktopBridge.ts#L26)*
 
 
 

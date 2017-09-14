@@ -35,7 +35,7 @@
 
 
 
-*Defined in [Bridge/DesktopBridge.ts:143](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/DesktopBridge.ts#L143)*
+*Defined in [Bridge/DesktopBridge.ts:143](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/DesktopBridge.ts#L143)*
 
 
 
@@ -71,7 +71,7 @@ ___
 
 
 
-*Defined in [Bridge/DesktopBridge.ts:114](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/DesktopBridge.ts#L114)*
+*Defined in [Bridge/DesktopBridge.ts:114](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/DesktopBridge.ts#L114)*
 
 
 
@@ -106,7 +106,7 @@ ___
 
 
 
-*Defined in [Bridge/DesktopBridge.ts:157](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/DesktopBridge.ts#L157)*
+*Defined in [Bridge/DesktopBridge.ts:157](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/DesktopBridge.ts#L157)*
 
 
 
@@ -141,7 +141,7 @@ ___
 
 
 
-*Defined in [Bridge/DesktopBridge.ts:235](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/DesktopBridge.ts#L235)*
+*Defined in [Bridge/DesktopBridge.ts:235](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/DesktopBridge.ts#L235)*
 
 
 
@@ -174,7 +174,7 @@ ___
 
 
 
-*Defined in [Bridge/DesktopBridge.ts:227](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/DesktopBridge.ts#L227)*
+*Defined in [Bridge/DesktopBridge.ts:227](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/DesktopBridge.ts#L227)*
 
 
 
@@ -211,7 +211,7 @@ ___
 
 
 
-*Defined in [Bridge/DesktopBridge.ts:94](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/DesktopBridge.ts#L94)*
+*Defined in [Bridge/DesktopBridge.ts:94](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/DesktopBridge.ts#L94)*
 
 
 
@@ -247,7 +247,7 @@ ___
 
 
 
-*Defined in [Bridge/DesktopBridge.ts:249](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/DesktopBridge.ts#L249)*
+*Defined in [Bridge/DesktopBridge.ts:249](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/DesktopBridge.ts#L249)*
 
 
 
@@ -282,7 +282,7 @@ ___
 
 
 
-*Defined in [Bridge/DesktopBridge.ts:175](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/DesktopBridge.ts#L175)*
+*Defined in [Bridge/DesktopBridge.ts:175](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/DesktopBridge.ts#L175)*
 
 
 
@@ -321,7 +321,7 @@ ___
 
 
 
-*Defined in [Bridge/DesktopBridge.ts:127](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/DesktopBridge.ts#L127)*
+*Defined in [Bridge/DesktopBridge.ts:127](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/DesktopBridge.ts#L127)*
 
 
 
@@ -356,7 +356,7 @@ ___
 
 
 
-*Defined in [Bridge/DesktopBridge.ts:59](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/DesktopBridge.ts#L59)*
+*Defined in [Bridge/DesktopBridge.ts:59](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/DesktopBridge.ts#L59)*
 
 
 
@@ -384,7 +384,7 @@ ___
 
 
 
-*Defined in [Bridge/DesktopBridge.ts:69](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/DesktopBridge.ts#L69)*
+*Defined in [Bridge/DesktopBridge.ts:69](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/DesktopBridge.ts#L69)*
 
 
 

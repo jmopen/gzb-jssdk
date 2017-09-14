@@ -12,7 +12,7 @@
 
 **●  JH**:  *`object`* 
 
-*Defined in [index.ts:20](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/index.ts#L20)*
+*Defined in [index.ts:20](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/index.ts#L20)*
 
 
 
@@ -26,7 +26,7 @@ ___
 
 **●  customApi**:  *`object`* 
 
-*Defined in [index.ts:19](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/index.ts#L19)*
+*Defined in [index.ts:19](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/index.ts#L19)*
 
 
 

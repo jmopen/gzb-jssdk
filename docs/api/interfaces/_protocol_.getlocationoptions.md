@@ -60,7 +60,7 @@ ___
 
 **●  preferNative**:  *`boolean`* 
 
-*Defined in [protocol.ts:100](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L100)*
+*Defined in [protocol.ts:100](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L100)*
 
 
 

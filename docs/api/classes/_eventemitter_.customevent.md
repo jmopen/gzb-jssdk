@@ -43,7 +43,7 @@
 
 
 
-*Defined in [EventEmitter.ts:41](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/EventEmitter.ts#L41)*
+*Defined in [EventEmitter.ts:41](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/EventEmitter.ts#L41)*
 
 
 
@@ -70,7 +70,7 @@
 
 **●  cancelable**:  *`boolean`*  = false
 
-*Defined in [EventEmitter.ts:29](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/EventEmitter.ts#L29)*
+*Defined in [EventEmitter.ts:29](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/EventEmitter.ts#L29)*
 
 
 
@@ -87,7 +87,7 @@ ___
 
 **●  eventPrevented**:  *`boolean`*  = false
 
-*Defined in [EventEmitter.ts:38](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/EventEmitter.ts#L38)*
+*Defined in [EventEmitter.ts:38](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/EventEmitter.ts#L38)*
 
 
 
@@ -104,7 +104,7 @@ ___
 
 **●  returnValue**:  *`any`* 
 
-*Defined in [EventEmitter.ts:34](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/EventEmitter.ts#L34)*
+*Defined in [EventEmitter.ts:34](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/EventEmitter.ts#L34)*
 
 
 
@@ -118,7 +118,7 @@ ___
 
 **●  timeStamp**:  *`number`*  =  Date.now()
 
-*Defined in [EventEmitter.ts:33](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/EventEmitter.ts#L33)*
+*Defined in [EventEmitter.ts:33](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/EventEmitter.ts#L33)*
 
 
 
@@ -135,7 +135,7 @@ ___
 
 **●  type**:  *`string`* 
 
-*Defined in [EventEmitter.ts:25](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/EventEmitter.ts#L25)*
+*Defined in [EventEmitter.ts:25](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/EventEmitter.ts#L25)*
 
 
 
@@ -156,7 +156,7 @@ ___
 getdefaultPrevented(): `boolean`
 
 
-*Defined in [EventEmitter.ts:39](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/EventEmitter.ts#L39)*
+*Defined in [EventEmitter.ts:39](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/EventEmitter.ts#L39)*
 
 
 
@@ -179,7 +179,7 @@ ___
 
 
 
-*Defined in [EventEmitter.ts:51](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/EventEmitter.ts#L51)*
+*Defined in [EventEmitter.ts:51](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/EventEmitter.ts#L51)*
 
 
 

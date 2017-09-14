@@ -12,7 +12,7 @@
 
 **●  apilist**:  *`string`[]* 
 
-*Defined in [protocol.ts:171](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L171)*
+*Defined in [protocol.ts:171](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L171)*
 
 
 
@@ -26,7 +26,7 @@ ___
 
 **●  plat**:  *"IOS"⎮"PC"⎮"Android"* 
 
-*Defined in [protocol.ts:169](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L169)*
+*Defined in [protocol.ts:169](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L169)*
 
 
 
@@ -40,7 +40,7 @@ ___
 
 **●  version**:  *`string`* 
 
-*Defined in [protocol.ts:170](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L170)*
+*Defined in [protocol.ts:170](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L170)*
 
 
 

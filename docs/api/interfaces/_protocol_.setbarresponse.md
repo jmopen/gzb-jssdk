@@ -25,7 +25,7 @@
 
 **●  buttonId**:  *[BarButtonId](../modules/_protocol_.md#barbuttonid)* 
 
-*Defined in [protocol.ts:142](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L142)*
+*Defined in [protocol.ts:142](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L142)*
 
 
 
@@ -39,7 +39,7 @@ ___
 
 **●  buttonName**:  *`string`* 
 
-*Defined in [protocol.ts:141](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L141)*
+*Defined in [protocol.ts:141](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L141)*
 
 
 

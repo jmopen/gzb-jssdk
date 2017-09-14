@@ -15,7 +15,7 @@
 
 **●  limit**:  *`undefined`⎮`number`* 
 
-*Defined in [protocol.ts:223](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L223)*
+*Defined in [protocol.ts:223](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L223)*
 
 
 
@@ -32,7 +32,7 @@ ___
 
 **●  tenementId**:  *`string`* 
 
-*Defined in [protocol.ts:219](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L219)*
+*Defined in [protocol.ts:219](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L219)*
 
 
 
@@ -49,7 +49,7 @@ ___
 
 **●  type**:  *"single"⎮"multiple"* 
 
-*Defined in [protocol.ts:231](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L231)*
+*Defined in [protocol.ts:231](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L231)*
 
 
 
@@ -66,7 +66,7 @@ ___
 
 **●  unselect**:  *`undefined`⎮`true`⎮`false`* 
 
-*Defined in [protocol.ts:227](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L227)*
+*Defined in [protocol.ts:227](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L227)*
 
 
 
@@ -83,7 +83,7 @@ ___
 
 **●  user**:  *`Array`.<object>* 
 
-*Defined in [protocol.ts:212](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L212)*
+*Defined in [protocol.ts:212](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L212)*
 
 
 

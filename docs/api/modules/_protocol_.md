@@ -55,7 +55,7 @@ Bridge 接口请求和响应协议
 
 **Τ BarButtonId**:  *"close"⎮"goback"* 
 
-*Defined in [protocol.ts:131](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L131)*
+*Defined in [protocol.ts:131](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L131)*
 
 
 
@@ -69,7 +69,7 @@ ___
 
 **Τ CoordType**:  *"WGS84"⎮"GCJ02"⎮"BD09"* 
 
-*Defined in [protocol.ts:109](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L109)*
+*Defined in [protocol.ts:109](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L109)*
 
 
 
@@ -90,7 +90,7 @@ ___
 
 **Τ ImageType**:  *"bmp"⎮"gif"⎮"jpg"⎮"png"* 
 
-*Defined in [protocol.ts:33](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L33)*
+*Defined in [protocol.ts:33](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L33)*
 
 
 
@@ -107,7 +107,7 @@ ___
 
 **Τ LegacyCallback**:  *function* 
 
-*Defined in [protocol.ts:28](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L28)*
+*Defined in [protocol.ts:28](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L28)*
 
 
 
@@ -119,7 +119,7 @@ ___
 (res: *`R`*): `void`
 
 
-*Defined in [protocol.ts:28](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L28)*
+*Defined in [protocol.ts:28](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L28)*
 
 
 
@@ -148,7 +148,7 @@ ___
 
 **Τ SelectContactResponse**:  *`Array`.<object>* 
 
-*Defined in [protocol.ts:237](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L237)*
+*Defined in [protocol.ts:237](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L237)*
 
 
 
@@ -165,7 +165,7 @@ ___
 
 **Τ SelectSessionResponse**:  *`Array`* 
 
-*Defined in [protocol.ts:270](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L270)*
+*Defined in [protocol.ts:270](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L270)*
 
 
 

@@ -56,6 +56,7 @@
 * [getListenerLength](_api_.api.md#getlistenerlength)
 * [getLoc](_api_.api.md#getloc)
 * [getLocation](_api_.api.md#getlocation)
+* [goback](_api_.api.md#goback)
 * [hideBar](_api_.api.md#hidebar)
 * [innerAddEventListener](_api_.api.md#inneraddeventlistener)
 * [locationTo](_api_.api.md#locationto)
@@ -100,7 +101,7 @@
 
 
 
-*Defined in [Api.ts:765](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L765)*
+*Defined in [Api.ts:781](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L781)*
 
 
 
@@ -118,14 +119,14 @@
 
 **●  beforeUnloadHandler**:  *function* 
 
-*Defined in [Api.ts:94](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L94)*
+*Defined in [Api.ts:94](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L94)*
 
 
 #### Type declaration
 (e: *`Event`*): `any`
 
 
-*Defined in [Api.ts:94](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L94)*
+*Defined in [Api.ts:94](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L94)*
 
 
 
@@ -154,7 +155,7 @@ ___
 
 **●  isReady**:  *`boolean`*  = false
 
-*Defined in [Api.ts:93](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L93)*
+*Defined in [Api.ts:93](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L93)*
 
 
 
@@ -173,7 +174,7 @@ ___
 
 
 
-*Defined in [Api.ts:625](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L625)*
+*Defined in [Api.ts:627](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L627)*
 
 
 
@@ -214,7 +215,7 @@ ___
 
 
 
-*Defined in [Api.ts:584](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L584)*
+*Defined in [Api.ts:585](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L585)*
 
 
 
@@ -257,7 +258,7 @@ ___
 
 *Overrides [EventEmitter](_eventemitter_.eventemitter.md).[addListener](_eventemitter_.eventemitter.md#addlistener)*
 
-*Defined in [Api.ts:96](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L96)*
+*Defined in [Api.ts:96](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L96)*
 
 
 
@@ -292,7 +293,7 @@ ___
 
 
 
-*Defined in [Api.ts:495](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L495)*
+*Defined in [Api.ts:496](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L496)*
 
 
 
@@ -319,7 +320,7 @@ FIXME: 待测试
 
 
 
-*Defined in [Api.ts:496](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L496)*
+*Defined in [Api.ts:497](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L497)*
 
 
 
@@ -344,7 +345,7 @@ ___
 
 
 
-*Defined in [Api.ts:642](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L642)*
+*Defined in [Api.ts:644](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L644)*
 
 
 
@@ -368,7 +369,7 @@ ___
 
 
 
-*Defined in [Api.ts:643](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L643)*
+*Defined in [Api.ts:645](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L645)*
 
 
 
@@ -400,7 +401,7 @@ ___
 
 
 
-*Defined in [Api.ts:389](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L389)*
+*Defined in [Api.ts:389](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L389)*
 
 
 
@@ -430,7 +431,7 @@ ___
 
 *Inherited from [EventEmitter](_eventemitter_.eventemitter.md).[emit](_eventemitter_.eventemitter.md#emit)*
 
-*Defined in [EventEmitter.ts:169](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/EventEmitter.ts#L169)*
+*Defined in [EventEmitter.ts:169](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/EventEmitter.ts#L169)*
 
 
 
@@ -469,7 +470,7 @@ ___
 
 
 
-*Defined in [Api.ts:369](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L369)*
+*Defined in [Api.ts:369](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L369)*
 
 
 
@@ -495,7 +496,7 @@ ___
 
 
 
-*Defined in [Api.ts:381](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L381)*
+*Defined in [Api.ts:381](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L381)*
 
 
 
@@ -529,7 +530,7 @@ ___
 
 
 
-*Defined in [Api.ts:739](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L739)*
+*Defined in [Api.ts:741](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L741)*
 
 
 
@@ -551,7 +552,7 @@ ___
 
 
 
-*Defined in [Api.ts:740](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L740)*
+*Defined in [Api.ts:742](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L742)*
 
 
 
@@ -574,7 +575,7 @@ ___
 
 
 
-*Defined in [Api.ts:528](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L528)*
+*Defined in [Api.ts:529](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L529)*
 
 
 
@@ -614,7 +615,7 @@ ___
 
 *Inherited from [EventEmitter](_eventemitter_.eventemitter.md).[getListenerLength](_eventemitter_.eventemitter.md#getlistenerlength)*
 
-*Defined in [EventEmitter.ts:119](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/EventEmitter.ts#L119)*
+*Defined in [EventEmitter.ts:119](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/EventEmitter.ts#L119)*
 
 
 
@@ -645,7 +646,7 @@ ___
 
 
 
-*Defined in [Api.ts:479](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L479)*
+*Defined in [Api.ts:480](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L480)*
 
 
 
@@ -689,7 +690,7 @@ ___
 
 
 
-*Defined in [Api.ts:399](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L399)*
+*Defined in [Api.ts:399](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L399)*
 
 
 
@@ -715,7 +716,7 @@ ___
 
 
 
-*Defined in [Api.ts:400](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L400)*
+*Defined in [Api.ts:400](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L400)*
 
 
 
@@ -735,7 +736,7 @@ ___
 
 
 
-*Defined in [Api.ts:404](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L404)*
+*Defined in [Api.ts:404](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L404)*
 
 
 
@@ -757,6 +758,32 @@ ___
 
 ___
 
+<a id="goback"></a>
+
+###  goback
+
+► **goback**(): `void`
+
+
+
+
+*Defined in [Api.ts:772](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L772)*
+
+
+
+返回到上一页， 如果是第一页，即无法回退了， 将关闭应用
+
+
+
+
+**Returns:** `void`
+
+
+
+
+
+___
+
 <a id="hidebar"></a>
 
 ###  hideBar
@@ -766,7 +793,7 @@ ___
 
 
 
-*Defined in [Api.ts:328](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L328)*
+*Defined in [Api.ts:328](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L328)*
 
 
 
@@ -794,7 +821,7 @@ ___
 
 
 
-*Defined in [Api.ts:791](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L791)*
+*Defined in [Api.ts:807](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L807)*
 
 
 
@@ -826,7 +853,7 @@ ___
 
 
 
-*Defined in [Api.ts:189](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L189)*
+*Defined in [Api.ts:189](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L189)*
 
 
 
@@ -864,7 +891,7 @@ ___
 
 
 
-*Defined in [Api.ts:168](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L168)*
+*Defined in [Api.ts:168](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L168)*
 
 
 
@@ -902,7 +929,7 @@ ___
 
 *Inherited from [EventEmitter](_eventemitter_.eventemitter.md).[once](_eventemitter_.eventemitter.md#once)*
 
-*Defined in [EventEmitter.ts:115](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/EventEmitter.ts#L115)*
+*Defined in [EventEmitter.ts:115](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/EventEmitter.ts#L115)*
 
 
 
@@ -940,7 +967,7 @@ ___
 
 
 
-*Defined in [Api.ts:241](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L241)*
+*Defined in [Api.ts:241](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L241)*
 
 
 
@@ -978,7 +1005,7 @@ ___
 
 
 
-*Defined in [Api.ts:613](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L613)*
+*Defined in [Api.ts:615](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L615)*
 
 
 
@@ -1016,7 +1043,7 @@ ___
 
 
 
-*Defined in [Api.ts:146](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L146)*
+*Defined in [Api.ts:146](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L146)*
 
 
 
@@ -1054,7 +1081,7 @@ ___
 
 *Overrides [EventEmitter](_eventemitter_.eventemitter.md).[removeAllListener](_eventemitter_.eventemitter.md#removealllistener)*
 
-*Defined in [Api.ts:117](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L117)*
+*Defined in [Api.ts:117](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L117)*
 
 
 
@@ -1087,7 +1114,7 @@ ___
 
 *Overrides [EventEmitter](_eventemitter_.eventemitter.md).[removeListener](_eventemitter_.eventemitter.md#removelistener)*
 
-*Defined in [Api.ts:105](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L105)*
+*Defined in [Api.ts:105](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L105)*
 
 
 
@@ -1124,7 +1151,7 @@ ___
 
 
 
-*Defined in [Api.ts:541](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L541)*
+*Defined in [Api.ts:542](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L542)*
 
 
 
@@ -1151,7 +1178,7 @@ ___
 
 
 
-*Defined in [Api.ts:545](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L545)*
+*Defined in [Api.ts:546](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L546)*
 
 
 
@@ -1170,7 +1197,7 @@ ___
 
 
 
-*Defined in [Api.ts:546](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L546)*
+*Defined in [Api.ts:547](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L547)*
 
 
 
@@ -1203,7 +1230,7 @@ ___
 
 
 
-*Defined in [Api.ts:253](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L253)*
+*Defined in [Api.ts:253](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L253)*
 
 
 
@@ -1229,7 +1256,7 @@ FIXME: 没有错误处理
 
 
 
-*Defined in [Api.ts:257](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L257)*
+*Defined in [Api.ts:257](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L257)*
 
 
 
@@ -1264,7 +1291,7 @@ ___
 
 
 
-*Defined in [Api.ts:694](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L694)*
+*Defined in [Api.ts:696](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L696)*
 
 
 
@@ -1289,7 +1316,7 @@ ___
 
 
 
-*Defined in [Api.ts:698](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L698)*
+*Defined in [Api.ts:700](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L700)*
 
 
 
@@ -1308,7 +1335,7 @@ ___
 
 
 
-*Defined in [Api.ts:699](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L699)*
+*Defined in [Api.ts:701](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L701)*
 
 
 
@@ -1339,7 +1366,7 @@ ___
 
 
 
-*Defined in [Api.ts:296](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L296)*
+*Defined in [Api.ts:296](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L296)*
 
 
 
@@ -1377,7 +1404,7 @@ ___
 
 
 
-*Defined in [Api.ts:309](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L309)*
+*Defined in [Api.ts:309](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L309)*
 
 
 
@@ -1417,7 +1444,7 @@ ___
 
 
 
-*Defined in [Api.ts:129](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L129)*
+*Defined in [Api.ts:129](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L129)*
 
 
 
@@ -1453,7 +1480,7 @@ ___
 
 
 
-*Defined in [Api.ts:86](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L86)*
+*Defined in [Api.ts:86](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L86)*
 
 
 
@@ -1484,7 +1511,7 @@ ___
 
 
 
-*Defined in [Api.ts:340](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L340)*
+*Defined in [Api.ts:340](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L340)*
 
 
 
@@ -1523,7 +1550,7 @@ ___
 
 
 
-*Defined in [Api.ts:801](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L801)*
+*Defined in [Api.ts:817](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L817)*
 
 
 
@@ -1549,7 +1576,7 @@ ___
 
 
 
-*Defined in [Api.ts:851](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L851)*
+*Defined in [Api.ts:863](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L863)*
 
 
 
@@ -1575,7 +1602,7 @@ ___
 
 
 
-*Defined in [Api.ts:87](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L87)*
+*Defined in [Api.ts:87](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L87)*
 
 
 
@@ -1607,7 +1634,7 @@ ___
 
 
 
-*Defined in [Api.ts:780](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L780)*
+*Defined in [Api.ts:796](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L796)*
 
 
 
@@ -1630,12 +1657,12 @@ ___
 
 
 
-*Defined in [Api.ts:598](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L598)*
+*Defined in [Api.ts:600](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L600)*
 
 
 
 分享
-*__platform__*: `Android` | `IOS`
+*__platform__*: `Android` | `IOS` TODO: 可以改进， 允许自定义分享内容
 
 
 
@@ -1658,7 +1685,7 @@ ___
 
 
 
-*Defined in [Api.ts:320](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L320)*
+*Defined in [Api.ts:320](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L320)*
 
 
 
@@ -1694,7 +1721,7 @@ ___
 
 
 
-*Defined in [Api.ts:229](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L229)*
+*Defined in [Api.ts:229](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L229)*
 
 
 
@@ -1732,7 +1759,7 @@ ___
 
 
 
-*Defined in [Api.ts:157](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L157)*
+*Defined in [Api.ts:157](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L157)*
 
 
 
@@ -1768,7 +1795,7 @@ ___
 
 
 
-*Defined in [Api.ts:776](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L776)*
+*Defined in [Api.ts:792](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L792)*
 
 
 
@@ -1791,7 +1818,7 @@ ___
 
 
 
-*Defined in [Api.ts:826](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L826)*
+*Defined in [Api.ts:838](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L838)*
 
 
 
@@ -1814,7 +1841,7 @@ ___
 
 
 
-*Defined in [Api.ts:836](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L836)*
+*Defined in [Api.ts:848](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L848)*
 
 
 
@@ -1837,7 +1864,7 @@ ___
 
 
 
-*Defined in [Api.ts:91](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L91)*
+*Defined in [Api.ts:91](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L91)*
 
 
 
@@ -1868,7 +1895,7 @@ ___
 
 
 
-*Defined in [Api.ts:786](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L786)*
+*Defined in [Api.ts:802](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L802)*
 
 
 
@@ -1891,7 +1918,7 @@ ___
 
 
 
-*Defined in [Api.ts:215](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Api.ts#L215)*
+*Defined in [Api.ts:215](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Api.ts#L215)*
 
 
 

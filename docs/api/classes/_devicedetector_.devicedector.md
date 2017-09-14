@@ -48,7 +48,7 @@
 
 
 
-*Defined in [DeviceDetector.ts:202](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/DeviceDetector.ts#L202)*
+*Defined in [DeviceDetector.ts:202](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/DeviceDetector.ts#L202)*
 
 
 
@@ -70,7 +70,7 @@
 
 
 
-*Defined in [DeviceDetector.ts:115](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/DeviceDetector.ts#L115)*
+*Defined in [DeviceDetector.ts:115](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/DeviceDetector.ts#L115)*
 
 
 
@@ -96,7 +96,7 @@ ___
 
 
 
-*Defined in [DeviceDetector.ts:122](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/DeviceDetector.ts#L122)*
+*Defined in [DeviceDetector.ts:122](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/DeviceDetector.ts#L122)*
 
 
 
@@ -122,7 +122,7 @@ ___
 
 
 
-*Defined in [DeviceDetector.ts:129](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/DeviceDetector.ts#L129)*
+*Defined in [DeviceDetector.ts:129](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/DeviceDetector.ts#L129)*
 
 
 
@@ -148,7 +148,7 @@ ___
 
 
 
-*Defined in [DeviceDetector.ts:136](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/DeviceDetector.ts#L136)*
+*Defined in [DeviceDetector.ts:136](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/DeviceDetector.ts#L136)*
 
 
 
@@ -174,7 +174,7 @@ ___
 
 
 
-*Defined in [DeviceDetector.ts:143](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/DeviceDetector.ts#L143)*
+*Defined in [DeviceDetector.ts:143](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/DeviceDetector.ts#L143)*
 
 
 
@@ -200,7 +200,7 @@ ___
 
 
 
-*Defined in [DeviceDetector.ts:150](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/DeviceDetector.ts#L150)*
+*Defined in [DeviceDetector.ts:150](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/DeviceDetector.ts#L150)*
 
 
 
@@ -226,7 +226,7 @@ ___
 
 
 
-*Defined in [DeviceDetector.ts:32](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/DeviceDetector.ts#L32)*
+*Defined in [DeviceDetector.ts:32](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/DeviceDetector.ts#L32)*
 
 
 
@@ -252,7 +252,7 @@ ___
 
 
 
-*Defined in [DeviceDetector.ts:182](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/DeviceDetector.ts#L182)*
+*Defined in [DeviceDetector.ts:182](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/DeviceDetector.ts#L182)*
 
 
 
@@ -278,7 +278,7 @@ ___
 
 
 
-*Defined in [DeviceDetector.ts:212](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/DeviceDetector.ts#L212)*
+*Defined in [DeviceDetector.ts:212](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/DeviceDetector.ts#L212)*
 
 
 
@@ -309,7 +309,7 @@ ___
 
 
 
-*Defined in [DeviceDetector.ts:208](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/DeviceDetector.ts#L208)*
+*Defined in [DeviceDetector.ts:208](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/DeviceDetector.ts#L208)*
 
 
 
@@ -332,7 +332,7 @@ ___
 
 
 
-*Defined in [DeviceDetector.ts:108](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/DeviceDetector.ts#L108)*
+*Defined in [DeviceDetector.ts:108](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/DeviceDetector.ts#L108)*
 
 
 
@@ -358,7 +358,7 @@ ___
 
 
 
-*Defined in [DeviceDetector.ts:94](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/DeviceDetector.ts#L94)*
+*Defined in [DeviceDetector.ts:94](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/DeviceDetector.ts#L94)*
 
 
 
@@ -384,7 +384,7 @@ ___
 
 
 
-*Defined in [DeviceDetector.ts:87](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/DeviceDetector.ts#L87)*
+*Defined in [DeviceDetector.ts:87](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/DeviceDetector.ts#L87)*
 
 
 
@@ -410,7 +410,7 @@ ___
 
 
 
-*Defined in [DeviceDetector.ts:101](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/DeviceDetector.ts#L101)*
+*Defined in [DeviceDetector.ts:101](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/DeviceDetector.ts#L101)*
 
 
 
@@ -436,7 +436,7 @@ ___
 
 
 
-*Defined in [DeviceDetector.ts:196](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/DeviceDetector.ts#L196)*
+*Defined in [DeviceDetector.ts:196](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/DeviceDetector.ts#L196)*
 
 
 
@@ -462,7 +462,7 @@ ___
 
 
 
-*Defined in [DeviceDetector.ts:157](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/DeviceDetector.ts#L157)*
+*Defined in [DeviceDetector.ts:157](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/DeviceDetector.ts#L157)*
 
 
 
@@ -488,7 +488,7 @@ ___
 
 
 
-*Defined in [DeviceDetector.ts:189](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/DeviceDetector.ts#L189)*
+*Defined in [DeviceDetector.ts:189](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/DeviceDetector.ts#L189)*
 
 
 
@@ -514,7 +514,7 @@ ___
 
 
 
-*Defined in [DeviceDetector.ts:200](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/DeviceDetector.ts#L200)*
+*Defined in [DeviceDetector.ts:200](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/DeviceDetector.ts#L200)*
 
 
 
@@ -545,7 +545,7 @@ ___
 
 
 
-*Defined in [DeviceDetector.ts:170](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/DeviceDetector.ts#L170)*
+*Defined in [DeviceDetector.ts:170](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/DeviceDetector.ts#L170)*
 
 
 
@@ -571,7 +571,7 @@ ___
 
 
 
-*Defined in [DeviceDetector.ts:25](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/DeviceDetector.ts#L25)*
+*Defined in [DeviceDetector.ts:25](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/DeviceDetector.ts#L25)*
 
 
 
@@ -597,7 +597,7 @@ ___
 
 
 
-*Defined in [DeviceDetector.ts:66](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/DeviceDetector.ts#L66)*
+*Defined in [DeviceDetector.ts:66](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/DeviceDetector.ts#L66)*
 
 
 
@@ -627,7 +627,7 @@ ___
 
 
 
-*Defined in [DeviceDetector.ts:73](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/DeviceDetector.ts#L73)*
+*Defined in [DeviceDetector.ts:73](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/DeviceDetector.ts#L73)*
 
 
 
@@ -653,7 +653,7 @@ ___
 
 
 
-*Defined in [DeviceDetector.ts:80](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/DeviceDetector.ts#L80)*
+*Defined in [DeviceDetector.ts:80](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/DeviceDetector.ts#L80)*
 
 
 

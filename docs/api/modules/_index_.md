@@ -31,7 +31,7 @@ JSSDK main file
 
 
 
-*Defined in [index.ts:35](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/index.ts#L35)*
+*Defined in [index.ts:35](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/index.ts#L35)*
 
 
 

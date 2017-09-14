@@ -26,7 +26,7 @@
 
 
 
-*Defined in [Bridge/MobileBridge.ts:31](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/MobileBridge.ts#L31)*
+*Defined in [Bridge/MobileBridge.ts:31](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/MobileBridge.ts#L31)*
 
 
 
@@ -66,7 +66,7 @@ ___
 
 
 
-*Defined in [Bridge/MobileBridge.ts:11](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/MobileBridge.ts#L11)*
+*Defined in [Bridge/MobileBridge.ts:11](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/MobileBridge.ts#L11)*
 
 
 

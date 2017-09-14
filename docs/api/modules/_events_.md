@@ -25,7 +25,7 @@
 
 **●  beforegoback**:  *"beforegoback"*  = "beforegoback"
 
-*Defined in [events.ts:6](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/events.ts#L6)*
+*Defined in [events.ts:6](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/events.ts#L6)*
 
 
 
@@ -39,7 +39,7 @@ ___
 
 **●  beforeunload**:  *"beforeunload"*  = "beforeunload"
 
-*Defined in [events.ts:5](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/events.ts#L5)*
+*Defined in [events.ts:5](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/events.ts#L5)*
 
 
 
@@ -53,7 +53,7 @@ ___
 
 **●  ready**:  *"ready"*  = "ready"
 
-*Defined in [events.ts:7](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/events.ts#L7)*
+*Defined in [events.ts:7](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/events.ts#L7)*
 
 
 

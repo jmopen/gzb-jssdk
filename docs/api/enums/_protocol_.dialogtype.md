@@ -25,7 +25,7 @@
 
 ** Announcement**:   
 
-*Defined in [protocol.ts:193](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L193)*
+*Defined in [protocol.ts:193](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L193)*
 
 
 
@@ -42,7 +42,7 @@ ___
 
 ** Chat**:   
 
-*Defined in [protocol.ts:189](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L189)*
+*Defined in [protocol.ts:189](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L189)*
 
 
 
@@ -59,7 +59,7 @@ ___
 
 ** GroupChat**:    = 1
 
-*Defined in [protocol.ts:185](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L185)*
+*Defined in [protocol.ts:185](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L185)*
 
 
 

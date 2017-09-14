@@ -49,14 +49,14 @@ Windows Bridge
 
 **Τ Callback**:  *function* 
 
-*Defined in [Bridge/DesktopBridge.ts:10](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/DesktopBridge.ts#L10)*
+*Defined in [Bridge/DesktopBridge.ts:10](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/DesktopBridge.ts#L10)*
 
 
 #### Type declaration
 (data: *`any`*, responseCallback?: *[ResponseCallback](_bridge_desktopbridge_.md#responsecallback)*): `void`
 
 
-*Defined in [Bridge/DesktopBridge.ts:10](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/DesktopBridge.ts#L10)*
+*Defined in [Bridge/DesktopBridge.ts:10](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/DesktopBridge.ts#L10)*
 
 
 
@@ -86,14 +86,14 @@ ___
 
 **Τ ResponseCallback**:  *function* 
 
-*Defined in [Bridge/DesktopBridge.ts:9](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/DesktopBridge.ts#L9)*
+*Defined in [Bridge/DesktopBridge.ts:9](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/DesktopBridge.ts#L9)*
 
 
 #### Type declaration
 (responseData: *`any`*): `void`
 
 
-*Defined in [Bridge/DesktopBridge.ts:9](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/DesktopBridge.ts#L9)*
+*Defined in [Bridge/DesktopBridge.ts:9](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/DesktopBridge.ts#L9)*
 
 
 
@@ -124,7 +124,7 @@ ___
 
 **●  uniqId**:  *`number`*  = 0
 
-*Defined in [Bridge/DesktopBridge.ts:39](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/DesktopBridge.ts#L39)*
+*Defined in [Bridge/DesktopBridge.ts:39](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/DesktopBridge.ts#L39)*
 
 
 
@@ -144,7 +144,7 @@ ___
 
 **●  afterReceived**:  *[identity](_utils_.md#identity)*  =  identity
 
-*Defined in [Bridge/DesktopBridge.ts:42](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/DesktopBridge.ts#L42)*
+*Defined in [Bridge/DesktopBridge.ts:42](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/DesktopBridge.ts#L42)*
 
 
 
@@ -157,7 +157,7 @@ ___
 
 **●  preserveName**:  *`boolean`*  = false
 
-*Defined in [Bridge/DesktopBridge.ts:43](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/DesktopBridge.ts#L43)*
+*Defined in [Bridge/DesktopBridge.ts:43](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/DesktopBridge.ts#L43)*
 
 
 
@@ -173,7 +173,7 @@ ___
 
 
 
-*Defined in [Bridge/DesktopBridge.ts:41](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/DesktopBridge.ts#L41)*
+*Defined in [Bridge/DesktopBridge.ts:41](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/DesktopBridge.ts#L41)*
 
 
 

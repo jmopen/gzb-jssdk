@@ -12,7 +12,7 @@
 
 **●  gobackUrl**:  *`string`* 
 
-*Defined in [protocol.ts:136](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L136)*
+*Defined in [protocol.ts:136](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L136)*
 
 
 
@@ -26,7 +26,7 @@ ___
 
 **●  hideMoreBtn**:  *`boolean`* 
 
-*Defined in [protocol.ts:133](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L133)*
+*Defined in [protocol.ts:133](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L133)*
 
 
 
@@ -40,7 +40,7 @@ ___
 
 **●  left**:  *[`string`,`string`]* 
 
-*Defined in [protocol.ts:134](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L134)*
+*Defined in [protocol.ts:134](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L134)*
 
 
 
@@ -54,7 +54,7 @@ ___
 
 **●  onlyCallBack**:  *[BarButtonId](../modules/_protocol_.md#barbuttonid)[]* 
 
-*Defined in [protocol.ts:135](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L135)*
+*Defined in [protocol.ts:135](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L135)*
 
 
 
@@ -68,7 +68,7 @@ ___
 
 **●  right**:  *`string`* 
 
-*Defined in [protocol.ts:137](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L137)*
+*Defined in [protocol.ts:137](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L137)*
 
 
 

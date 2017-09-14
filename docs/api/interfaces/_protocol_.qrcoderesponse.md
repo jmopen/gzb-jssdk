@@ -12,7 +12,7 @@
 
 **●  content**:  *`string`* 
 
-*Defined in [protocol.ts:175](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L175)*
+*Defined in [protocol.ts:175](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L175)*
 
 
 

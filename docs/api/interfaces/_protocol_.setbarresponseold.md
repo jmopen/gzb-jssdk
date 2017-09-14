@@ -27,7 +27,7 @@
 
 *Inherited from [SetBarResponse](_protocol_.setbarresponse.md).[buttonId](_protocol_.setbarresponse.md#buttonid)*
 
-*Defined in [protocol.ts:142](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L142)*
+*Defined in [protocol.ts:142](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L142)*
 
 
 
@@ -43,7 +43,7 @@ ___
 
 *Inherited from [SetBarResponse](_protocol_.setbarresponse.md).[buttonName](_protocol_.setbarresponse.md#buttonname)*
 
-*Defined in [protocol.ts:141](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L141)*
+*Defined in [protocol.ts:141](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L141)*
 
 
 
@@ -57,7 +57,7 @@ ___
 
 **●  result**:  *"true"⎮"false"* 
 
-*Defined in [protocol.ts:147](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L147)*
+*Defined in [protocol.ts:147](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L147)*
 
 
 

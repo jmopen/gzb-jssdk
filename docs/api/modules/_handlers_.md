@@ -44,7 +44,7 @@
 
 **●  API_INFOS**:  *"apiList"*  = "apiList"
 
-*Defined in [handlers.ts:19](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/handlers.ts#L19)*
+*Defined in [handlers.ts:19](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/handlers.ts#L19)*
 
 
 
@@ -58,7 +58,7 @@ ___
 
 **●  CHOOSE_IMG**:  *"chooseImg"*  = "chooseImg"
 
-*Defined in [handlers.ts:6](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/handlers.ts#L6)*
+*Defined in [handlers.ts:6](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/handlers.ts#L6)*
 
 
 
@@ -72,7 +72,7 @@ ___
 
 **●  EXIT**:  *"exitWebApp"*  = "exitWebApp"
 
-*Defined in [handlers.ts:16](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/handlers.ts#L16)*
+*Defined in [handlers.ts:16](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/handlers.ts#L16)*
 
 
 
@@ -86,7 +86,7 @@ ___
 
 **●  GET_LANGUAGE**:  *"getLanguage"*  = "getLanguage"
 
-*Defined in [handlers.ts:24](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/handlers.ts#L24)*
+*Defined in [handlers.ts:24](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/handlers.ts#L24)*
 
 
 
@@ -100,7 +100,7 @@ ___
 
 **●  GET_LOCATION**:  *"getLocation"*  = "getLocation"
 
-*Defined in [handlers.ts:18](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/handlers.ts#L18)*
+*Defined in [handlers.ts:18](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/handlers.ts#L18)*
 
 
 
@@ -114,7 +114,7 @@ ___
 
 **●  MAKE_CALL_TO_NUMBER**:  *"makeCallToNumber"*  = "makeCallToNumber"
 
-*Defined in [handlers.ts:7](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/handlers.ts#L7)*
+*Defined in [handlers.ts:7](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/handlers.ts#L7)*
 
 
 
@@ -128,7 +128,7 @@ ___
 
 **●  OPEN_CONTACT**:  *"openContact"*  = "openContact"
 
-*Defined in [handlers.ts:12](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/handlers.ts#L12)*
+*Defined in [handlers.ts:12](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/handlers.ts#L12)*
 
 
 
@@ -142,7 +142,7 @@ ___
 
 **●  OPEN_CONTACT_ITEM**:  *"openContactItem"*  = "openContactItem"
 
-*Defined in [handlers.ts:11](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/handlers.ts#L11)*
+*Defined in [handlers.ts:11](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/handlers.ts#L11)*
 
 
 
@@ -156,7 +156,7 @@ ___
 
 **●  OPEN_DATE**:  *"openDate"*  = "openDate"
 
-*Defined in [handlers.ts:17](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/handlers.ts#L17)*
+*Defined in [handlers.ts:17](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/handlers.ts#L17)*
 
 
 
@@ -170,7 +170,7 @@ ___
 
 **●  OPEN_DIALOG**:  *"openDialog"*  = "openDialog"
 
-*Defined in [handlers.ts:22](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/handlers.ts#L22)*
+*Defined in [handlers.ts:22](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/handlers.ts#L22)*
 
 
 
@@ -184,7 +184,7 @@ ___
 
 **●  OPEN_MAIL**:  *"openMail"*  = "openMail"
 
-*Defined in [handlers.ts:9](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/handlers.ts#L9)*
+*Defined in [handlers.ts:9](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/handlers.ts#L9)*
 
 
 
@@ -198,7 +198,7 @@ ___
 
 **●  OPEN_URL**:  *"openUrl"*  = "openUrl"
 
-*Defined in [handlers.ts:10](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/handlers.ts#L10)*
+*Defined in [handlers.ts:10](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/handlers.ts#L10)*
 
 
 
@@ -212,7 +212,7 @@ ___
 
 **●  PAGE_GO_BACK**:  *"pgGoBack"*  = "pgGoBack"
 
-*Defined in [handlers.ts:26](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/handlers.ts#L26)*
+*Defined in [handlers.ts:26](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/handlers.ts#L26)*
 
 
 
@@ -226,7 +226,7 @@ ___
 
 **●  SCAN_QRCODE**:  *"scanQRCode"*  = "scanQRCode"
 
-*Defined in [handlers.ts:20](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/handlers.ts#L20)*
+*Defined in [handlers.ts:20](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/handlers.ts#L20)*
 
 
 
@@ -240,7 +240,7 @@ ___
 
 **●  SELECT_SESSION**:  *"selectSession"*  = "selectSession"
 
-*Defined in [handlers.ts:23](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/handlers.ts#L23)*
+*Defined in [handlers.ts:23](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/handlers.ts#L23)*
 
 
 
@@ -254,7 +254,7 @@ ___
 
 **●  SEND_SMS_TO_NUMBER**:  *"sendSmsToNumber"*  = "sendSmsToNumber"
 
-*Defined in [handlers.ts:8](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/handlers.ts#L8)*
+*Defined in [handlers.ts:8](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/handlers.ts#L8)*
 
 
 
@@ -268,7 +268,7 @@ ___
 
 **●  SET_BAR**:  *"setBar"*  = "setBar"
 
-*Defined in [handlers.ts:15](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/handlers.ts#L15)*
+*Defined in [handlers.ts:15](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/handlers.ts#L15)*
 
 
 
@@ -282,7 +282,7 @@ ___
 
 **●  SET_BAR_COLOR**:  *"setBarColor"*  = "setBarColor"
 
-*Defined in [handlers.ts:13](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/handlers.ts#L13)*
+*Defined in [handlers.ts:13](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/handlers.ts#L13)*
 
 
 
@@ -296,7 +296,7 @@ ___
 
 **●  SET_BAR_VISIBLE**:  *"showBar"*  = "showBar"
 
-*Defined in [handlers.ts:14](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/handlers.ts#L14)*
+*Defined in [handlers.ts:14](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/handlers.ts#L14)*
 
 
 
@@ -310,7 +310,7 @@ ___
 
 **●  SET_WEB_TITLE**:  *"setWebTitle"*  = "setWebTitle"
 
-*Defined in [handlers.ts:5](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/handlers.ts#L5)*
+*Defined in [handlers.ts:5](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/handlers.ts#L5)*
 
 
 
@@ -324,7 +324,7 @@ ___
 
 **●  SHARE_TO**:  *"shareTo"*  = "shareTo"
 
-*Defined in [handlers.ts:21](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/handlers.ts#L21)*
+*Defined in [handlers.ts:21](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/handlers.ts#L21)*
 
 
 
@@ -338,7 +338,7 @@ ___
 
 **●  WINDOW_CLOSE**:  *"windowClose"*  = "windowClose"
 
-*Defined in [handlers.ts:25](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/handlers.ts#L25)*
+*Defined in [handlers.ts:25](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/handlers.ts#L25)*
 
 
 

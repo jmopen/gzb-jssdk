@@ -38,7 +38,7 @@
 
 **●  errCode**:  *`number`* 
 
-*Defined in [protocol.ts:17](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L17)*
+*Defined in [protocol.ts:17](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L17)*
 
 
 
@@ -55,7 +55,7 @@ ___
 
 **●  errMsg**:  *`string`* 
 
-*Defined in [protocol.ts:21](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L21)*
+*Defined in [protocol.ts:21](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L21)*
 
 
 
@@ -72,7 +72,7 @@ ___
 
 **●  result**:  *"true"⎮"false"* 
 
-*Defined in [protocol.ts:13](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L13)*
+*Defined in [protocol.ts:13](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L13)*
 
 
 

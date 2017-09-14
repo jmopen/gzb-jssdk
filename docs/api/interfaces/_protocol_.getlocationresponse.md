@@ -15,7 +15,7 @@
 
 **●  accuracy**:  *`undefined`⎮`number`* 
 
-*Defined in [protocol.ts:124](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L124)*
+*Defined in [protocol.ts:124](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L124)*
 
 
 
@@ -32,7 +32,7 @@ ___
 
 **●  address**:  *`undefined`⎮`string`* 
 
-*Defined in [protocol.ts:128](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L128)*
+*Defined in [protocol.ts:128](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L128)*
 
 
 
@@ -49,7 +49,7 @@ ___
 
 **●  coordType**:  *[CoordType](../modules/_protocol_.md#coordtype)* 
 
-*Defined in [protocol.ts:120](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L120)*
+*Defined in [protocol.ts:120](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L120)*
 
 
 
@@ -66,7 +66,7 @@ ___
 
 **●  latitude**:  *`number`* 
 
-*Defined in [protocol.ts:115](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L115)*
+*Defined in [protocol.ts:115](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L115)*
 
 
 
@@ -80,7 +80,7 @@ ___
 
 **●  longitude**:  *`number`* 
 
-*Defined in [protocol.ts:116](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L116)*
+*Defined in [protocol.ts:116](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L116)*
 
 
 

@@ -15,7 +15,7 @@ locationTo 打开指定连接请求参数
 
 **●  showMode**:  *"inner"⎮"outer"* 
 
-*Defined in [protocol.ts:155](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L155)*
+*Defined in [protocol.ts:155](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L155)*
 
 
 
@@ -29,7 +29,7 @@ ___
 
 **●  url**:  *`string`* 
 
-*Defined in [protocol.ts:154](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L154)*
+*Defined in [protocol.ts:154](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L154)*
 
 
 

@@ -462,7 +462,8 @@ export default abstract class Api extends EventEmitter {
             resolve(res)
           },
           error => {
-            reject(error)
+            const { code, message } = error
+            reject(new BridgeResponseError(code, message))
           },
           _options,
         )

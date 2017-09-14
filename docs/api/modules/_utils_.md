@@ -44,14 +44,14 @@
 
 **Τ Predicate**:  *function* 
 
-*Defined in [utils.ts:179](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/utils.ts#L179)*
+*Defined in [utils.ts:179](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/utils.ts#L179)*
 
 
 #### Type declaration
 (item: *`D`*, index: *`number`*, array: *`D`[]*): `boolean`
 
 
-*Defined in [utils.ts:179](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/utils.ts#L179)*
+*Defined in [utils.ts:179](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/utils.ts#L179)*
 
 
 
@@ -84,7 +84,7 @@ ___
 
 **●  process**:  *object* 
 
-*Defined in [utils.ts:7](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/utils.ts#L7)*
+*Defined in [utils.ts:7](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/utils.ts#L7)*
 
 
 #### Type declaration
@@ -117,7 +117,7 @@ ___
 
 
 
-*Defined in [utils.ts:181](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/utils.ts#L181)*
+*Defined in [utils.ts:181](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/utils.ts#L181)*
 
 
 
@@ -154,7 +154,7 @@ ___
 
 
 
-*Defined in [utils.ts:16](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/utils.ts#L16)*
+*Defined in [utils.ts:16](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/utils.ts#L16)*
 
 
 
@@ -188,7 +188,7 @@ ___
 
 
 
-*Defined in [utils.ts:127](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/utils.ts#L127)*
+*Defined in [utils.ts:127](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/utils.ts#L127)*
 
 
 
@@ -226,7 +226,7 @@ ___
 
 
 
-*Defined in [utils.ts:41](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/utils.ts#L41)*
+*Defined in [utils.ts:41](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/utils.ts#L41)*
 
 
 
@@ -262,7 +262,7 @@ ___
 
 
 
-*Defined in [utils.ts:60](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/utils.ts#L60)*
+*Defined in [utils.ts:60](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/utils.ts#L60)*
 
 
 
@@ -289,7 +289,7 @@ ___
 
 
 
-*Defined in [utils.ts:65](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/utils.ts#L65)*
+*Defined in [utils.ts:65](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/utils.ts#L65)*
 
 
 
@@ -320,7 +320,7 @@ ___
 
 
 
-*Defined in [utils.ts:204](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/utils.ts#L204)*
+*Defined in [utils.ts:204](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/utils.ts#L204)*
 
 
 
@@ -361,7 +361,7 @@ ___
 
 
 
-*Defined in [utils.ts:80](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/utils.ts#L80)*
+*Defined in [utils.ts:80](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/utils.ts#L80)*
 
 
 
@@ -395,7 +395,7 @@ ___
 
 
 
-*Defined in [utils.ts:79](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/utils.ts#L79)*
+*Defined in [utils.ts:79](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/utils.ts#L79)*
 
 
 
@@ -418,7 +418,7 @@ ___
 
 
 
-*Defined in [utils.ts:169](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/utils.ts#L169)*
+*Defined in [utils.ts:169](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/utils.ts#L169)*
 
 
 
@@ -455,7 +455,7 @@ ___
 
 
 
-*Defined in [utils.ts:93](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/utils.ts#L93)*
+*Defined in [utils.ts:93](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/utils.ts#L93)*
 
 
 
@@ -490,7 +490,7 @@ ___
 
 
 
-*Defined in [utils.ts:84](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/utils.ts#L84)*
+*Defined in [utils.ts:84](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/utils.ts#L84)*
 
 
 
@@ -521,7 +521,7 @@ ___
 
 
 
-*Defined in [utils.ts:51](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/utils.ts#L51)*
+*Defined in [utils.ts:51](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/utils.ts#L51)*
 
 
 

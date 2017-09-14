@@ -12,7 +12,7 @@
 
 **●  cancelable**:  *`boolean`* 
 
-*Defined in [EventEmitter.ts:15](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/EventEmitter.ts#L15)*
+*Defined in [EventEmitter.ts:15](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/EventEmitter.ts#L15)*
 
 
 

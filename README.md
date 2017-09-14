@@ -22,6 +22,15 @@ yarn add @gdjiami/gzb-jssdk
 npm install @gdjiami/gzb-jssdk --save
 ```
 
+## DEMO
+[GZB-JSSDK-DEMO](https://gdjiami.github.io/gzb-jssdk-demo/index.html#/)
+
+## API文档
++ [Api](https://github.com/GDJiaMi/gzb-jssdk/blob/master/docs/api/classes/_api_.api.md)
++ [MobileApi](https://github.com/GDJiaMi/gzb-jssdk/blob/master/docs/api/classes/_mobileapi_.mobileapi.md)
++ [Device](https://github.com/GDJiaMi/gzb-jssdk/blob/master/docs/api/classes/_devicedetector_.devicedector.md)
++ [Protocal](https://github.com/GDJiaMi/gzb-jssdk/blob/master/docs/api/modules/_protocol_.md)
+
 ## 使用
 基本使用
 

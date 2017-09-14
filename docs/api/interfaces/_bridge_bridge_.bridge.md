@@ -15,7 +15,7 @@ Javascript 端桥接接口
 
 **●  init**:  *`undefined`⎮function* 
 
-*Defined in [Bridge/Bridge.ts:6](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/Bridge.ts#L6)*
+*Defined in [Bridge/Bridge.ts:6](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/Bridge.ts#L6)*
 
 
 
@@ -34,7 +34,7 @@ ___
 
 
 
-*Defined in [Bridge/Bridge.ts:7](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/Bridge.ts#L7)*
+*Defined in [Bridge/Bridge.ts:7](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/Bridge.ts#L7)*
 
 
 
@@ -67,7 +67,7 @@ ___
 
 
 
-*Defined in [Bridge/Bridge.ts:12](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/Bridge.ts#L12)*
+*Defined in [Bridge/Bridge.ts:12](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/Bridge.ts#L12)*
 
 
 

@@ -32,7 +32,7 @@
 
 **●  gobackUrl**:  *`string`*  = ""
 
-*Defined in [MobileApi.ts:16](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/MobileApi.ts#L16)*
+*Defined in [MobileApi.ts:16](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/MobileApi.ts#L16)*
 
 
 
@@ -45,7 +45,7 @@ ___
 
 **●  hideMoreBtn**:  *`boolean`*  = false
 
-*Defined in [MobileApi.ts:13](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/MobileApi.ts#L13)*
+*Defined in [MobileApi.ts:13](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/MobileApi.ts#L13)*
 
 
 
@@ -58,7 +58,7 @@ ___
 
 **●  left**:  *`Object`*  =  ['goback', 'close']
 
-*Defined in [MobileApi.ts:14](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/MobileApi.ts#L14)*
+*Defined in [MobileApi.ts:14](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/MobileApi.ts#L14)*
 
 
 
@@ -71,7 +71,7 @@ ___
 
 **●  onlyCallBack**:  *`never`[]*  =  []
 
-*Defined in [MobileApi.ts:15](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/MobileApi.ts#L15)*
+*Defined in [MobileApi.ts:15](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/MobileApi.ts#L15)*
 
 
 
@@ -84,7 +84,7 @@ ___
 
 **●  right**:  *`string`*  = ""
 
-*Defined in [MobileApi.ts:17](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/MobileApi.ts#L17)*
+*Defined in [MobileApi.ts:17](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/MobileApi.ts#L17)*
 
 
 

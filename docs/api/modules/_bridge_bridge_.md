@@ -30,14 +30,14 @@
 
 **Τ BridgeCallback**:  *function* 
 
-*Defined in [Bridge/Bridge.ts:18](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/Bridge.ts#L18)*
+*Defined in [Bridge/Bridge.ts:18](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/Bridge.ts#L18)*
 
 
 #### Type declaration
 (bridge: *[Bridge](../interfaces/_bridge_bridge_.bridge.md)*): `void`
 
 
-*Defined in [Bridge/Bridge.ts:18](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/Bridge.ts#L18)*
+*Defined in [Bridge/Bridge.ts:18](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/Bridge.ts#L18)*
 
 
 

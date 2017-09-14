@@ -15,7 +15,7 @@
 
 **●  API**:  *`string`[]* 
 
-*Defined in [protocol.ts:164](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L164)*
+*Defined in [protocol.ts:164](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L164)*
 
 
 
@@ -29,7 +29,7 @@ ___
 
 **●  platform**:  *"IOS"⎮"PC"⎮"Android"* 
 
-*Defined in [protocol.ts:162](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L162)*
+*Defined in [protocol.ts:162](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L162)*
 
 
 
@@ -43,7 +43,7 @@ ___
 
 **●  version**:  *`string`* 
 
-*Defined in [protocol.ts:163](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/protocol.ts#L163)*
+*Defined in [protocol.ts:163](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/protocol.ts#L163)*
 
 
 

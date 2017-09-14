@@ -46,7 +46,7 @@
 
 
 
-*Defined in [Bridge/BridgeResponseError.ts:5](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/BridgeResponseError.ts#L5)*
+*Defined in [Bridge/BridgeResponseError.ts:5](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/BridgeResponseError.ts#L5)*
 
 
 
@@ -73,7 +73,7 @@
 
 **●  errCode**:  *`number`* 
 
-*Defined in [Bridge/BridgeResponseError.ts:5](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/Bridge/BridgeResponseError.ts#L5)*
+*Defined in [Bridge/BridgeResponseError.ts:5](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/Bridge/BridgeResponseError.ts#L5)*
 
 
 

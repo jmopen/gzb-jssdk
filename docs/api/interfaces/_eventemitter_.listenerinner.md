@@ -12,7 +12,7 @@
 
 **●  callback**:  *[Callback](../modules/_eventemitter_.md#callback)* 
 
-*Defined in [EventEmitter.ts:9](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/EventEmitter.ts#L9)*
+*Defined in [EventEmitter.ts:9](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/EventEmitter.ts#L9)*
 
 
 
@@ -26,7 +26,7 @@ ___
 
 **●  context**:  *`any`* 
 
-*Defined in [EventEmitter.ts:10](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/EventEmitter.ts#L10)*
+*Defined in [EventEmitter.ts:10](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/EventEmitter.ts#L10)*
 
 
 
@@ -40,7 +40,7 @@ ___
 
 **●  once**:  *`boolean`* 
 
-*Defined in [EventEmitter.ts:11](https://github.com/GDJiaMi/gzb-jssdk/blob/38ff667/src/EventEmitter.ts#L11)*
+*Defined in [EventEmitter.ts:11](https://github.com/GDJiaMi/gzb-jssdk/blob/6a995d9/src/EventEmitter.ts#L11)*
 
 
 
