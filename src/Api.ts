@@ -765,6 +765,17 @@ export default abstract class Api extends EventEmitter {
     })
   }
 
+  /**
+   * 返回到上一页， 如果是第一页，即无法回退了， 将关闭应用
+   */
+  public goback() {
+    window.history.go(-1)
+    // 如何判断当前页面时第一个页面？即不能后退
+    setTimeout(() => {
+      this.exit()
+    }, 0)
+  }
+
   public constructor() {
     super()
     this.setupEventWatchers()
@@ -811,11 +822,7 @@ export default abstract class Api extends EventEmitter {
             event.defaultPrevented || res.some(v => v === false)
           if (!defaultPrevented) {
             // 默认行为
-            window.history.go(-1)
-            // 如何判断当前页面时第一个页面？即不能后退
-            setTimeout(() => {
-              this.exit()
-            }, 0)
+            this.goback()
           }
         })
       } else {
