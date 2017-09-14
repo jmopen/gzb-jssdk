@@ -769,11 +769,14 @@ export default abstract class Api extends EventEmitter {
    * 返回到上一页， 如果是第一页，即无法回退了， 将关闭应用
    */
   public goback() {
+    const prevPage = window.location.href
     window.history.go(-1)
     // 如何判断当前页面时第一个页面？即不能后退
     setTimeout(() => {
-      this.exit()
-    }, 0)
+      if (window.location.href === prevPage) {
+        this.exit()
+      }
+    }, 500)
   }
 
   public constructor() {
