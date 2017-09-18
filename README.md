@@ -31,6 +31,9 @@ npm install @gdjiami/gzb-jssdk --save
 + [Device](https://github.com/GDJiaMi/gzb-jssdk/blob/master/docs/api/classes/_devicedetector_.devicedector.md)
 + [Protocal](https://github.com/GDJiaMi/gzb-jssdk/blob/master/docs/api/modules/_protocol_.md)
 
+## 接口协议
+[GZB-JSSDK-SPECS](https://github.com/GDJiaMi/gzb-jssdk/blob/master/specs.md)
+
 ## 使用
 基本使用
 
