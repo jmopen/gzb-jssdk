@@ -98,12 +98,13 @@ export default class DesktopApi extends Api {
         window.HandleEvent(
           `On${upperFirst(Handlers.OPEN_URL)}`,
           data.url,
-          JSON.stringify(data),
+          JSON.stringify(data)
         )
       })
       .registerHandler<{ id: string }>(Handlers.OPEN_CONTACT_ITEM, {
         beforeSend: ({ id }) => id,
       })
+      .registerHandler(Handlers.SET_BAR_VISIBLE_PC)
       .registerHandler(Handlers.EXIT, { preserveName: true })
       .registerHandler(Handlers.API_INFOS, { bridgeHandleName: 'OnGetApiList' })
       .registerHandler(Handlers.OPEN_DIALOG)

@@ -86,7 +86,7 @@ export default abstract class Api extends EventEmitter {
   public abstract setUpBridge(callback: (bridge: Bridge) => void): void
   protected abstract setupEventWatcher(
     eventName: string,
-    callback: () => void,
+    callback: () => void
   ): void
   protected abstract teardownEventWatcher(eventName: string): void
 
@@ -96,7 +96,7 @@ export default abstract class Api extends EventEmitter {
   public addListener(
     eventType: EventType,
     callback: EventCallback,
-    context?: any,
+    context?: any
   ) {
     this.emit('__addListener__', { eventType })
     return super.addListener(eventType, callback, context)
@@ -105,7 +105,7 @@ export default abstract class Api extends EventEmitter {
   public removeListener(
     eventType: EventType,
     callback: EventCallback,
-    context?: any,
+    context?: any
   ) {
     const removed = super.removeListener(eventType, callback, context)
     if (removed) {
@@ -216,7 +216,7 @@ export default abstract class Api extends EventEmitter {
     return deprecated(
       deprecatedTemplate('url', 'locationTo'),
       this.locationTo,
-      this,
+      this
     )(params)
   }
 
@@ -252,14 +252,14 @@ export default abstract class Api extends EventEmitter {
    */
   public selectContact(
     params: SelectContactParams,
-    callback: LegacyCallback<SelectContactResponse>,
+    callback: LegacyCallback<SelectContactResponse>
   ): void
   public selectContact(
-    params: SelectContactParams,
+    params: SelectContactParams
   ): Promise<SelectContactResponse>
   public selectContact(
     params: SelectContactParams,
-    callback?: LegacyCallback<SelectContactResponse>,
+    callback?: LegacyCallback<SelectContactResponse>
   ): Promise<SelectContactResponse> | void {
     const _params = {
       user: [],
@@ -314,15 +314,22 @@ export default abstract class Api extends EventEmitter {
 
   /**
    * 显示Bar
-   * @platform `Android` | `IOS`
+   * @platform `Android` | `IOS` | `PC`
    * @param flag 已废弃，兼容旧版本接口
    */
   public showBar(flag?: boolean) {
-    this.setBarVisible(!flag || true)
+    if (Device.windows()) {
+      this.setUpBridge(bridge => {
+        bridge.callHandler(Handlers.SET_BAR_VISIBLE_PC, null)
+      })
+    } else {
+      this.setBarVisible(!flag || true)
+    }
   }
 
   /**
    * 隐藏Bar
+   * PC无法隐藏Bar
    * @platform `Android` | `IOS`
    */
   public hideBar() {
@@ -339,11 +346,11 @@ export default abstract class Api extends EventEmitter {
    */
   public settingBar(
     params: Partial<SetBarParams>,
-    callback: LegacyCallback<SetBarResponseOld>,
+    callback: LegacyCallback<SetBarResponseOld>
   ): void
   public settingBar(
     params: Partial<SetBarParams>,
-    callback?: LegacyCallback<SetBarResponseOld>,
+    callback?: LegacyCallback<SetBarResponseOld>
   ) {
     deprecated('settingBar 已经废弃')
     const _params = { ...defaultSetBarParams, ...params }
@@ -356,7 +363,7 @@ export default abstract class Api extends EventEmitter {
           if (typeof callback === 'function') {
             callback(data)
           }
-        },
+        }
       )
     })
   }
@@ -399,14 +406,14 @@ export default abstract class Api extends EventEmitter {
   public getLocation(callback: LegacyCallback<GetLocationResponse>): void
   public getLocation(
     options: Partial<GetLocationOptions>,
-    callback: LegacyCallback<GetLocationResponse>,
+    callback: LegacyCallback<GetLocationResponse>
   ): void
   public getLocation(
-    options?: Partial<GetLocationOptions>,
+    options?: Partial<GetLocationOptions>
   ): Promise<GetLocationResponse>
   public getLocation(
     options?: Partial<GetLocationOptions> | LegacyCallback<GetLocationResponse>,
-    callback?: LegacyCallback<GetLocationResponse>,
+    callback?: LegacyCallback<GetLocationResponse>
   ): Promise<GetLocationResponse> | void {
     const _options =
       typeof options === 'function' || options == null
@@ -465,7 +472,7 @@ export default abstract class Api extends EventEmitter {
             const { code, message } = error
             reject(new BridgeResponseError(code, message))
           },
-          _options,
+          _options
         )
       }
     })
@@ -481,7 +488,7 @@ export default abstract class Api extends EventEmitter {
     deprecated(
       deprecatedTemplate('getLoc', 'getLocation'),
       this.getLocation,
-      this,
+      this
     )(callback)
   }
 
@@ -496,7 +503,7 @@ export default abstract class Api extends EventEmitter {
   public apiInfos(callback: LegacyCallback<APIInfosResponseOld>): void
   public apiInfos(): Promise<APIInfosResponse>
   public apiInfos(
-    callback?: LegacyCallback<APIInfosResponseOld>,
+    callback?: LegacyCallback<APIInfosResponseOld>
   ): Promise<APIInfosResponse> | void {
     return new Promise((resolve, reject) => {
       this.setUpBridge(bridge => {
@@ -528,7 +535,7 @@ export default abstract class Api extends EventEmitter {
    */
   public getList(callback: (res: APIInfosResponseOld) => void): void {
     deprecated(deprecatedTemplate('getList', 'apiInfos'), this.apiInfos, this)(
-      callback,
+      callback
     )
   }
 
@@ -541,13 +548,13 @@ export default abstract class Api extends EventEmitter {
    */
   public scanQRCode(
     needResult: boolean,
-    callback: LegacyCallback<QRCodeResponse>,
+    callback: LegacyCallback<QRCodeResponse>
   ): void
   public scanQRCode(callback: LegacyCallback<QRCodeResponse>): void
   public scanQRCode(needResult?: boolean): Promise<QRCodeResponse>
   public scanQRCode(
     needResult?: boolean | LegacyCallback<QRCodeResponse>,
-    callback?: LegacyCallback<QRCodeResponse>,
+    callback?: LegacyCallback<QRCodeResponse>
   ): Promise<QRCodeResponse> | void {
     const _needResult = typeof needResult === 'boolean' ? needResult : true
     const _callback = typeof needResult === 'function' ? needResult : callback
@@ -567,7 +574,7 @@ export default abstract class Api extends EventEmitter {
             } catch (err) {
               reject(err)
             }
-          },
+          }
         )
       })
     })
@@ -584,11 +591,11 @@ export default abstract class Api extends EventEmitter {
    */
   public QRcode(
     needResult: boolean,
-    callback: LegacyCallback<QRCodeResponse>,
+    callback: LegacyCallback<QRCodeResponse>
   ): void {
     deprecated(deprecatedTemplate('QRcode', 'scanQRCode'), this.scanQRCode)(
       needResult,
-      callback,
+      callback
     )
   }
 
@@ -633,7 +640,7 @@ export default abstract class Api extends EventEmitter {
             id,
           }
     deprecated(deprecatedTemplate('Dialog', 'openDialog'), this.openDialog)(
-      _params,
+      _params
     )
   }
 
@@ -644,11 +651,11 @@ export default abstract class Api extends EventEmitter {
   public chooseImg(params?: ChooseImgParams): Promise<ChooseImgResponse>
   public chooseImg(
     params?: ChooseImgParams,
-    callback?: LegacyCallback<ChooseImgResponseOld>,
+    callback?: LegacyCallback<ChooseImgResponseOld>
   ): void
   public chooseImg(
     params?: ChooseImgParams | LegacyCallback<ChooseImgResponseOld>,
-    callback?: LegacyCallback<ChooseImgResponseOld>,
+    callback?: LegacyCallback<ChooseImgResponseOld>
   ): Promise<ChooseImgResponse> | void {
     const _params =
       params == null || typeof params === 'function'
@@ -695,15 +702,15 @@ export default abstract class Api extends EventEmitter {
    */
   public selectSession(
     params: SelectSessionParams,
-    callback: LegacyCallback<SelectSessionResponseOld>,
+    callback: LegacyCallback<SelectSessionResponseOld>
   ): void
   public selectSession(callback: LegacyCallback<SelectSessionResponseOld>): void
   public selectSession(
-    params?: SelectSessionParams,
+    params?: SelectSessionParams
   ): Promise<SelectSessionResponse>
   public selectSession(
     params?: SelectSessionParams | LegacyCallback<SelectSessionResponseOld>,
-    callback?: LegacyCallback<SelectSessionResponseOld>,
+    callback?: LegacyCallback<SelectSessionResponseOld>
   ): Promise<SelectSessionResponse> | void {
     const _options =
       params == null || typeof params === 'function'
@@ -741,7 +748,7 @@ export default abstract class Api extends EventEmitter {
   public getLanguage(callback: LegacyCallback<GetLanguageResponseOld>): void
   public getLanguage(): Promise<string>
   public getLanguage(
-    callback?: LegacyCallback<GetLanguageResponseOld>,
+    callback?: LegacyCallback<GetLanguageResponseOld>
   ): Promise<string> | void {
     return new Promise((resolve, reject) => {
       this.setUpBridge(bridge => {
@@ -812,7 +819,7 @@ export default abstract class Api extends EventEmitter {
 
   protected innerAddEventListener(
     eventType: string,
-    callback: (data: any) => void,
+    callback: (data: any) => void
   ) {
     return super.addListener(eventType, callback)
   }

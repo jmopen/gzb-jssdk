@@ -756,9 +756,9 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 
 ---
 
-* 名称: remove
+* 名称: removeMenuItem
 * 描述：移除菜单项
-* 平台： `Android` | `IOS`
+* 平台： `Android` | `IOS` | `PC`
 * 请求：
 ```
 {
@@ -770,7 +770,7 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 ```
 {
   "result": "true",     // 字符串类型，'false'表示删除失败(忽略id不存在), 'true'表示删除成
-  "errcode": number,    // 错误码(默认402)
+  "errcode": number,    // 错误码(默认700)
   "errmsg": string,     // 错误信息
 }
 ```
