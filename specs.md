@@ -31,6 +31,13 @@
     - [选择会话(selectSession)](#选择会话selectsession)
     - [图片选择器(chooseImg)](#图片选择器chooseimg)
   - [4. 更新计划/进度](#4-更新计划进度)
+    - [1.1.0](#110)
+      - [1. 图片预览接口](#1-图片预览接口)
+      - [2. 文件打开接口](#2-文件打开接口)
+      - [3. 图片选择器优化](#3-图片选择器优化)
+      - [4. 安卓接口权限检查](#4-安卓接口权限检查)
+      - [6. 安卓接口权限请求](#6-安卓接口权限请求)
+      - [6. 自定义‘更多’按钮菜单](#6-自定义更多按钮菜单)
   - [5. 历史记录](#5-历史记录)
 
 <!-- /TOC -->
@@ -591,8 +598,8 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 ```
 错误码说明
 
-|错误码|errCode	| 错误信息errMsg |	描述 |
-|------|---------|---------------|-------|
+|errCode	| errMsg |	描述 |
+|------|-----------------|-------|
 |701|	图片选择失败 |	读取图片异常时提示 |
 |702|	请选择[extType](png,jpg)类型图片	| extType有设置时，提示 |
 |703|	图片原始大小超过[maxSizeKb]kb |	图片原始大小超过maxSizeKb时提示 |
@@ -603,6 +610,172 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 [⬆返回顶部](#gzb-jssdk-接口协议)
 
 ## 4. 更新计划/进度
+
+### 1.1.0
+#### 1. 图片预览接口
+* 名称: previewImg
+* 描述: 打开原生图片预览窗口， 预览指定图片
+* 平台: `ios` | `android` | `PC`
+* 请求： 
+```
+{
+  url: string[],   // 需要预览的图片链接(url)数组
+  current: string, // 当前显示的图片链接
+}
+```
+
+* 响应
+```
+{
+  "result": "true",     // 字符串类型，'true'表示成功 'false'表示失败
+  "errcode": number,    // 错误码
+  "errmsg": string,     // 错误信息
+}
+```
+
+错误码说明
+
+|errCode	| errMsg |	描述 |
+|------|-----------------------|-------|
+|701 |	请求数据格式错误， 比如不是合法的链接 |
+|702 |	其他错误, 原生内部错误 |
+
+----
+
+#### 2. 文件打开接口
+* 名称: openFile
+* 描述：开发原生文件预览程序，下载或预览指定文件
+* 平台： `PC`
+* 请求：
+```
+{
+  path: string,      // 文件url，或路径(提议)
+  fileType?: string, // 文件类型， 如doc，xls， ppt， pdf. 可选，为空时自动判断
+}
+```
+
+* 响应
+```
+{
+  "result": "true",     // 字符串类型，'true'表示成功 'false'表示失败
+  "errcode": number,    // 错误码
+  "errmsg": string,     // 错误信息
+}
+```
+
+|errCode	| errMsg |	描述 |
+|------|-----------------------|-------|
+|701 |	请求数据格式错误， 比如不是合法的链接/路径 |
+|702 |	文件下载失败 |
+|703 |	无法预览，比如没有合适的程序打开文件 |
+|704 | 用户取消 |
+
+----
+
+#### 3. 图片选择器优化
+见[图片选择器](#图片选择器chooseimg)：
++ 新增请求字段： actionType. 表示操作类型， camera 打开相机， gallery打开相册. 默认为default，弹出一个actionsheet， 由 * 用户自主选择
+
++ 新增响应字段： name. 表示文件名
+
+----
+
+#### 4. 安卓接口权限检查
+* 名称: checkPermissionAndroid
+* 描述：检查自己是否具有权限
+* 平台： `Android`
+* 请求：
+```
+{
+  permission: string,  // 待协议
+}
+```
+
+* 响应
+```
+{
+  "result": "true",     // 字符串类型，'true'表示成功 'false'表示失败
+  "errcode": number,    // 错误码
+  "errmsg": string,     // 错误信息
+  "granted": boolean,   // 如果通过则为true
+}
+```
+
+----
+
+#### 6. 安卓接口权限请求
+
+* 名称: requestPermissionAndroid
+* 描述：检查自己是否具有权限
+* 平台： `Android`
+* 请求：
+```
+{
+  permission: string,  // 待协议
+  title?: string,      // 用于向用户解释
+  message?: string     // 内容
+}
+```
+
+* 响应
+```
+{
+  "result": "true",     // 字符串类型，'true'表示成功 'false'表示失败
+  "errcode": number,    // 错误码
+  "errmsg": string,     // 错误信息
+  "granted": boolean,   // 如果通过则为true
+}
+```
+
+---
+
+#### 6. 自定义‘更多’按钮菜单
+添加按钮
+
+* 名称: addMenuItem
+* 描述：添加菜单项
+* 平台： `Android` | `IOS`
+* 请求：
+```
+{
+  id: string,           // 唯一的按钮id
+  title: {              // 菜单名，支持多语言
+    [locale: string]: string,
+  }
+}
+```
+
+* 响应
+```
+{
+  "result": "true",     // 字符串类型，'false'表示添加失败, 'true'表示菜单项被点击
+  "errcode": number,    // 错误码(默认402)
+  "errmsg": string,     // 错误信息
+}
+```
+
+---
+
+* 名称: remove
+* 描述：移除菜单项
+* 平台： `Android` | `IOS`
+* 请求：
+```
+{
+  ids: string[],           // id数组
+}
+```
+
+* 响应
+```
+{
+  "result": "true",     // 字符串类型，'false'表示删除失败(忽略id不存在), 'true'表示删除成
+  "errcode": number,    // 错误码(默认402)
+  "errmsg": string,     // 错误信息
+}
+```
+
+
 
 [⬆返回顶部](#gzb-jssdk-接口协议)
 ## 5. 历史记录
