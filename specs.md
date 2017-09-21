@@ -746,14 +746,7 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 }
 ```
 
-* 响应
-```
-{
-  "result": "true",     // 字符串类型，'false'表示删除失败(忽略id不存在), 'true'表示删除成
-  "errCode": number,    // 错误码(默认700)
-  "errMsg": string,     // 错误信息
-}
-```
+* 响应: 无
 
 ---
 
