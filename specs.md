@@ -157,8 +157,8 @@
 ```
 {
   "result": "true",     // -> 字符串类型，'true'表示成功 'false'表示失败
-  "errcode": number,       // -> 错误码, 待协定
-  "errmsg": string,  // -> 错误信息，待协定
+  "errCode": number,       // -> 错误码, 待协定
+  "errMsg": string,  // -> 错误信息，待协定
 }
 ```
 
@@ -182,8 +182,8 @@
 ```
 {
   "result": "true",     // -> 字符串类型，'true'表示成功 'false'表示失败
-  "errcode": number,       // -> 错误码, 待协定
-  "errmsg": string,  // -> 错误信息，待协定
+  "errCode": number,       // -> 错误码, 待协定
+  "errMsg": string,  // -> 错误信息，待协定
 }
 ```
 
@@ -209,8 +209,8 @@
 ```
 {
   "result": "true",     // -> 字符串类型，'true'表示成功 'false'表示失败
-  "errcode": number,       // -> 错误码, 待协定
-  "errmsg": string,  // -> 错误信息，待协定
+  "errCode": number,       // -> 错误码, 待协定
+  "errMsg": string,  // -> 错误信息，待协定
 }
 ```
 
@@ -251,8 +251,8 @@
 ```
 {
   "result": "true",     // -> 字符串类型，'true'表示成功 'false'表示失败
-  "errcode": number,    // -> 错误码, 待协定
-  "errmsg": string,     // -> 错误信息，待协定
+  "errCode": number,    // -> 错误码, 待协定
+  "errMsg": string,     // -> 错误信息，待协定
 }
 ```
 
@@ -286,8 +286,8 @@ array<{
 （提议）响应：
 {
   "result": "true",     // -> 字符串类型，'true'表示成功 'false'表示失败
-  "errcode": number,    // -> 错误码, 待协定
-  "errmsg": string,     // -> 错误信息，待协定
+  "errCode": number,    // -> 错误码, 待协定
+  "errMsg": string,     // -> 错误信息，待协定
 	"data": array<{
   id: string            // 用户id
   name: string          // 用户名
@@ -401,8 +401,8 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 
 {
   "result": "true",     // (提议) 字符串类型，'true'表示成功 'false'表示失败
-  "errcode": number,    // (提议) 错误码, 待协定
-  "errmsg": string,     // (提议) 错误信息，待协定
+  "errCode": number,    // (提议) 错误码, 待协定
+  "errMsg": string,     // (提议) 错误信息，待协定
 	latitude: number,
 	longitude: number,
 	coordType: CoordType, // (提议) 坐标类型
@@ -535,8 +535,8 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 ```
 {
   "result": "true",     // 字符串类型，'true'表示成功 'false'表示失败
-  "errcode": number,    // 错误码
-  "errmsg": string,     // 错误信息
+  "errCode": number,    // 错误码
+  "errMsg": string,     // 错误信息
   "session": Array<{    // 返回结果
     sessionId: string,  // 会话id
     sessionType: 'user' | 'chatroom'  // 会话类型
@@ -585,8 +585,8 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 {
 
   "result": "true",     // 字符串类型，'true'表示成功 'false'表示失败
-  "errcode": number,    // 错误码
-  "errmsg": string,     // 错误信息
+  "errCode": number,    // 错误码
+  "errMsg": string,     // 错误信息
   quality: number;      // 图片质量
   imgData: string;      // base64 字符串
   name?: string;        // (提议)图片文件名
@@ -628,8 +628,8 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 ```
 {
   "result": "true",     // 字符串类型，'true'表示成功 'false'表示失败
-  "errcode": number,    // 错误码
-  "errmsg": string,     // 错误信息
+  "errCode": number,    // 错误码
+  "errMsg": string,     // 错误信息
 }
 ```
 
@@ -658,8 +658,8 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 ```
 {
   "result": "true",     // 字符串类型，'true'表示成功 'false'表示失败
-  "errcode": number,    // 错误码
-  "errmsg": string,     // 错误信息
+  "errCode": number,    // 错误码
+  "errMsg": string,     // 错误信息
 }
 ```
 
@@ -703,8 +703,8 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 ```
 {
   "result": "true",     // 字符串类型，'true'表示成功 'false'表示失败
-  "errcode": number,    // 错误码
-  "errmsg": string,     // 错误信息
+  "errCode": number,    // 错误码
+  "errMsg": string,     // 错误信息
   "data": boolean[],    // boolean数组，表示权限是否通过， 按照请求的permissions数组的顺序返回
 }
 ```
@@ -729,8 +729,8 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 ```
 {
   "result": "true",     // 字符串类型，'false'表示添加失败, 'true'表示菜单项被点击
-  "errcode": number,    // 错误码(默认402)
-  "errmsg": string,     // 错误信息
+  "errCode": number,    // 错误码(默认402)
+  "errMsg": string,     // 错误信息
 }
 ```
 
@@ -750,8 +750,8 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 ```
 {
   "result": "true",     // 字符串类型，'false'表示删除失败(忽略id不存在), 'true'表示删除成
-  "errcode": number,    // 错误码(默认700)
-  "errmsg": string,     // 错误信息
+  "errCode": number,    // 错误码(默认700)
+  "errMsg": string,     // 错误信息
 }
 ```
 
