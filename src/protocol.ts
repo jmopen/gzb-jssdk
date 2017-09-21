@@ -275,3 +275,15 @@ export type SelectSessionResponse = SelectSessionResponseOld['session']
 export interface GetLanguageResponseOld extends BridgeCommonResponse {
   language: string
 }
+
+// 1.1
+
+/**
+ * 预览图片请求参数
+ */
+export interface PreviewImgParams {
+  url: string[]
+  index: number
+}
+
+export type previewImgResponse = BridgeCommonResponse
