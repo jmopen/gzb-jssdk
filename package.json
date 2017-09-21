@@ -26,7 +26,6 @@
   "lint-staged": {
     "*.ts?(x)": [
       "npm run prettier",
-      "npm run lint",
       "git add"
     ]
   },

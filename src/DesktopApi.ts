@@ -115,6 +115,7 @@ export default class DesktopApi extends Api {
       .registerHandler(Handlers.PAGE_GO_BACK)
       // 1.1
       .registerHandler(Handlers.PREVIEW_IMG)
+      .registerHandler(Handlers.OPEN_FILE)
   }
 
   /**

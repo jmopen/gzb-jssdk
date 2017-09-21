@@ -12,6 +12,7 @@ import * as Events from './events'
 import { Bridge, BridgeResponseError } from './Bridge'
 import EventEmitter, { CustomEvent } from './EventEmitter'
 import {
+  BridgeCommonResponse,
   LegacyCallback,
   ChooseImgParams,
   ChooseImgResponseOld,
@@ -715,6 +716,32 @@ export default abstract class Api extends EventEmitter {
             reject(err)
           }
         })
+      })
+    })
+  }
+
+  /**
+   * 打开指定文件
+   * @param {string} url 文件url
+   */
+  public openFile(url: string): Promise<void> {
+    return new Promise((resolve, reject) => {
+      Device.bridgeAvailable().then(avail => {
+        if (avail && Device.windows()) {
+          this.setUpBridge(bridge => {
+            bridge.callHandler(Handlers.OPEN_FILE, { url }, res => {
+              const data: BridgeCommonResponse = parse(res)
+              if (data.result === 'true') {
+                resolve()
+              } else {
+                reject(new BridgeResponseError(data.errCode, data.errMsg))
+              }
+            })
+          })
+        } else {
+          window.open(url)
+          resolve()
+        }
       })
     })
   }
