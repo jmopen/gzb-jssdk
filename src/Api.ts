@@ -34,7 +34,10 @@ import {
   SelectSessionResponse,
   GetLanguageResponseOld,
   PreviewImgParams,
-  previewImgResponse,
+  PreviewImgResponse,
+  RequestPermissionParams,
+  RequestPermissionResponse,
+  SetNativeMenuItemParams,
 } from './protocol'
 
 export type Callback = (payload: any) => any
@@ -65,6 +68,8 @@ const defaultChooseImageParams: ChooseImgParams = {
 
 const defaultSelectSessionParams = { multiple: true }
 
+let uid: number = 0
+
 /**
  * 解析bridge 返回的数据
  */
@@ -92,6 +97,7 @@ export default abstract class Api extends EventEmitter {
     callback: () => void,
   ): void
   protected abstract teardownEventWatcher(eventName: string): void
+  private menuItems: { [title: string]: number } = {}
 
   public isReady: boolean = false
   private beforeUnloadHandler: (e: Event) => any
@@ -706,7 +712,7 @@ export default abstract class Api extends EventEmitter {
       this.setUpBridge(bridge => {
         bridge.callHandler(Handlers.PREVIEW_IMG, params, res => {
           try {
-            const data: previewImgResponse = parse(res)
+            const data: PreviewImgResponse = parse(res)
             if (data.result === 'true') {
               resolve()
             } else {
@@ -743,6 +749,83 @@ export default abstract class Api extends EventEmitter {
           resolve()
         }
       })
+    })
+  }
+
+  public requestPermissionAndroid(
+    params: RequestPermissionParams,
+  ): Promise<RequestPermissionResponse> {
+    return new Promise((resolve, reject) => {
+      if (!Device.android()) {
+        throw new Error('requestPermissionAndroid 目前只支持Android平台')
+      }
+      this.setUpBridge(bridge => {
+        bridge.callHandler(Handlers.REQUEST_PERMISSION_ANDROID, params, res => {
+          const data: RequestPermissionResponse & BridgeCommonResponse = parse(
+            res,
+          )
+          if (data.result === 'true') {
+            resolve({ data: data.data })
+          } else {
+            reject(new BridgeResponseError(data.errCode, data.errMsg))
+          }
+        })
+      })
+    })
+  }
+
+  public addMenuItem(
+    title: string,
+    callback: (err: BridgeResponseError | null) => void,
+  ) {
+    if (title in this.menuItems) {
+      throw new Error(`[GZB-JSSDK]: 菜单项 ${title} 已存在`)
+    }
+    this.setUpBridge(bridge => {
+      const id = uid++
+      this.menuItems[title] = id
+      bridge.callHandler(
+        Handlers.ADD_MENU_ITEM,
+        {
+          id,
+          title,
+        },
+        res => {
+          const data: BridgeCommonResponse = parse(res)
+          if (data.result === 'true') {
+            callback(null)
+          } else {
+            callback(new BridgeResponseError(data.errCode, data.errMsg))
+          }
+        },
+      )
+    })
+  }
+
+  public removeMenuItem(title: string) {
+    if (process.env.NODE_ENV === 'development') {
+      if (!(title in this.menuItems)) {
+        throw new Error(`[GZB-JSSDK]: 菜单项 ${title} 不存在`)
+      }
+    }
+    if (title in this.menuItems) {
+      this.setUpBridge(bridge => {
+        bridge.callHandler(Handlers.REMOVE_MENU_ITEM, {
+          ids: [this.menuItems[title]],
+        })
+      })
+    }
+  }
+
+  /**
+   * 控制更多按钮菜单下的原生按钮
+   * 
+   * @param {SetNativeMenuItemParams} params 
+   * @memberof Api
+   */
+  public setNativeMenuItem(params: SetNativeMenuItemParams) {
+    this.setUpBridge(bridge => {
+      bridge.callHandler(Handlers.SET_NATIVE_MENU_ITEM, params)
     })
   }
 
