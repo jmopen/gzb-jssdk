@@ -35,9 +35,8 @@
       - [1. 图片预览接口](#1-图片预览接口)
       - [2. 文件打开接口](#2-文件打开接口)
       - [3. 图片选择器优化](#3-图片选择器优化)
-      - [4. 安卓接口权限检查](#4-安卓接口权限检查)
-      - [6. 安卓接口权限请求](#6-安卓接口权限请求)
-      - [6. 自定义‘更多’按钮菜单](#6-自定义更多按钮菜单)
+      - [4. 安卓接口权限请求](#4-安卓接口权限请求)
+      - [5. 自定义‘更多’按钮菜单](#5-自定义更多按钮菜单)
   - [5. 历史记录](#5-历史记录)
 
 <!-- /TOC -->
@@ -145,7 +144,7 @@
 
 ### 打电话(makecalltonumber)
 
-* 名称: makecalltonumber
+* 名称: makeCallToNumber
 * 描述: 客户端app接收电话号码后使用网络拨打该号码
 * 平台: `ios` | `android` | `pc`
 * 请求：
@@ -615,12 +614,13 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 #### 1. 图片预览接口
 * 名称: previewImg
 * 描述: 打开原生图片预览窗口， 预览指定图片
+* 场景：审批应用附件图片预览
 * 平台: `ios` | `android` | `PC`
 * 请求： 
 ```
 {
-  url: string[],   // 需要预览的图片链接(url)数组
-  current: string, // 当前显示的图片链接
+  url: string[],   // 需要预览的图片链接数组
+  index: number,   // 当前显示的图片索引， 索引从0开始
 }
 ```
 
@@ -644,13 +644,13 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 
 #### 2. 文件打开接口
 * 名称: openFile
-* 描述：开发原生文件预览程序，下载或预览指定文件
+* 描述：打开原生文件预览程序，下载和预览指定文件
+* 场景：审批应用预览附件
 * 平台： `PC`
 * 请求：
 ```
 {
-  path: string,      // 文件url，或路径(提议)
-  fileType?: string, // 文件类型， 如doc，xls， ppt， pdf. 可选，为空时自动判断
+  url: string,      // 文件url
 }
 ```
 
@@ -674,48 +674,30 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 
 #### 3. 图片选择器优化
 见[图片选择器](#图片选择器chooseimg)：
-+ 新增请求字段： actionType. 表示操作类型， camera 打开相机， gallery打开相册. 默认为default，弹出一个actionsheet， 由 * 用户自主选择
-
++ 新增请求字段： actionType. 表示操作类型， camera 打开相机， gallery打开相册. 默认为default，弹出一个actionsheet， 由用户自主选择. PC端忽略
 + 新增响应字段： name. 表示文件名
 
 ----
 
-#### 4. 安卓接口权限检查
-* 名称: checkPermissionAndroid
-* 描述：检查自己是否具有权限
-* 平台： `Android`
-* 请求：
-```
-{
-  permission: string,  // 待协议
-}
-```
-
-* 响应
-```
-{
-  "result": "true",     // 字符串类型，'true'表示成功 'false'表示失败
-  "errcode": number,    // 错误码
-  "errmsg": string,     // 错误信息
-  "granted": boolean,   // 如果通过则为true
-}
-```
-
-----
-
-#### 6. 安卓接口权限请求
+#### 4. 安卓接口权限请求
 
 * 名称: requestPermissionAndroid
-* 描述：检查自己是否具有权限
+* 描述：检查和请求系统权限
+* 场景：安卓下如果没有权限，会默认失败, 没有反馈，比如打开相机
 * 平台： `Android`
 * 请求：
 ```
 {
-  permission: string,  // 待协议
-  title?: string,      // 用于向用户解释
-  message?: string     // 内容
+  permissions: string[],  // 权限id数组
 }
 ```
+
+支持权限值
+
+| 权限名 | 描述|
+|--------|---------|
+| CAMERA | 访问相机 |
+| LOCATION | 获取定位信息 |
 
 * 响应
 ```
@@ -723,13 +705,13 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
   "result": "true",     // 字符串类型，'true'表示成功 'false'表示失败
   "errcode": number,    // 错误码
   "errmsg": string,     // 错误信息
-  "granted": boolean,   // 如果通过则为true
+  "data": boolean[],    // boolean数组，表示权限是否通过， 按照请求的permissions数组的顺序返回
 }
 ```
 
 ---
 
-#### 6. 自定义‘更多’按钮菜单
+#### 5. 自定义‘更多’按钮菜单
 添加按钮
 
 * 名称: addMenuItem
@@ -738,10 +720,8 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 * 请求：
 ```
 {
-  id: string,           // 唯一的按钮id
-  title: {              // 菜单名，支持多语言
-    [locale: string]: string,
-  }
+  id: string           // 唯一的按钮id
+  title: string        // 按钮显示文字
 }
 ```
 
@@ -758,7 +738,7 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 
 * 名称: removeMenuItem
 * 描述：移除菜单项
-* 平台： `Android` | `IOS` | `PC`
+* 平台： `Android` | `IOS`
 * 请求：
 ```
 {
@@ -775,7 +755,29 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 }
 ```
 
+---
 
+* 名称: setNativeMenuItem
+* 描述：设置原生菜单项
+* 平台： `Android` | `IOS`
+* 场景： web页面根据需要显示和隐藏“分享”按钮
+* 请求：
+```
+{
+  id: string,       // 原生按钮id
+  visible: boolean, // 为true时显示，为false时隐藏
+}
+```
+可用id：
+
+| id     | 描述 |
+|--------|------|
+|refresh | 刷新按钮 |
+|share | 分享按钮 |
+|copyLink | 复制链接按钮 |
+|openWithBrowser | 浏览器打开按钮 |
+
+* 响应: 无
 
 [⬆返回顶部](#gzb-jssdk-接口协议)
 ## 5. 历史记录
