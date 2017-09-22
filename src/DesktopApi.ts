@@ -98,7 +98,7 @@ export default class DesktopApi extends Api {
         window.HandleEvent(
           `On${upperFirst(Handlers.OPEN_URL)}`,
           data.url,
-          JSON.stringify(data)
+          JSON.stringify(data),
         )
       })
       .registerHandler<{ id: string }>(Handlers.OPEN_CONTACT_ITEM, {
@@ -113,6 +113,9 @@ export default class DesktopApi extends Api {
       .registerHandler(Handlers.GET_LANGUAGE)
       .registerHandler(Handlers.WINDOW_CLOSE)
       .registerHandler(Handlers.PAGE_GO_BACK)
+      // 1.1
+      .registerHandler(Handlers.PREVIEW_IMG)
+      .registerHandler(Handlers.OPEN_FILE)
   }
 
   /**

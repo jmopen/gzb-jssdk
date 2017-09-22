@@ -72,7 +72,7 @@ export interface ChooseImgParams {
 export interface ChooseImgResponseOld extends BridgeCommonResponse {
   quality: number
   imgData: string
-  name?: string
+  name: string
   imgType: ImageType
   imgWidth: number
   imgHeight: number
@@ -274,4 +274,32 @@ export type SelectSessionResponse = SelectSessionResponseOld['session']
  */
 export interface GetLanguageResponseOld extends BridgeCommonResponse {
   language: string
+}
+
+// 1.1
+
+/**
+ * 预览图片请求参数
+ */
+export interface PreviewImgParams {
+  url: string[]
+  index: number
+}
+
+export type PreviewImgResponse = BridgeCommonResponse
+
+/**
+ * 安卓系统权限请求参数
+ */
+export interface RequestPermissionParams {
+  permissions: string[]
+}
+
+export interface RequestPermissionResponse {
+  data: boolean[]
+}
+
+export interface SetNativeMenuItemParams {
+  id: 'refresh' | 'share' | 'copyLink' | 'openWithBrowser'
+  visible: boolean
 }
