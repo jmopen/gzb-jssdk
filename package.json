@@ -81,10 +81,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GDJiaMi/gzb-jssdk.git"
+    "url": "git+https://github.com/jmopen/gzb-jssdk.git"
   },
   "bugs": {
-    "url": "https://github.com/GDJiaMi/gzb-jssdk/issues"
+    "url": "https://github.com/jmopen/gzb-jssdk/issues"
   },
-  "homepage": "https://github.com/GDJiaMi/gzb-jssdk#readme"
+  "homepage": "https://github.com/jmopen/gzb-jssdk#readme"
 }
