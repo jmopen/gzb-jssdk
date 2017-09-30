@@ -5,7 +5,7 @@
  <br/>
 </p>
 
-工作宝JSSDK, 是[工作宝APP](https://www.mygzb.com/)面向网页开发者提供的开发工具包， 
+工作宝JSSDK, 是[工作宝APP](https://www.mygzb.com/)面向web应用提供的开发工具包， 
 用于在工作宝应用的webview内调用APP 服务. 目前支持`PC`, `Android`, `IOS`平台。
 
 通过这些接口可以实现选择图片，获取当前位置，分享，拨打电话， 发送短信，打开工作宝应用对话框等功能，
@@ -22,6 +22,9 @@ yarn add @gdjiami/gzb-jssdk
 npm install @gdjiami/gzb-jssdk --save
 ```
 
+## 接口协议
+[GZB-JSSDK-SPECS](https://github.com/jmopen/gzb-jssdk/blob/master/specs.md)
+
 ## DEMO
 [GZB-JSSDK-DEMO](https://gdjiami.github.io/gzb-jssdk-demo/index.html#/)
 
@@ -30,9 +33,6 @@ npm install @gdjiami/gzb-jssdk --save
 + [MobileApi](https://github.com/jmopen/gzb-jssdk/blob/master/docs/api/classes/_mobileapi_.mobileapi.md)
 + [Device](https://github.com/jmopen/gzb-jssdk/blob/master/docs/api/classes/_devicedetector_.devicedector.md)
 + [Protocal](https://github.com/jmopen/gzb-jssdk/blob/master/docs/api/modules/_protocol_.md)
-
-## 接口协议
-[GZB-JSSDK-SPECS](https://github.com/jmopen/gzb-jssdk/blob/master/specs.md)
 
 ## 使用
 基本使用
