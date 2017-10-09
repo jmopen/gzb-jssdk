@@ -500,7 +500,7 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 * 请求： 
 ```
 {
-  type: 1 | 2 | 3        // 1群聊，2 单聊， 3 公告广播
+  type: 1 | 2 | 3 | 4    // 1群聊，2 单聊， 3 公告广播, 4, 访客
   id: string             // 会话id， 群组或用户id
   messageId?: string     // 消息记录id
 }

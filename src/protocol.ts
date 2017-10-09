@@ -191,6 +191,10 @@ export enum DialogType {
    * 公告广播
    */
   Announcement,
+  /**
+   * 打开访客聊天窗口, id为访客id
+   */
+  Visitor,
 }
 
 /**

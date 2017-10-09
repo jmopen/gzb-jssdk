@@ -1,6 +1,6 @@
 {
   "name": "@gdjiami/gzb-jssdk",
-  "version": "1.0.5-beta",
+  "version": "1.0.6-beta",
   "description": "MyGZB JSSDK",
   "main": "dist/gzb-jssdk.js",
   "umd:main": "dist/gzb-jssdk.umd.js",
@@ -11,7 +11,7 @@
   "scripts": {
     "build": "npm run build:ts && npm run build:copy && rollup --config rollup.config.js && npm run build:doc",
     "build:ts": "rimraf lib && tsc",
-    "build:doc": "rimraf docs/api && typedoc --out ./docs/api --theme markdown --readme ./README.md --ignoreCompilerErrors --exclude \"**/__tests__/*\" ./src",
+    "build:doc": "rimraf docs/api && typedoc --out ./docs/api --readme ./README.md --ignoreCompilerErrors --exclude \"**/__tests__/*\" ./src",
     "build:copy": "cpr lib dist --delete-first --filter \"\\.js\" # copy Typescript declarations to dist",
     "watch": "npm run build:ts && concurrently --kill-others  \"tsc --watch\" \"rollup --config rollup.config.js --watch\"",
     "clean": "rimraf lib dist docs/api",
