@@ -292,17 +292,6 @@ export interface PreviewImgParams {
 
 export type PreviewImgResponse = BridgeCommonResponse
 
-/**
- * 安卓系统权限请求参数
- */
-export interface RequestPermissionParams {
-  permissions: string[]
-}
-
-export interface RequestPermissionResponse {
-  data: boolean[]
-}
-
 export interface SetNativeMenuItemParams {
   id: 'refresh' | 'share' | 'copyLink' | 'openWithBrowser'
   visible: boolean

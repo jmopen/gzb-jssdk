@@ -1,6 +1,6 @@
 # GZB JSSDK 接口协议
 
-当前版本: 1.0.0
+当前版本: 1.0.1
 
 <!-- TOC -->
 
@@ -681,7 +681,7 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 
 #### 4. 安卓接口权限请求
 
-* 名称: requestPermissionAndroid
+* 名称: requestPermissionAndroid(作废)
 * 描述：检查和请求系统权限
 * 场景：安卓下如果没有权限，会默认失败, 没有反馈，比如打开相机
 * 平台： `Android`
@@ -716,7 +716,7 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 
 * 名称: addMenuItem
 * 描述：添加菜单项
-* 平台： `Android` | `IOS`
+* 平台： `Android` | `IOS` | `PC`
 * 请求：
 ```
 {
@@ -738,7 +738,7 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 
 * 名称: removeMenuItem
 * 描述：移除菜单项
-* 平台： `Android` | `IOS`
+* 平台： `Android` | `IOS` | `PC`
 * 请求：
 ```
 {
@@ -752,7 +752,7 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 
 * 名称: setNativeMenuItem
 * 描述：设置原生菜单项
-* 平台： `Android` | `IOS`
+* 平台： `Android` | `IOS` | `PC`
 * 场景： web页面根据需要显示和隐藏“分享”按钮
 * 请求：
 ```
@@ -773,6 +773,10 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 * 响应: 无
 
 [⬆返回顶部](#gzb-jssdk-接口协议)
+
 ## 5. 历史记录
+
++ 1.0.1: 2017.10.16
+  * 移除安卓端权限请求接口
 
 [⬆返回顶部](#gzb-jssdk-接口协议)

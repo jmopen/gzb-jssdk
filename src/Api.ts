@@ -35,8 +35,6 @@ import {
   GetLanguageResponseOld,
   PreviewImgParams,
   PreviewImgResponse,
-  RequestPermissionParams,
-  RequestPermissionResponse,
   SetNativeMenuItemParams,
 } from './protocol'
 
@@ -748,28 +746,6 @@ export default abstract class Api extends EventEmitter {
           window.open(url)
           resolve()
         }
-      })
-    })
-  }
-
-  public requestPermissionAndroid(
-    params: RequestPermissionParams,
-  ): Promise<RequestPermissionResponse> {
-    return new Promise((resolve, reject) => {
-      if (!Device.android()) {
-        throw new Error('requestPermissionAndroid 目前只支持Android平台')
-      }
-      this.setUpBridge(bridge => {
-        bridge.callHandler(Handlers.REQUEST_PERMISSION_ANDROID, params, res => {
-          const data: RequestPermissionResponse & BridgeCommonResponse = parse(
-            res,
-          )
-          if (data.result === 'true') {
-            resolve({ data: data.data })
-          } else {
-            reject(new BridgeResponseError(data.errCode, data.errMsg))
-          }
-        })
       })
     })
   }

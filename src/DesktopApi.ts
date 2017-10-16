@@ -116,6 +116,9 @@ export default class DesktopApi extends Api {
       // 1.1
       .registerHandler(Handlers.PREVIEW_IMG)
       .registerHandler(Handlers.OPEN_FILE)
+      .registerHandler(Handlers.ADD_MENU_ITEM)
+      .registerHandler(Handlers.REMOVE_MENU_ITEM)
+      .registerHandler(Handlers.SET_NATIVE_MENU_ITEM)
   }
 
   /**

@@ -29,7 +29,6 @@ export const PAGE_GO_BACK = 'pgGoBack'
 // 1.1
 export const PREVIEW_IMG = 'previewImg'
 export const OPEN_FILE = 'openFile'
-export const REQUEST_PERMISSION_ANDROID = 'requestPermissionAndroid'
 export const ADD_MENU_ITEM = 'addMenuItem'
 export const REMOVE_MENU_ITEM = 'removeMenuItem'
 export const SET_NATIVE_MENU_ITEM = 'setNativeMenuItem'
