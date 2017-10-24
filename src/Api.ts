@@ -902,17 +902,19 @@ export default abstract class Api extends EventEmitter {
 
   public constructor() {
     super()
-    this.setupEventWatchers()
-    Device.bridgeAvailable().then(() => {
-      const readyEvent = new CustomEvent(Events.ready)
-      this.emit(Events.ready, readyEvent)
-      this.isReady = true
-      this.innerAddEventListener('__addListener__', eventType => {
-        if (eventType === Events.ready) {
-          this.emit(Events.ready, readyEvent)
-        }
+    setTimeout(() => {
+      this.setupEventWatchers()
+      Device.bridgeAvailable().then(() => {
+        const readyEvent = new CustomEvent(Events.ready)
+        this.emit(Events.ready, readyEvent)
+        this.isReady = true
+        this.innerAddEventListener('__addListener__', eventType => {
+          if (eventType === Events.ready) {
+            this.emit(Events.ready, readyEvent)
+          }
+        })
       })
-    })
+    }, 0)
   }
 
   public teardown() {

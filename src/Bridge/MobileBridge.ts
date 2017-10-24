@@ -4,6 +4,7 @@
  */ /** */
 /* tslint:disable: no-any */
 import Bridge from './Bridge'
+import Device from '../DeviceDetector'
 import { debug, noop } from '../utils'
 
 export default class MobileBridge {
@@ -70,27 +71,33 @@ export default class MobileBridge {
     } else {
       // 进行初始化
       window.WVJBCallbacks = [_callback]
-      // IOS
-      const WVJBIframe = document.createElement('iframe')
-      WVJBIframe.style.display = 'none'
-      WVJBIframe.src = 'https://__bridge_loaded__'
-      document.documentElement.appendChild(WVJBIframe)
-      setTimeout(() => {
-        document.documentElement.removeChild(WVJBIframe)
-      }, 0)
-
-      // Android
-      document.addEventListener(
-        'WebViewJavascriptBridgeReady',
-        () => {
-          const callbacks = window.WVJBCallbacks
-          delete window.WVJBCallbacks
-          callbacks.forEach(cb => {
-            cb(window.WebViewJavascriptBridge)
-          })
-        },
-        false,
-      )
+      if (!Device.android()) {
+        // IOS
+        const WVJBIframe = document.createElement('iframe')
+        WVJBIframe.style.display = 'none'
+        WVJBIframe.src = 'https://__bridge_loaded__'
+        document.documentElement.appendChild(WVJBIframe)
+        setTimeout(() => {
+          document.documentElement.removeChild(WVJBIframe)
+        }, 0)
+      } else {
+        // Android
+        document.addEventListener(
+          'WebViewJavascriptBridgeReady',
+          () => {
+            // 修复android端无法调用回调的问题
+            if (typeof window.WebViewJavascriptBridge.init === 'function') {
+              window.WebViewJavascriptBridge.init()
+            }
+            const callbacks = window.WVJBCallbacks
+            delete window.WVJBCallbacks
+            callbacks.forEach(cb => {
+              cb(window.WebViewJavascriptBridge)
+            })
+          },
+          false,
+        )
+      }
     }
   }
 
