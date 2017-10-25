@@ -9,12 +9,14 @@ import { debug, noop } from '../utils'
 
 export default class MobileBridge {
   private static instance: MobileBridge
+  private androidBridgeInitialized: boolean = false
   public static getInstance() {
     if (!this.instance) {
       return (this.instance = new MobileBridge())
     }
     return this.instance
   }
+  // 表示是否调用了android的WebViewJavascriptBridge.init() 方法
   /**
    * ## 初始化桥接
    * IOS 端基于[`marcuswestin/WebViewJavascriptBridge`](https://github.com/marcuswestin/WebViewJavascriptBridge#usage)
@@ -64,6 +66,13 @@ export default class MobileBridge {
       if (typeof window.WebViewJavascriptBridge.init === 'undefined') {
         window.WebViewJavascriptBridge.init = noop
       }
+
+      // 确保android调用init方法
+      if (!this.androidBridgeInitialized && Device.android()) {
+        window.WebViewJavascriptBridge.init()
+        this.androidBridgeInitialized = true
+      }
+
       _callback(window.WebViewJavascriptBridge)
     } else if (window.WVJBCallbacks) {
       // 正在初始化中
@@ -88,6 +97,7 @@ export default class MobileBridge {
             // 修复android端无法调用回调的问题
             if (typeof window.WebViewJavascriptBridge.init === 'function') {
               window.WebViewJavascriptBridge.init()
+              this.androidBridgeInitialized = true
             }
             const callbacks = window.WVJBCallbacks
             delete window.WVJBCallbacks
