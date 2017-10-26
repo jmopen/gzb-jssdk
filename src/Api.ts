@@ -757,25 +757,7 @@ export default abstract class Api extends EventEmitter {
     if (title in this.menuItems) {
       throw new Error(`[GZB-JSSDK]: 菜单项 ${title} 已存在`)
     }
-    this.setUpBridge(bridge => {
-      const id = uid++
-      this.menuItems[title] = id
-      bridge.callHandler(
-        Handlers.ADD_MENU_ITEM,
-        {
-          id,
-          title,
-        },
-        res => {
-          const data: BridgeCommonResponse = parse(res)
-          if (data.result === 'true') {
-            callback(null)
-          } else {
-            callback(new BridgeResponseError(data.errCode, data.errMsg))
-          }
-        },
-      )
-    })
+    this.addNativeMenuItem({ id: uid++, title }, callback)
   }
 
   public removeMenuItem(title: string) {
@@ -919,6 +901,28 @@ export default abstract class Api extends EventEmitter {
 
   public teardown() {
     this.teardownEventWatchers()
+  }
+
+  private addNativeMenuItem(
+    payload: { id: number; title: string },
+    callback: (err: BridgeResponseError | null) => void,
+  ) {
+    const { id, title } = payload
+    this.setUpBridge(bridge => {
+      this.menuItems[title] = id
+      bridge.callHandler(Handlers.ADD_MENU_ITEM, payload, res => {
+        const data: BridgeCommonResponse = parse(res)
+        if (data.result === 'true') {
+          callback(null)
+          // 重新监听
+          if (title in this.menuItems) {
+            this.addNativeMenuItem(payload, callback)
+          }
+        } else {
+          callback(new BridgeResponseError(data.errCode, data.errMsg))
+        }
+      })
+    })
   }
 
   private setupEventWatchers() {

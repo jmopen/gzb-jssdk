@@ -733,6 +733,8 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
   "errMsg": string,     // 错误信息
 }
 ```
+> 注意：由于JS回调在点击调用后， 会被JS bridge处理器的释放掉， 导致第二次点击触发时无法调用
+> JS 回调. 所以这里的解决办法时允许对同一个id重复添加。如果id已存在，则更新callbackId
 
 ---
 

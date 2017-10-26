@@ -38,7 +38,7 @@ npm install @gdjiami/gzb-jssdk --save
 基本使用
 
 ```typescript
-import Api, { BridgeResponseError } from 'gzb-jssdk'
+import Api, { BridgeResponseError } from '@gdjiami/gzb-jssdk'
 const api = api()
 
 // 简单接口
@@ -93,7 +93,7 @@ api.addListener('beforeunload', event => {
 用户代理检测
 
 ```typescript
-import { Device } from 'gzb-jssdk'
+import { Device } from '@gdjiami/gzb-jssdk'
 
 if (Device.mobile()) {
   // is mobile

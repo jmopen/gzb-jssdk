@@ -6,7 +6,6 @@ yarn-debug.log*
 yarn-error.log*
 .yeanclean
 .DS_Store
-.vscode
 .temp
 build/
 lib/
