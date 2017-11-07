@@ -21,6 +21,8 @@ declare global {
   }
 }
 
+const VERSION = '1.1.11-beta'
+
 export {
   Api,
   BridgeResponseError,
@@ -30,6 +32,7 @@ export {
   EventEmitter,
   MobileApi,
   Utils,
+  VERSION,
 }
 
 export function api() {
