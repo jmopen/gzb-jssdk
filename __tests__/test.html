@@ -173,7 +173,11 @@
       api.mail('carney520@hotmail.com')
     })
     api.addListener('beforeunload', function (event) {
-      return 'beforeunload触发, 确认退出？'
+      event.preventDefault()
+      console.log('退出， 弹出自定义框')
+      window.alert('确认退出(Y/n)')
+      console.log('退出')
+      api.exit()
     })
 
     api.addListener('beforegoback', function (event) {

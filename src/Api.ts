@@ -1006,12 +1006,12 @@ export default abstract class Api extends EventEmitter {
           })
           const res = this.emit(Events.beforeunload, event)
           if (hasPreventDefault(res) || event.defaultPrevented) {
-            const confirm =
-              getConfirmMessage(res) ||
-              event.returnValue ||
-              'Are you sure to exit?'
-            if (window.confirm(confirm)) {
-              this.exit()
+            const confirm = getConfirmMessage(res) || event.returnValue
+            // 如果传递了确认信息， 将默认使用window.confirm
+            if (confirm) {
+              if (window.confirm(confirm)) {
+                this.exit()
+              }
             }
           } else {
             this.exit()
