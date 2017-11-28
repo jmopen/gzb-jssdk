@@ -31,6 +31,7 @@
   <button id="toggleMoreButton">toggleMoreButton</button>
   <button id="getLocation">getLocation</button>
   <button id="mail">mail</button>
+  <button id="add-menu-item">add MenuItem</button>
   <a href="/">link</a>
   <script src="../node_modules/eruda/eruda.min.js"></script>
   <script>
@@ -167,6 +168,12 @@
         .catch(err => {
           console.error(err)
         })
+    })
+
+    document.getElementById('add-menu-item').addEventListener('click', function () {
+      api.addMenuItem('添加按钮', function () {
+        console.log('点击了添加按钮')
+      })
     })
 
     document.getElementById('mail').addEventListener('click', function () {

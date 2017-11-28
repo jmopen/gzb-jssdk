@@ -95,7 +95,7 @@ export default abstract class Api extends EventEmitter {
     callback: () => void,
   ): void
   protected abstract teardownEventWatcher(eventName: string): void
-  private menuItems: { [title: string]: number } = {}
+  private menuItems: { [title: string]: string } = {}
 
   public isReady: boolean = false
   private beforeUnloadHandler: (e: Event) => any
@@ -757,7 +757,7 @@ export default abstract class Api extends EventEmitter {
     if (title in this.menuItems) {
       throw new Error(`[GZB-JSSDK]: 菜单项 ${title} 已存在`)
     }
-    this.addNativeMenuItem({ id: uid++, title }, callback)
+    this.addNativeMenuItem({ id: String(uid++), title }, callback)
   }
 
   public removeMenuItem(title: string) {
@@ -904,7 +904,7 @@ export default abstract class Api extends EventEmitter {
   }
 
   private addNativeMenuItem(
-    payload: { id: number; title: string },
+    payload: { id: string; title: string },
     callback: (err: BridgeResponseError | null) => void,
   ) {
     const { id, title } = payload
