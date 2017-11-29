@@ -775,6 +775,7 @@ export default abstract class Api extends EventEmitter {
         bridge.callHandler(Handlers.REMOVE_MENU_ITEM, {
           ids: [this.menuItems[title]],
         })
+        delete this.menuItems[title]
       })
     }
   }
