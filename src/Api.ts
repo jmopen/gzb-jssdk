@@ -735,7 +735,11 @@ export default abstract class Api extends EventEmitter {
           this.setUpBridge(bridge => {
             bridge.callHandler(Handlers.OPEN_FILE, { url }, res => {
               const data: BridgeCommonResponse = parse(res)
-              if (data.result === 'true') {
+              if (
+                typeof data.result === 'boolean'
+                  ? data.result
+                  : data.result === 'true'
+              ) {
                 resolve()
               } else {
                 reject(new BridgeResponseError(data.errCode, data.errMsg))
