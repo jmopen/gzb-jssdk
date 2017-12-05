@@ -1,6 +1,6 @@
 {
   "name": "@gdjiami/gzb-jssdk",
-  "version": "1.1.14-beta",
+  "version": "1.1.16-beta",
   "description": "MyGZB JSSDK",
   "main": "dist/gzb-jssdk.js",
   "umd:main": "dist/gzb-jssdk.umd.js",

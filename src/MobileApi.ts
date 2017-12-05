@@ -148,16 +148,22 @@ export default class MobileApi extends Api {
           hideMoreBtn: this.setBarOptions.hideMoreBtn.toString(),
         },
         res => {
-          const cb =
-            res.buttonId === 'close' ? this.closeCallback : this.gobackCallback
-          if (cb) {
-            cb()
-          }
-
           // 重新注册
           setTimeout(() => {
             this.setupBarWatcher()
           }, 0)
+
+          if (res.result !== 'true') {
+            return
+          }
+
+          const cb =
+            res.buttonId === 'close'
+              ? this.closeCallback
+              : res.buttonId === 'goback' ? this.gobackCallback : null
+          if (cb) {
+            cb()
+          }
         },
       )
     })
