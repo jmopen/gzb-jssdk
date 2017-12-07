@@ -98,7 +98,6 @@ export default abstract class Api extends EventEmitter {
   private menuItems: { [title: string]: string } = {}
 
   public isReady: boolean = false
-  private beforeUnloadHandler: (e: Event) => any
 
   public addListener(
     eventType: EventType,

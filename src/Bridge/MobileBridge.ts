@@ -35,28 +35,33 @@ export default class MobileBridge {
     let _callback = callback
 
     // 猴补丁， 用于输出debug信息
-    if (process.env.NODE_ENV === 'development') {
-      _callback = (bridge: Bridge) => {
-        const _bridge = { ...bridge }
-        const orgCallHandler = bridge.callHandler
+    _callback = (bridge: Bridge) => {
+      const _bridge = { ...bridge }
+      const orgCallHandler = bridge.callHandler
 
-        _bridge.callHandler = (
-          type: string,
-          payload: any,
-          responseCallback?: (data: any) => void,
-        ) => {
+      _bridge.callHandler = (
+        type: string,
+        payload: any,
+        responseCallback?: (data: any) => void,
+      ) => {
+        if (process.env.NODE_ENV === 'development') {
           debug(`[Mobile Bridge]: << 调用 Handler ${type}\n -- payload`, payload)
-          const _responseCallback = (data: any) => {
-            debug(`[Mobile Bridge]: >> Handler 响应 ${type} \n -- payload`, data)
-            if (typeof responseCallback === 'function') {
-              responseCallback(data)
-            }
-          }
-          return orgCallHandler(type, payload, _responseCallback)
         }
-
-        callback(_bridge)
+        const _responseCallback = (data: any) => {
+          if (process.env.NODE_ENV === 'development') {
+            debug(`[Mobile Bridge]: >> Handler 响应 ${type} \n -- payload`, data)
+          }
+          if (data && typeof data === 'string') {
+            data = JSON.parse(data)
+          }
+          if (typeof responseCallback === 'function') {
+            responseCallback(data)
+          }
+        }
+        return orgCallHandler(type, payload, _responseCallback)
       }
+
+      callback(_bridge)
     }
 
     // WebViewJavascriptBridge#usage 6.0 Javascript 有改动
