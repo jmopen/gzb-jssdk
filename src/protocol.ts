@@ -292,7 +292,13 @@ export interface PreviewImgParams {
 
 export type PreviewImgResponse = BridgeCommonResponse
 
+export enum NativeMenuItem {
+  refresh = 'refresh',
+  share = 'share',
+  copyLink = 'copyLink',
+  openWithBrowser = 'openWithBrowser',
+}
 export interface SetNativeMenuItemParams {
-  id: 'refresh' | 'share' | 'copyLink' | 'openWithBrowser'
+  id: NativeMenuItem
   visible: boolean
 }

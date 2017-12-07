@@ -52,7 +52,7 @@ export class DeviceDector {
             }
           }
           MobileBridge.getInstance().setUpBridge(resolved)
-          setTimeout(cancelled, 100)
+          setTimeout(cancelled, 1500)
         }
       }
     })

@@ -952,95 +952,52 @@ export default abstract class Api extends EventEmitter {
    * 返回事件
    */
   private setupBeforeGoBackWatcher() {
-    Device.bridgeAvailable().then(avail => {
-      if (avail) {
-        this.setupEventWatcher(Events.beforegoback, () => {
-          const event = new CustomEvent(Events.beforeunload, {
-            cancelable: true,
-          })
-          const res = this.emit(Events.beforegoback, event)
-          const defaultPrevented =
-            event.defaultPrevented || res.some(v => v === false)
-          if (!defaultPrevented) {
-            // 默认行为
-            this.goback()
-          }
-        })
-      } else {
-        // web 暂无此类事件， 可以使用beforeunload捕获
+    this.setupEventWatcher(Events.beforegoback, () => {
+      const event = new CustomEvent(Events.beforeunload, {
+        cancelable: true,
+      })
+      const res = this.emit(Events.beforegoback, event)
+      const defaultPrevented =
+        event.defaultPrevented || res.some(v => v === false)
+      if (!defaultPrevented) {
+        // 默认行为
+        this.goback()
       }
     })
   }
 
   private teardownBeforeGoBackWatcher() {
-    Device.bridgeAvailable().then(avail => {
-      if (avail) {
-        this.teardownEventWatcher(Events.beforegoback)
-      } else {
-        // web 暂无绑定事件
-      }
-    })
+    this.teardownEventWatcher(Events.beforegoback)
   }
 
   private teardownBeforeUnloadWatcher() {
-    Device.bridgeAvailable().then(avail => {
-      if (avail) {
-        this.teardownEventWatcher(Events.beforeunload)
-      } else {
-        if (this.beforeUnloadHandler) {
-          window.removeEventListener('beforeunload', this.beforeUnloadHandler)
-        }
-      }
-    })
+    this.teardownEventWatcher(Events.beforeunload)
   }
 
   /**
    * 捕获窗口关闭事件
    */
   private setupBeforeUnloadWatcher() {
-    Device.bridgeAvailable().then(avail => {
-      const hasPreventDefault = (res: any[]) =>
-        res.some(v => v === false || (typeof v === 'string' && v !== ''))
-      const getConfirmMessage = (res: any[]) =>
-        res.find(v => typeof v === 'string' && v !== '')
+    const hasPreventDefault = (res: any[]) =>
+      res.some(v => v === false || (typeof v === 'string' && v !== ''))
+    const getConfirmMessage = (res: any[]) =>
+      res.find(v => typeof v === 'string' && v !== '')
 
-      if (avail) {
-        this.setupEventWatcher(Events.beforeunload, () => {
-          const event = new CustomEvent(Events.beforeunload, {
-            cancelable: true,
-          })
-          const res = this.emit(Events.beforeunload, event)
-          if (hasPreventDefault(res) || event.defaultPrevented) {
-            const confirm = getConfirmMessage(res) || event.returnValue
-            // 如果传递了确认信息， 将默认使用window.confirm
-            if (confirm) {
-              if (window.confirm(confirm)) {
-                this.exit()
-              }
-            }
-          } else {
+    this.setupEventWatcher(Events.beforeunload, () => {
+      const event = new CustomEvent(Events.beforeunload, {
+        cancelable: true,
+      })
+      const res = this.emit(Events.beforeunload, event)
+      if (hasPreventDefault(res) || event.defaultPrevented) {
+        const confirm = getConfirmMessage(res) || event.returnValue
+        // 如果传递了确认信息， 将默认使用window.confirm
+        if (confirm) {
+          if (window.confirm(confirm)) {
             this.exit()
           }
-        })
-      } else {
-        // 这里只能是同步的
-        this.beforeUnloadHandler = e => {
-          const event = new CustomEvent(Events.beforeunload, {
-            cancelable: true,
-          })
-          const res = this.emit(Events.beforeunload, event)
-          if (hasPreventDefault(res) || event.defaultPrevented) {
-            // prevent Default
-            const confirm =
-              getConfirmMessage(res) ||
-              event.returnValue ||
-              'Are you sure to exit?'
-            e.returnValue = confirm
-            return confirm
-          }
-          return undefined
         }
-        window.addEventListener('beforeunload', this.beforeUnloadHandler)
+      } else {
+        this.exit()
       }
     })
   }
