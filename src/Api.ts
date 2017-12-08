@@ -952,7 +952,7 @@ export default abstract class Api extends EventEmitter {
    */
   private setupBeforeGoBackWatcher() {
     this.setupEventWatcher(Events.beforegoback, () => {
-      const event = new CustomEvent(Events.beforeunload, {
+      const event = new CustomEvent(Events.beforegoback, {
         cancelable: true,
       })
       const res = this.emit(Events.beforegoback, event)
