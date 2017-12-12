@@ -36,6 +36,7 @@
   - [4. 更新计划/进度](#4-更新计划进度)
     - [1.1.0](#110)
       - [导航](#导航)
+      - [获取当前位置(getLocation)](#获取当前位置getlocation-1)
   - [5. 历史记录](#5-历史记录)
 
 <!-- /TOC -->
@@ -381,6 +382,7 @@ type ButtonId = 'close' | 'goback'
 * 描述: 获取用户当前位置
 * 平台: `ios` | `android` | `PC`
 * 请求：
+
 ```
 {
 	enableHignAccuracy: boolean // (提议) 启用高精度
@@ -389,6 +391,7 @@ type ButtonId = 'close' | 'goback'
 }
 ```
 * 响应：
+
 ```
 /**
  * 地图坐标类型，在中国地区，所有地图的坐标都是经过加密的, 中国地区以外都是GPS坐标
@@ -407,6 +410,7 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 	coordType: CoordType, // (提议) 坐标类型
 	accuracy: number,     // (提议) 精度
 	address: string,      // 反向解析的中文地址
+  speed: number,        // (速度)
 }
 ```
 
@@ -776,6 +780,44 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 |401 | 没有安装地图 |
 |402 | 导航失败 |
 
+#### 获取当前位置(getLocation)
+* 名称: getLocation
+* 描述: 获取用户当前位置
+* 平台: `ios` | `android`
+* 请求：
+
+```
+{
+	enableHignAccuracy: boolean // (提议) 启用高精度
+	timeout: number,            // (提议) 超时，毫秒
+	// 其他
+}
+```
+* 响应：
+
+```
+/**
+ * 地图坐标类型，在中国地区，所有地图的坐标都是经过加密的, 中国地区以外都是GPS坐标
+ * + WGS84 是GPS坐标
+ * + GCJ02 是火星坐标，在中国地区，高德、GoogleMap都是使用这个格式的坐标
+ * + BD08 百度坐标
+ */
+type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
+
+{
+  "result": "true",     // (提议) 字符串类型，'true'表示成功 'false'表示失败
+  "errCode": number,    // (提议) 错误码, 待协定
+  "errMsg": string,     // (提议) 错误信息，待协定
+	latitude: number,
+	longitude: number,
+	coordType: CoordType, // (提议) 坐标类型
+	accuracy: number,     // (提议) 精度
+	address: string,      // 反向解析的中文地址
+  speed: number,        // (速度)
+}
+```
+
+
 [⬆返回顶部](#gzb-jssdk-接口协议)
 
 ## 5. 历史记录
@@ -784,5 +826,6 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
   * 移除安卓端权限请求接口
 + 1.1.0: 2017.12.8
   * 新增导航接口
+  * 优化导航接口 
 
 [⬆返回顶部](#gzb-jssdk-接口协议)
