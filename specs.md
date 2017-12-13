@@ -790,6 +790,7 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 {
 	enableHignAccuracy: boolean // (提议) 启用高精度
 	timeout: number,            // (提议) 超时，毫秒
+  watch: boolean,             // 监视模式(为true时进入监视模式，浏览器端会持续进行请求， 原生可以对其进行针对性优化), 默认为false
 	// 其他
 }
 ```
