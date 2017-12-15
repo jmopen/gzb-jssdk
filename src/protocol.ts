@@ -98,6 +98,7 @@ export interface GetLocationOptions extends PositionOptions {
    * 是否优先调用原生接口， 默认为true
    */
   preferNative: boolean
+  watch: boolean
 }
 
 /**
@@ -114,6 +115,7 @@ export type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 export interface GetLocationResponse {
   latitude: number
   longitude: number
+  speed: number | null
   /**
    * 坐标类型
    */
@@ -126,6 +128,12 @@ export interface GetLocationResponse {
    * 反向解析的中文详细地址
    */
   address?: string
+}
+
+export interface GeoNavigateParams {
+  latitude: number
+  longitude: number
+  address: number
 }
 
 export type BarButtonId = 'close' | 'goback'

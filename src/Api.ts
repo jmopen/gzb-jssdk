@@ -36,6 +36,7 @@ import {
   PreviewImgParams,
   PreviewImgResponse,
   SetNativeMenuItemParams,
+  GeoNavigateParams,
 } from './protocol'
 
 export type Callback = (payload: any) => any
@@ -54,6 +55,7 @@ const defaultGetLocationOptions: GetLocationOptions = {
   enableHighAccuracy: true,
   preferNative: true,
   timeout: Infinity,
+  watch: false,
   maximumAge: 0,
 }
 
@@ -428,25 +430,41 @@ export default abstract class Api extends EventEmitter {
     const _callback = typeof options === 'function' ? options : callback
 
     return new Promise((resolve, reject) => {
-      if (Device.android() && _options.preferNative) {
+      if (_options.preferNative) {
+        delete _options.preferNative
         // android 使用原生接口
         this.setUpBridge(bridge => {
-          bridge.callHandler(Handlers.GET_LOCATION, null, res => {
+          bridge.callHandler(Handlers.GET_LOCATION, _options, res => {
             try {
               const data: {
                 longitude: string
                 latitude: string
                 address: string
+                speed: string
+                coordType: string
+                accuracy: string
               } = parse(res)[0]
               const address = data.address
+              const coordType = data.coordType
               const latitude = parseFloat(data.latitude)
               const longitude = parseFloat(data.longitude)
+              // km/h
+              let speed = parseFloat(data.speed)
+              const meterInOnHour = speed * 1000
+              // 转化为m/s
+              speed = meterInOnHour / 3600
+              const accuracy = parseFloat(data.accuracy)
               // android 默认返回百度地图坐标，但是中国地区外的是GPS坐标
               const response: GetLocationResponse = {
                 latitude,
                 longitude,
                 address,
-                coordType: outOfChina(latitude, longitude) ? 'WGS84' : 'BD09',
+                speed,
+                accuracy,
+                coordType:
+                  coordType === 'bd09ll'
+                    ? 'BD09'
+                    : outOfChina(latitude, longitude) ? 'WGS84' : 'BD09',
               }
               if (typeof _callback === 'function') {
                 deprecatedLegacyCallback('getLocation')
@@ -462,11 +480,12 @@ export default abstract class Api extends EventEmitter {
         // 使用HTML5获取
         navigator.geolocation.getCurrentPosition(
           location => {
-            const { latitude, longitude, accuracy } = location.coords
+            const { latitude, longitude, accuracy, speed } = location.coords
             const res: GetLocationResponse = {
               latitude,
               longitude,
               accuracy,
+              speed,
               coordType: 'WGS84',
             }
             if (typeof _callback === 'function') {
@@ -496,6 +515,16 @@ export default abstract class Api extends EventEmitter {
       this.getLocation,
       this,
     )(callback)
+  }
+
+  public geoNavigate(params: GeoNavigateParams) {
+    this.setUpBridge(bridge => {
+      const payload = {
+        to: params,
+        coordType: 'WGS84',
+      }
+      bridge.callHandler(Handlers.GEO_NAVIGATE, payload)
+    })
   }
 
   /**

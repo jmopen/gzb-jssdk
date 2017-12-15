@@ -748,13 +748,10 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 
 ```
 {
-  from: {
-    latitude: number,
-    longitude: number,
-  },
   to: {
     latitude: number,
     longitude: number,
+    address: string
   },
  /**
   * 地图坐标类型，在中国地区，所有地图的坐标都是经过加密的, 中国地区以外都是GPS坐标
@@ -762,7 +759,7 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
   * + GCJ02 是火星坐标，在中国地区，高德、GoogleMap都是使用这个格式的坐标
   * + BD08 百度坐标
   */
-  coordType: 'WGS84' | 'GCJ02' | 'BD09',
+  coordType: 'WGS84',
 }
 ```
 
