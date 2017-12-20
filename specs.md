@@ -37,6 +37,8 @@
     - [1.1.0](#110)
       - [导航](#导航)
       - [获取当前位置(getLocation)](#获取当前位置getlocation-1)
+    - [1.1.1](#111)
+      - [获取当前环境信息](#获取当前环境信息)
   - [5. 历史记录](#5-历史记录)
 
 <!-- /TOC -->
@@ -821,7 +823,22 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 |402 | 超时 |
 |403 | 位置不可用 |
 
+### 1.1.1
 
+#### 获取当前环境信息
+
+* 名称: getEnvironment
+* 描述: 获取用户当前位置
+* 平台: `ios` | `android` | `pc`
+* 请求：无
+* 响应：
+```
+{
+  version: string,   // 工作宝版本
+  clientType: 'qxAndroid' | 'qxIOS' | 'qxWindows' | 'qxMAC' | 'qxAndroidFT'  // 终端类型
+  apiList: string[], // 支持的接口列表
+}
+```
 
 [⬆返回顶部](#gzb-jssdk-接口协议)
 
@@ -832,5 +849,7 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 + 1.1.0: 2017.12.8
   * 新增导航接口
   * 优化获取位置接口 
++ 1.1.1: 2017.12.20
+  * 新增获取元数据接口
 
 [⬆返回顶部](#gzb-jssdk-接口协议)

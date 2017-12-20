@@ -3,7 +3,7 @@
  * @module
  */ /** */
 import Device, { DeviceDector } from './DeviceDetector'
-import EventEmitter from './EventEmitter'
+import EventEmitter, { CustomEvent } from './EventEmitter'
 import * as Utils from './utils'
 import Api from './Api'
 import MobileApi from './MobileApi'
@@ -30,6 +30,7 @@ export {
   Device,
   DeviceDector,
   EventEmitter,
+  CustomEvent,
   MobileApi,
   Utils,
   VERSION,

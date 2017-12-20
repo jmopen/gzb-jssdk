@@ -133,7 +133,7 @@ export interface GetLocationResponse {
 export interface GeoNavigateParams {
   latitude: number
   longitude: number
-  address: number
+  address: string
 }
 
 export type BarButtonId = 'close' | 'goback'
