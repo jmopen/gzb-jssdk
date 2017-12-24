@@ -755,6 +755,11 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
     longitude: number,
     address: string
   },
+  from: {
+    latitude: number,
+    longitude: number,
+    address: string,
+  }
  /**
   * 地图坐标类型，在中国地区，所有地图的坐标都是经过加密的, 中国地区以外都是GPS坐标
   * + WGS84 是GPS坐标, HTML5位置接口返回的格式

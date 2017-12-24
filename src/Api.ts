@@ -517,10 +517,11 @@ export default abstract class Api extends EventEmitter {
     )(callback)
   }
 
-  public geoNavigate(params: GeoNavigateParams) {
+  public geoNavigate(from: GeoNavigateParams, to: GeoNavigateParams) {
     this.setUpBridge(bridge => {
       const payload = {
-        to: params,
+        to,
+        from,
         coordType: 'WGS84',
       }
       bridge.callHandler(Handlers.GEO_NAVIGATE, payload)
