@@ -21,7 +21,7 @@ declare global {
   }
 }
 
-const VERSION = '1.1.11-beta'
+const VERSION = '1.1.26-beta'
 
 export {
   Api,

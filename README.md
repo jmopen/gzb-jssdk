@@ -46,6 +46,15 @@ api.setTitle('hello gzb')
 
 ```
 
+UMD版本
+```html
+<script src="path/to/gzb-jssdk.umd.js"></script>
+<script>
+  var api = GZB.api()
+  api.setTitle('hello gzb')
+</script>
+```
+
 异步回调接口
 
 ```typescript
@@ -140,7 +149,10 @@ detector.IOS()
 
 > 注意：旧版接口将在下一大版本中移除，不要将他们用在新项目中。详见[CHANGELOG](./CHANGELOG)
 
+> JSSDK 依赖于Promise，你需要确保你的环境支持Promise
+
 [旧版文档入口](https://gdjiami.github.io/gzb-jssdk-legacy/api.html)
+
 
 <h2 id="known-issues">已知问题</h2>
 
