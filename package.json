@@ -1,6 +1,6 @@
 {
   "name": "@gdjiami/gzb-jssdk",
-  "version": "1.1.26-beta",
+  "version": "1.2.0",
   "description": "MyGZB JSSDK",
   "main": "dist/gzb-jssdk.js",
   "umd:main": "dist/gzb-jssdk.umd.js",
@@ -24,26 +24,15 @@
     "deploy:docs": "gh-pages -d docs/api"
   },
   "lint-staged": {
-    "*.ts?(x)": [
-      "npm run prettier",
-      "git add"
-    ]
+    "*.ts?(x)": ["npm run prettier", "git add"]
   },
-  "keywords": [
-    "typescript"
-  ],
+  "keywords": ["typescript"],
   "jest": {
     "transform": {
       "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json"
-    ]
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json"]
   },
   "devDependencies": {
     "@types/jest": "^20.0.8",

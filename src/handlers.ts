@@ -34,3 +34,6 @@ export const REMOVE_MENU_ITEM = 'removeMenuItem'
 export const SET_NATIVE_MENU_ITEM = 'setNativeMenuItem'
 export const GEO_NAVIGATE = 'geoNavigate'
 export const GET_ENV = 'getEnvironment'
+
+// 1.2
+export const OPEN_VIDEO = 'openVideo'

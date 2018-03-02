@@ -23,6 +23,7 @@
     - [设置状态栏(setBar)](#设置状态栏setbar)
     - [退出Web App 应用(exitWebApp)](#退出web-app-应用exitwebapp)
     - [获取当前位置(getLocation)](#获取当前位置getlocation)
+    - [导航](#导航)
     - [获取应用信息(apiList)](#获取应用信息apilist)
     - [获取应用当前语言(getLanguage)](#获取应用当前语言getlanguage)
     - [扫码(scanQRCode)](#扫码scanqrcode)
@@ -34,11 +35,10 @@
     - [文件打开接口](#文件打开接口)
     - [自定义‘更多’按钮菜单](#自定义更多按钮菜单)
   - [4. 更新计划/进度](#4-更新计划进度)
-    - [1.1.0](#110)
-      - [导航](#导航)
-      - [获取当前位置(getLocation)](#获取当前位置getlocation-1)
     - [1.1.1](#111)
       - [获取当前环境信息](#获取当前环境信息)
+    - [1.2.0](#120)
+      - [打开视频](#打开视频)
   - [5. 历史记录](#5-历史记录)
 
 <!-- /TOC -->
@@ -368,6 +368,7 @@ type ButtonId = 'close' | 'goback'
 ---
 
 ### 退出Web App 应用(exitWebApp)
+
 * 名称: exitWebApp
 * 描述: 退出WebApp应用， 即关闭窗口
 * 平台: `ios` | `android` | `PC`
@@ -380,15 +381,17 @@ type ButtonId = 'close' | 'goback'
 ---
 
 ### 获取当前位置(getLocation)
+
 * 名称: getLocation
 * 描述: 获取用户当前位置
-* 平台: `ios` | `android` | `PC`
+* 平台: `ios` | `android`
 * 请求：
 
 ```
 {
 	enableHignAccuracy: boolean // (提议) 启用高精度
 	timeout: number,            // (提议) 超时，毫秒
+  watch: boolean,             // (Since 1.1.0) 监视模式(为true时进入监视模式，浏览器端会持续进行请求， 原生可以对其进行针对性优化), 默认为false
 	// 其他
 }
 ```
@@ -409,17 +412,71 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
   "errMsg": string,     // (提议) 错误信息，待协定
 	latitude: number,
 	longitude: number,
-	coordType: CoordType, // (提议) 坐标类型
-	accuracy: number,     // (提议) 精度
+	coordType: CoordType, // 坐标类型(Since 1.1.0)
+	accuracy: number,     // 精度(Since 1.1.0)
 	address: string,      // 反向解析的中文地址
-  speed: number,        // (速度)
+  speed: number,        // 速度(Since 1.1.0)
 }
 ```
 
+| 错误码  | 描述 |
+|--------|------|
+|401 | 没有权限 |
+|402 | 超时 |
+|403 | 位置不可用 |
 
 [⬆返回顶部](#gzb-jssdk-接口协议)
 
 ---
+
+### 导航
+
+* 名称: geoNavigate
+* 支持版本：`1.1.0`
+* 描述：导航
+* 平台： `Android` | `IOS`
+* 场景：吊起原生地图应用进行导航
+* 请求：
+
+```
+{
+  to: {
+    latitude: number,
+    longitude: number,
+    address: string
+  },
+  from: {
+    latitude: number,
+    longitude: number,
+    address: string,
+  }
+ /**
+  * 地图坐标类型，在中国地区，所有地图的坐标都是经过加密的, 中国地区以外都是GPS坐标
+  * + WGS84 是GPS坐标, HTML5位置接口返回的格式
+  * + GCJ02 是火星坐标，在中国地区，高德、GoogleMap都是使用这个格式的坐标
+  * + BD08 百度坐标
+  */
+  coordType: 'WGS84',
+}
+```
+
+* 响应
+```
+{
+  "result": "true",     // 字符串类型，'false'表示添加失败, 'true'表示菜单项被点击
+  "errCode": number,    // 错误码(默认402)
+  "errMsg": string,     // 错误信息
+}
+```
+
+| 错误码  | 描述 |
+|--------|------|
+|401 | 没有安装地图 |
+|402 | 导航失败 |
+
+---
+
+[⬆返回顶部](#gzb-jssdk-接口协议)
 
 ### 获取应用信息(apiList)
 * 名称: apiList
@@ -738,102 +795,12 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 
 ## 4. 更新计划/进度
 
-### 1.1.0
-
-#### 导航
-
-* 名称: geoNavigate
-* 描述：导航
-* 平台： `Android` | `IOS`
-* 场景：吊起原生地图应用进行导航
-* 请求：
-
-```
-{
-  to: {
-    latitude: number,
-    longitude: number,
-    address: string
-  },
-  from: {
-    latitude: number,
-    longitude: number,
-    address: string,
-  }
- /**
-  * 地图坐标类型，在中国地区，所有地图的坐标都是经过加密的, 中国地区以外都是GPS坐标
-  * + WGS84 是GPS坐标, HTML5位置接口返回的格式
-  * + GCJ02 是火星坐标，在中国地区，高德、GoogleMap都是使用这个格式的坐标
-  * + BD08 百度坐标
-  */
-  coordType: 'WGS84',
-}
-```
-
-* 响应
-```
-{
-  "result": "true",     // 字符串类型，'false'表示添加失败, 'true'表示菜单项被点击
-  "errCode": number,    // 错误码(默认402)
-  "errMsg": string,     // 错误信息
-}
-```
-
-| 错误码  | 描述 |
-|--------|------|
-|401 | 没有安装地图 |
-|402 | 导航失败 |
-
-#### 获取当前位置(getLocation)
-* 名称: getLocation
-* 描述: 获取用户当前位置
-* 平台: `ios` | `android`
-* 请求：
-
-```
-{
-	enableHignAccuracy: boolean // (提议) 启用高精度
-	timeout: number,            // (提议) 超时，毫秒
-  watch: boolean,             // 监视模式(为true时进入监视模式，浏览器端会持续进行请求， 原生可以对其进行针对性优化), 默认为false
-	// 其他
-}
-```
-* 响应：
-
-```
-/**
- * 地图坐标类型，在中国地区，所有地图的坐标都是经过加密的, 中国地区以外都是GPS坐标
- * + WGS84 是GPS坐标
- * + GCJ02 是火星坐标，在中国地区，高德、GoogleMap都是使用这个格式的坐标
- * + BD08 百度坐标
- */
-type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
-
-{
-  "result": "true",     // (提议) 字符串类型，'true'表示成功 'false'表示失败
-  "errCode": number,    // (提议) 错误码, 待协定
-  "errMsg": string,     // (提议) 错误信息，待协定
-	latitude: number,
-	longitude: number,
-	coordType: CoordType, // (提议) 坐标类型
-	accuracy: number,     // (提议) 精度
-	address: string,      // 反向解析的中文地址
-  speed: number,        // (速度)
-}
-```
-
-| 错误码  | 描述 |
-|--------|------|
-|401 | 没有权限 |
-|402 | 超时 |
-|403 | 位置不可用 |
-
 ### 1.1.1
 
 #### 获取当前环境信息
 
 * 名称: getEnvironment
-* 描述: 获取用户当前位置
+* 描述: 获取用户当前环境
 * 平台: `ios` | `android` | `pc`
 * 请求：无
 * 响应：
@@ -844,6 +811,21 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
   apiList: string[], // 支持的接口列表
 }
 ```
+
+### 1.2.0
+
+#### 打开视频
+
+* 名称: openVideo
+* 描述：播放指定视频
+* 平台: `ios` | `android` | `pc`
+* 请求：
+```
+  {
+    url: string,  // 视频链接
+  }
+```
+* 响应：无， 由客户端自行提示
 
 [⬆返回顶部](#gzb-jssdk-接口协议)
 
@@ -856,5 +838,7 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
   * 优化获取位置接口 
 + 1.1.1: 2017.12.20
   * 新增获取元数据接口
++ 1.2.0: 2018.3.2
+  * 新增打开视频接口
 
 [⬆返回顶部](#gzb-jssdk-接口协议)
