@@ -120,6 +120,7 @@ export default class DesktopApi extends Api {
       .registerHandler(Handlers.REMOVE_MENU_ITEM)
       .registerHandler(Handlers.SET_NATIVE_MENU_ITEM)
       .registerHandler(Handlers.GET_ENV)
+      .registerHandler(Handlers.OPEN_VIDEO)
   }
 
   /**
