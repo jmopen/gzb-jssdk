@@ -1,6 +1,6 @@
 {
   "name": "@gdjiami/gzb-jssdk",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "MyGZB JSSDK",
   "main": "dist/gzb-jssdk.js",
   "umd:main": "dist/gzb-jssdk.umd.js",
@@ -15,6 +15,7 @@
     "build:copy": "cpr lib dist --delete-first --filter \"\\.js\" # copy Typescript declarations to dist",
     "watch": "npm run build:ts && concurrently --kill-others  \"tsc --watch\" \"rollup --config rollup.config.js --watch\"",
     "clean": "rimraf lib dist docs/api",
+    "serve": "http-server --tests__ -g -o",
     "test": "jest",
     "test:watch": "jest --watch",
     "lint": "tslint -c tslint.json \"src/**/*.ts?(x)\"",
@@ -24,15 +25,26 @@
     "deploy:docs": "gh-pages -d docs/api"
   },
   "lint-staged": {
-    "*.ts?(x)": ["npm run prettier", "git add"]
+    "*.ts?(x)": [
+      "npm run prettier",
+      "git add"
+    ]
   },
-  "keywords": ["typescript"],
+  "keywords": [
+    "typescript"
+  ],
   "jest": {
     "transform": {
       "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json"]
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ]
   },
   "devDependencies": {
     "@types/jest": "^20.0.8",
@@ -64,6 +76,7 @@
     "typescript": "^2.4.2"
   },
   "dependencies": {
+    "http-server": "^0.11.1",
     "tslib": "^1.7.1"
   },
   "directories": {

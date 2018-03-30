@@ -106,7 +106,9 @@ export default abstract class Api extends EventEmitter {
     callback: EventCallback,
     context?: any,
   ) {
-    this.emit('__addListener__', { eventType })
+    setTimeout(() => {
+      this.emit('__addListener__', { eventType })
+    }, 0)
     return super.addListener(eventType, callback, context)
   }
 
@@ -117,7 +119,9 @@ export default abstract class Api extends EventEmitter {
   ) {
     const removed = super.removeListener(eventType, callback, context)
     if (removed) {
-      this.emit('__removeListener__', { eventType, count: 1 })
+      setTimeout(() => {
+        this.emit('__removeListener__', { eventType, count: 1 })
+      }, 0)
     }
     return removed
   }
@@ -125,7 +129,9 @@ export default abstract class Api extends EventEmitter {
   public removeAllListener(eventType: EventType) {
     const count = super.removeAllListener(eventType)
     if (count) {
-      this.emit('__removeListener__', { eventType, count })
+      setTimeout(() => {
+        this.emit('__removeListener__', { eventType, count })
+      }, 0)
     }
     return count
   }

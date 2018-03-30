@@ -8,9 +8,20 @@ import { Bridge, DesktopBridge } from './Bridge'
 import * as Handlers from './handlers'
 import * as Events from './events'
 
+interface EventDesc {
+  callback: () => void
+  count: number
+  nativeEventName: string
+  eventName: string
+}
+
 export default class DesktopApi extends Api {
   private static instance: Api
   private bridge: Bridge
+  private eventDesc: {
+    [eventName: string]: EventDesc
+  } = {}
+
   public static getInstance(): Api {
     if (this.instance == null) {
       return (this.instance = new DesktopApi())
@@ -25,10 +36,10 @@ export default class DesktopApi extends Api {
   protected setupEventWatcher(eventName: string, callback: () => void) {
     switch (eventName) {
       case Events.beforeunload:
-        this.setUpBeforeUnloadWatcher(callback)
+        this.prepareEventWatcher(eventName, callback, Handlers.WINDOW_CLOSE)
         break
       case Events.beforegoback:
-        this.setUpBeforeGoBackWatcher(callback)
+        this.prepareEventWatcher(eventName, callback, Handlers.PAGE_GO_BACK)
         break
       default:
         throw new Error(`未知事件: ${eventName}`)
@@ -38,45 +49,61 @@ export default class DesktopApi extends Api {
   protected teardownEventWatcher(eventName: string) {
     switch (eventName) {
       case Events.beforeunload:
-        this._teardownBeforeUnloadWatcher()
-        break
       case Events.beforegoback:
-        this._teardownBeforeGoBackWatcher()
+        this.tearDownHandler(this.eventDesc[eventName].nativeEventName)
+        delete this.eventDesc[eventName]
         break
       default:
         throw new Error(`未知事件: ${eventName}`)
     }
   }
 
-  private setUpBeforeUnloadWatcher(callback: () => void) {
+  private prepareEventWatcher = (
+    eventName: string,
+    callback: () => void,
+    nativeEventName: string,
+  ) => {
+    const desc = (this.eventDesc[eventName] = {
+      count: 0,
+      callback,
+      nativeEventName,
+      eventName,
+    })
+    // 监听“添加事件”事件， 惰性添加事件处理器
+    this.innerAddEventListener('__addListener__', ({ eventType }) => {
+      if (eventType === eventName) {
+        if (desc.count === 0) {
+          // 添加处理器
+          this.setUpHandler(desc.nativeEventName, desc.callback)
+        }
+        desc.count++
+      }
+    })
+
+    this.innerAddEventListener('__removeListener__', ({ eventType, count }) => {
+      if (eventType === eventName) {
+        desc.count -= count
+        if (desc.count === 0) {
+          // 释放
+          this.tearDownHandler(desc.nativeEventName)
+        }
+      }
+    })
+  }
+
+  private setUpHandler = (nativeEventName: string, callback: () => void) => {
     this.setUpBridge(bridge => {
-      bridge.callHandler(Handlers.WINDOW_CLOSE, null, () => {
+      bridge.callHandler(nativeEventName, null, () => {
         callback()
         // 重新监听
-        this.setUpBeforeUnloadWatcher(callback)
+        this.setUpHandler(nativeEventName, callback)
       })
     })
   }
 
-  private _teardownBeforeUnloadWatcher() {
+  private tearDownHandler = (nativeEventName: string) => {
     this.setUpBridge(bridge => {
-      bridge.callHandler(Handlers.WINDOW_CLOSE, null)
-    })
-  }
-
-  private setUpBeforeGoBackWatcher(callback: () => void) {
-    this.setUpBridge(bridge => {
-      bridge.callHandler(Handlers.PAGE_GO_BACK, null, () => {
-        callback()
-        // 重新监听
-        this.setUpBeforeGoBackWatcher(callback)
-      })
-    })
-  }
-
-  private _teardownBeforeGoBackWatcher() {
-    this.setUpBridge(bridge => {
-      bridge.callHandler(Handlers.PAGE_GO_BACK, null)
+      bridge.callHandler(nativeEventName, null)
     })
   }
 
