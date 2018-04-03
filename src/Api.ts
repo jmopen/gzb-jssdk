@@ -803,8 +803,10 @@ export default abstract class Api extends EventEmitter {
     title: string,
     callback: (err: BridgeResponseError | null) => void,
   ) {
-    if (title in this.menuItems) {
-      throw new Error(`[GZB-JSSDK]: 菜单项 ${title} 已存在`)
+    if (process.env.NODE_ENV === 'development') {
+      if (title in this.menuItems) {
+        console.warn(`[GZB-JSSDK]: 菜单项 ${title} 已存在`)
+      }
     }
     this.addNativeMenuItem({ id: String(uid++), title }, callback)
   }
@@ -812,7 +814,7 @@ export default abstract class Api extends EventEmitter {
   public removeMenuItem(title: string) {
     if (process.env.NODE_ENV === 'development') {
       if (!(title in this.menuItems)) {
-        throw new Error(`[GZB-JSSDK]: 菜单项 ${title} 不存在`)
+        console.warn(`[GZB-JSSDK]: 菜单项 ${title} 不存在`)
       }
     }
     if (title in this.menuItems) {
