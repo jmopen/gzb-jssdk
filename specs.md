@@ -853,7 +853,7 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
   // (提议) 操作类型， camera 打开相机， gallery打开相册. 默认为default，弹出一个actionsheet， 由 * 用户自主选择
   actionType?: 'default' | 'camera' | 'gallery'; 
   extType?: ImageType[]; // 图片扩展名类型(用于选择指定格式的图片)
-  returnExt?: ImageType; // 可选，选中后返回的图片格式(如果没有指定，则返回选中图片原有的格式)
+  returnExt?: ImageType; // 可选，选中后返回的图片格式(如果没有指定, 默认返回jpeg类型)
   maxSizeKb?: number;    // 最大体积， 单位为kb
 }
 ```
