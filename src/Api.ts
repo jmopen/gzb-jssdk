@@ -793,9 +793,9 @@ export default abstract class Api extends EventEmitter {
    * 打开指定视频
    * @param  url 文件url
    */
-  public openVideo(url: string) {
+  public openVideo(url: string, extType?: string) {
     this.setUpBridge(bridge => {
-      bridge.callHandler(Handlers.OPEN_VIDEO, { url })
+      bridge.callHandler(Handlers.OPEN_VIDEO, { url, extType })
     })
   }
 

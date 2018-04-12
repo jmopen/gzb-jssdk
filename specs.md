@@ -828,7 +828,8 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 * 请求：
 ```
   {
-    url: string,  // 视频链接
+    url: string,      // 视频链接
+    extType?: string, // 扩展名(如.mp4), 可选，默认为.mp4
   }
 ```
 * 响应：无， 由客户端自行提示
