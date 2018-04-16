@@ -58,6 +58,10 @@ export interface ChooseImgParams {
    */
   extType?: ImageType[]
   /**
+   * 选中后返回的图片格式(如果没有指定, 默认返回jpeg类型)
+   */
+  returnExt?: ImageType
+  /**
    * 最大体积， 单位为kb
    */
   maxSizeKb?: number

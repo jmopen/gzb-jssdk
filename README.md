@@ -19,14 +19,9 @@ npm install @gdjiami/gzb-jssdk --save
 ## 接口协议
 [GZB-JSSDK-SPECS](https://github.com/jmopen/gzb-jssdk/blob/master/specs.md)
 
-## DEMO
-[GZB-JSSDK-DEMO](https://gdjiami.github.io/gzb-jssdk-demo/index.html#/)
+## 文档和DEMO
 
-## API文档
-+ [Api](https://github.com/jmopen/gzb-jssdk/blob/master/docs/api/classes/_api_.api.md)
-+ [MobileApi](https://github.com/jmopen/gzb-jssdk/blob/master/docs/api/classes/_mobileapi_.mobileapi.md)
-+ [Device](https://github.com/jmopen/gzb-jssdk/blob/master/docs/api/classes/_devicedetector_.devicedector.md)
-+ [Protocal](https://github.com/jmopen/gzb-jssdk/blob/master/docs/api/modules/_protocol_.md)
+[GZB-JSSDK-DEMO](https://gdjiami.github.io/gzb-jssdk-demo/index.html#/)
 
 ## 使用
 基本使用
