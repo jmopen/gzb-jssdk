@@ -9,6 +9,7 @@ import Api from './Api'
 import MobileApi from './MobileApi'
 import DesktopApi from './DesktopApi'
 import { BridgeResponseError } from './Bridge'
+import RPC, { RPCError } from './rpc'
 
 export * from './protocol'
 
@@ -34,6 +35,8 @@ export {
   MobileApi,
   Utils,
   VERSION,
+  RPC,
+  RPCError,
 }
 
 export function api() {

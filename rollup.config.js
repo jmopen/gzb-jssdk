@@ -21,13 +21,21 @@ const BANNER = `
  * Copyright(c) ${new Date().getFullYear()} ${pkg.author}
  */`
 
-export default [
-  // commonJS for development
+const entries = [
   {
-    input: './lib/index.js',
+    entry: './lib/index.js',
+    name: FILE_NAME,
+  },
+  { entry: './lib/rpc.js', name: 'rpc' },
+]
+
+export default entries
+  .map(entry => ({
+    // commonJS for development
+    input: entry.entry,
     external: ['tslib'],
     output: {
-      file: `./dist/${FILE_NAME}.js`,
+      file: `./dist/${entry.name}.js`,
       format: 'cjs',
       banner: BANNER,
     },
@@ -40,52 +48,55 @@ export default [
       commonJS(),
       filesize(),
     ],
-  },
-  // ES6 for development
-  {
-    input: './lib/index.js',
-    external: ['tslib'],
-    output: {
-      file: `./dist/${FILE_NAME}.module.js`,
-      format: 'es',
-      banner: BANNER,
+  }))
+  .concat(
+    // ES6 for development
+    entries.map(entry => ({
+      input: entry.entry,
+      external: ['tslib'],
+      output: {
+        file: `./dist/${entry.name}.module.js`,
+        format: 'es',
+        banner: BANNER,
+      },
+      plugins: [
+        progress(),
+        replace({
+          'process.env.MODULE_TYPE': JSON.stringify('commonjs'),
+        }),
+        resolve(RESOLVE_CONFIG),
+        commonJS(),
+        filesize(),
+      ],
+    })),
+  )
+  .concat([
+    // UMD for production
+    {
+      input: './lib/index.js',
+      output: {
+        file: `./dist/${FILE_NAME}.umd.js`,
+        format: 'umd',
+        name: UMD_NAME,
+        banner: BANNER,
+      },
+      plugins: [
+        progress(),
+        replace({
+          'process.env.MODULE_TYPE': JSON.stringify('umd'),
+          'process.env.NODE_ENV': JSON.stringify(
+            process.env.NODE_ENV || 'production',
+          ),
+        }),
+        resolve(RESOLVE_CONFIG),
+        commonJS(),
+        uglify({
+          output: {
+            // preserve banner
+            comments: /Copyright\(c\)/,
+          },
+        }),
+        filesize(),
+      ],
     },
-    plugins: [
-      progress(),
-      replace({
-        'process.env.MODULE_TYPE': JSON.stringify('commonjs'),
-      }),
-      resolve(RESOLVE_CONFIG),
-      commonJS(),
-      filesize(),
-    ],
-  },
-  // UMD for production
-  {
-    input: './lib/index.js',
-    output: {
-      file: `./dist/${FILE_NAME}.umd.js`,
-      format: 'umd',
-      name: UMD_NAME,
-      banner: BANNER,
-    },
-    plugins: [
-      progress(),
-      replace({
-        'process.env.MODULE_TYPE': JSON.stringify('umd'),
-        'process.env.NODE_ENV': JSON.stringify(
-          process.env.NODE_ENV || 'production'
-        ),
-      }),
-      resolve(RESOLVE_CONFIG),
-      commonJS(),
-      uglify({
-        output: {
-          // preserve banner
-          comments: /Copyright\(c\)/,
-        },
-      }),
-      filesize(),
-    ],
-  },
-]
+  ])
