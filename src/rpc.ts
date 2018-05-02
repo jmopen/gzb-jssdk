@@ -91,12 +91,21 @@ export default class RPC {
   /**
    * 原始接口
    */
-  public async raw<R>(payload: JSONRPCEvent<R>): Promise<void>
+  // 事件订阅模式
+  public async raw<R, P>(
+    payload: JSONRPCEvent<R>,
+    cb: (params: P) => void,
+  ): Promise<void>
+  // 普通请求模式
   public async raw<R, S>(
     payload: JSONRPCRequest<R>,
   ): Promise<JSONRPCResponse<S>>
-  public async raw<R, S>(
+  // 单向事件模式
+  public async raw<R>(payload: JSONRPCEvent<R>): Promise<void>
+  // 实现
+  public async raw<R, P, S>(
     payload: JSONRPCRequest<R> | JSONRPCEvent<R>,
+    cb?: (params: P) => void,
   ): Promise<JSONRPCResponse<S> | void> {
     return new Promise<JSONRPCResponse<S> | undefined>((resolve, reject) => {
       this.bridge.setUpBridge(bridge => {
@@ -134,11 +143,11 @@ export default class RPC {
                   )
                 }
               }
-            : undefined
+            : typeof cb === 'function' ? cb : undefined
 
         bridge.callHandler(METHOD_NAME, payload, callback)
         if (callback == null) {
-          // 事件模式
+          // 单向事件模式
           resolve()
         }
       })
@@ -168,6 +177,22 @@ export default class RPC {
    */
   public isError<T>(res: JSONRPCResponse<T>): res is JSONRPCResponseError {
     return 'error' in res
+  }
+
+  /**
+   * 注册事件
+   */
+  public addListener<R, P>(
+    method: string,
+    callback: (params: P) => void,
+    params?: R,
+  ) {
+    const payload = {
+      jsonrpc: '2.0',
+      method,
+      params,
+    }
+    this.raw(payload as JSONRPCEvent<R>, callback)
   }
 
   /**

@@ -276,7 +276,7 @@ export interface SelectSessionParams {
 export interface SelectSessionResponseOld extends BridgeCommonResponse {
   session: Array<{
     sessionId: string
-    sessionType: 'user' | 'chatroom'
+    sessionType: 'user' | 'chatroom' | 'publicAccount'
   }>
 }
 

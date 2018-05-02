@@ -46,6 +46,7 @@
         - [处理策略: 异常回退](#处理策略-异常回退)
         - [处理策略: 状态清理](#处理策略-状态清理)
       - [新接口规范](#新接口规范)
+      - [选择会话(selectSession) sessionType新增publicAccount类型](#选择会话selectsession-sessiontype新增publicaccount类型)
   - [5. 历史记录](#5-历史记录)
 
 <!-- /TOC -->
@@ -1049,8 +1050,51 @@ JSONRpc定义了若干个内置错误代码，客户端提供的接口也要遵�
 
 [rpc调试页面](https://gdjiami.github.io/gzb-jssdk-demo/index.html#/rpc)
 
+底层桥接调用示例：
+```
+// 普通方法, 有id时，才有callbackId
+HandleEvent('rpc', '{ "jsonrpc": "2.0", "id": "xxx", "method": "ssologin", "params":{} }', callbackId)
+
+// 单向事件, 没有id，也没有CallbackId
+HandleEvent('rpc', '{ "jsonrpc": "2.0", "method": "setTitle", "params": "标题名" }')
+
+// 订阅事件模式, 没有id, 有callbackId， 当事件触发时调用callbackId
+HandleEvent('rpc', '{ "jsonrpc": "2.0", "method": "onSsoLoginCancel", "params": {} }', callbackId)
+```
+
 [⬆返回顶部](#gzb-jssdk-接口协议)
 
+#### 选择会话(selectSession) sessionType新增publicAccount类型
+* 名称: selectSession
+* 描述: 会话选择器
+* 平台: `ios` | `android` | `PC`
+* 请求： 
+```
+{
+  multiple: boolean      // 表示是否允许多选
+  title: string          // 对话框title
+}
+```
+* 响应：
+```
+{
+  "result": "true",     // 字符串类型，'true'表示成功 'false'表示失败
+  "errCode": number,    // 错误码
+  "errMsg": string,     // 错误信息
+  "session": Array<{    // 返回结果
+    sessionId: string,  // 会话id
+    sessionType: 'user' | 'chatroom' | 'publicAccount'   // 会话类型
+  }>
+}
+```
+错误码说明:
+
+|错误码errCode	|错误信息errMsg |	描述 |
+|--------------|--------------|------|
+|701	 | 选择失败 |	未知异常时提示 |
+|704 |	用户取消选择 |	用户主动取消选择会话时提示 |
+
+[⬆返回顶部](#gzb-jssdk-接口协议)
 
 ## 5. 历史记录
 
@@ -1068,5 +1112,7 @@ JSONRpc定义了若干个内置错误代码，客户端提供的接口也要遵�
   * JSSDK 状态清理提案
 + 1.3.0: 2018.4.19
   * rpc 接口规范
++ 1.3.0: 2018.5.2
+  * 选择会话新增publicaccount类型
 
 [⬆返回顶部](#gzb-jssdk-接口协议)
