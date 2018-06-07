@@ -1,6 +1,6 @@
 # GZB JSSDK 接口协议
 
-当前版本: 1.1.0
+当前版本: 1.2.0
 
 <!-- TOC -->
 
@@ -10,7 +10,7 @@
     - [1.1 请求数据](#11-请求数据)
     - [1.2 返回数据](#12-返回数据)
     - [1.3 示例](#13-示例)
-  - [3. 接口列表](#3-接口列表)
+  - [3. 正式接口列表](#3-正式接口列表)
     - [设置标题(setTitle)](#设置标题settitle)
     - [打电话(makecalltonumber)](#打电话makecalltonumber)
     - [发短信](#发短信)
@@ -46,7 +46,8 @@
         - [处理策略: 异常回退](#处理策略-异常回退)
         - [处理策略: 状态清理](#处理策略-状态清理)
       - [新接口规范](#新接口规范)
-      - [选择会话(selectSession) sessionType新增publicAccount类型](#选择会话selectsession-sessiontype新增publicaccount类型)
+    - [1.4.0](#140)
+      - [选择会话(selectSession)优化](#选择会话selectsession优化)
   - [5. 历史记录](#5-历史记录)
 
 <!-- /TOC -->
@@ -132,7 +133,7 @@
 |701|选择失败|未知异常错误|
 |704|取消选择|用户主动取消了选择|
 
-## 3. 接口列表
+## 3. 正式接口列表
 
 ### 设置标题(setTitle)
 
@@ -281,7 +282,7 @@
 	user: Array<{id: string, name: string}>,  // 当前已选中的联系人
 	tenementId: string,                       // 企业id
 	limit: number,                            // 选择的上限， 只有multiple为true时有效
-	unselect: boolean,                        // 表示是否可以去取消已选择的联系人
+	unselect: boolean,                        // 表示是否可以取消已选择的联系人
 	type: 'single' | 'multiple',              // 选择模式， multiple为多选模式
 }
 ```
@@ -1064,27 +1065,64 @@ HandleEvent('rpc', '{ "jsonrpc": "2.0", "method": "onSsoLoginCancel", "params": 
 
 [⬆返回顶部](#gzb-jssdk-接口协议)
 
-#### 选择会话(selectSession) sessionType新增publicAccount类型
+### 1.4.0
+
+#### 选择会话(selectSession)优化
+
 * 名称: selectSession
 * 描述: 会话选择器
 * 平台: `ios` | `android` | `PC`
-* 请求： 
+* **类型定义**:
+
+```typescript
+// 会话类型定义
+// - user: 最近联系人(用户), 组织架构, 我的好友
+// - chatroom: 最近联系人(群组), 常用群组
+// - publicAccount(扩展): 联系Tab中的公共账号(客服小宝等)
+// - localContacts(扩展): 手机联系人
+// - visitor(扩展): 最近联系人(访客)
+type SessionType = 'user' | 'chatroom' | 'publicAccount' | 'localContact' | 'visitor'
+
+// 会话
+interface Session {
+  sessionId: string,
+  // * 会话类型: 扩展了publicAccount, localContact, visitor
+  sessionType: SessionType,
+  // * 新增:会话图标
+  icon?: string
+  // * 新增: 会话名称
+  name?: string
+}
 ```
+
+* 请求：
+
+```typescript
 {
   multiple: boolean      // 表示是否允许多选
   title: string          // 对话框title
+  // * 新增: 用于限定可选择会话的类型。
+  // 可选. 该字段是数组类型，支持传入多个会话类型限定。
+  // ['user', 'chatroom']
+  sesstionType?: SessionType[]
+  // * 新增: 可选，限定可选择的上限，只有multiple为true时有效. 默认不限
+  limit?: number,
+  // * 新增：可选, 已选择的会话, 默认为[]
+  selected?: Session[],
+  // * 新增: 可选, 表示是否可以取消已选择的会话(即selected指定的), 默认为true
+  unselect?: boolean,
 }
 ```
+
 * 响应：
-```
+
+```js
 {
   "result": "true",     // 字符串类型，'true'表示成功 'false'表示失败
   "errCode": number,    // 错误码
   "errMsg": string,     // 错误信息
-  "session": Array<{    // 返回结果
-    sessionId: string,  // 会话id
-    sessionType: 'user' | 'chatroom' | 'publicAccount'   // 会话类型
-  }>
+  // 选择会话结果, 扩展见Session类型定义
+  "session": Session[],
 }
 ```
 错误码说明:
@@ -1095,6 +1133,7 @@ HandleEvent('rpc', '{ "jsonrpc": "2.0", "method": "onSsoLoginCancel", "params": 
 |704 |	用户取消选择 |	用户主动取消选择会话时提示 |
 
 [⬆返回顶部](#gzb-jssdk-接口协议)
+
 
 ## 5. 历史记录
 
@@ -1114,5 +1153,7 @@ HandleEvent('rpc', '{ "jsonrpc": "2.0", "method": "onSsoLoginCancel", "params": 
   * rpc 接口规范
 + 1.3.0: 2018.5.2
   * 选择会话新增publicaccount类型
++ 1.4.0: 2018.6.7
+  * 选择会话接口优化
 
 [⬆返回顶部](#gzb-jssdk-接口协议)
