@@ -1104,13 +1104,15 @@ interface Session {
   // * 新增: 用于限定可选择会话的类型。
   // 可选. 该字段是数组类型，支持传入多个会话类型限定。
   // ['user', 'chatroom']
-  sesstionType?: SessionType[]
+  sessionType?: SessionType[]
   // * 新增: 可选，限定可选择的上限，只有multiple为true时有效. 默认不限
   limit?: number,
   // * 新增：可选, 已选择的会话, 默认为[]
   selected?: Session[],
   // * 新增: 可选, 表示是否可以取消已选择的会话(即selected指定的), 默认为true
   unselect?: boolean,
+  // * 新增: 可选，限定公司范围；仅当sessionType为user时有效
+  tenementId?: string
 }
 ```
 
@@ -1131,6 +1133,45 @@ interface Session {
 |--------------|--------------|------|
 |701	 | 选择失败 |	未知异常时提示 |
 |704 |	用户取消选择 |	用户主动取消选择会话时提示 |
+
+* 请求示例:
+
+```typescript
+
+// 选择88901公司下的最近联系人, 最多选择10个
+call('selectSession', {
+  sessionType: ['user'],
+  multiple: true,
+  title: '选择用户',
+  limit: 10,
+  tenementId: '88901',
+})
+
+// 用户选择器
+call('selectSession', {
+  sessionType: ['user'],
+  title: '用户选择器',
+  multiple: true,
+  unselect: false, // 不能取消选择
+  selected: [
+    {
+      sessionId: 'u123143',
+      sessionType: 'user',
+    },
+    {
+      sessionId: 'u123146',
+      sessionType: 'user',
+    },
+  ],
+})
+
+// 群单选
+call('selectSession', {
+  sessionType: ['chatroom'],
+  title: '群单选',
+  multiple: false,
+})
+```
 
 [⬆返回顶部](#gzb-jssdk-接口协议)
 
