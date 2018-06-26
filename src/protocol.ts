@@ -257,6 +257,23 @@ export type SelectContactResponse = Array<{
 }>
 
 /**
+ * 会话类型
+ */
+export type SessionType =
+  | 'user'
+  | 'chatroom'
+  | 'publicAccount'
+  | 'localContact'
+  | 'visitor'
+
+export interface GZBSession {
+  sessionId: string
+  sessionType: SessionType
+  icon?: string
+  name?: string
+}
+
+/**
  * 选择会话请求参数
  */
 export interface SelectSessionParams {
@@ -268,16 +285,30 @@ export interface SelectSessionParams {
    * 对话框显示的标题
    */
   title?: string
+  /**
+   * 选择会话的类型
+   */
+  sessionType?: SessionType[]
+  /**
+   * 限制
+   */
+  limit?: number
+  /**
+   * 已选择的会话
+   */
+  selected?: GZBSession[]
+  /**
+   * 是否可以取消已选择的会话
+   */
+  unselect?: boolean
+  tenementId?: string
 }
 
 /**
  * 选择会话响应参数, 兼容旧版
  */
 export interface SelectSessionResponseOld extends BridgeCommonResponse {
-  session: Array<{
-    sessionId: string
-    sessionType: 'user' | 'chatroom' | 'publicAccount'
-  }>
+  session: GZBSession[]
 }
 
 /**

@@ -845,6 +845,11 @@ export default abstract class Api extends EventEmitter {
    * @param params 参数
    *   + `multiple`: 表示支持多选
    *   + `title`: 设置对话框的标题
+   *   + `sessionType?`: SessionType[] 会话类型
+   *   + `limit?`: 限定选择数
+   *   + `selected?`: 已选择的会话
+   *   + `unselected?`: 是否可以取消选择
+   *   + `tenementId?`: 企业ID
    * @param callback 回调函数
    */
   public selectSession(
