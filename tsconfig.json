@@ -17,6 +17,7 @@
     "noUnusedLocals": true,
     "noFallthroughCasesInSwitch": true,
     "strictNullChecks": true,
+    "skipLibCheck": true,
     "suppressImplicitAnyIndexErrors": true,
     "downlevelIteration": true
   },

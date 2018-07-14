@@ -52,13 +52,4 @@ describe('test utils', () => {
   test('dateFormat input in s', () => {
     expect(dateFormat(dateInS, format, true)).toBe(result)
   })
-
-  test('findIndex', () => {
-    const { findIndex } = utils
-    const arr = [1, 2, 3, 4, 2]
-    const equal = (t: number) => (v: number) => v === t
-    expect(findIndex(arr, equal(1))).toBe(0)
-    expect(findIndex(arr, equal(4))).toBe(3)
-    expect(findIndex(arr, equal(2), 2)).toBe(4)
-  })
 })

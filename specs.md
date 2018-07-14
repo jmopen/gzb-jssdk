@@ -5,50 +5,52 @@
 <!-- TOC -->
 
 - [GZB JSSDK 接口协议](#gzb-jssdk-接口协议)
-  - [1. 概述](#1-概述)
-  - [2. 接口规范](#2-接口规范)
-    - [1.1 请求数据](#11-请求数据)
-    - [1.2 返回数据](#12-返回数据)
-    - [1.3 示例](#13-示例)
-  - [3. 正式接口列表](#3-正式接口列表)
-    - [设置标题(setTitle)](#设置标题settitle)
-    - [打电话(makecalltonumber)](#打电话makecalltonumber)
-    - [发短信](#发短信)
-    - [发送邮件(openMail)](#发送邮件openmail)
-    - [打开链接(openUrl)](#打开链接openurl)
-    - [打开名片(openContactItem)](#打开名片opencontactitem)
-    - [选择联系人(openContact)](#选择联系人opencontact)
-    - [设置状态栏颜色(setBarColor)](#设置状态栏颜色setbarcolor)
-    - [显示和隐藏状态栏(showBar)](#显示和隐藏状态栏showbar)
-    - [设置状态栏(setBar)](#设置状态栏setbar)
-    - [退出Web App 应用(exitWebApp)](#退出web-app-应用exitwebapp)
-    - [获取当前位置(getLocation)](#获取当前位置getlocation)
-    - [导航](#导航)
-    - [获取应用信息(apiList)](#获取应用信息apilist)
-    - [获取应用当前语言(getLanguage)](#获取应用当前语言getlanguage)
-    - [扫码(scanQRCode)](#扫码scanqrcode)
-    - [分享(shareTo)](#分享shareto)
-    - [打开会话框(openDialog)](#打开会话框opendialog)
-    - [选择会话(selectSession)](#选择会话selectsession)
-    - [图片选择器(chooseImg)](#图片选择器chooseimg)
-    - [图片预览接口](#图片预览接口)
-    - [文件打开接口](#文件打开接口)
-    - [自定义‘更多’按钮菜单](#自定义更多按钮菜单)
-  - [4. 更新计划/进度](#4-更新计划进度)
-    - [1.1.1](#111)
-      - [获取当前环境信息](#获取当前环境信息)
-    - [1.2.0](#120)
-      - [打开视频](#打开视频)
-    - [1.3.0](#130)
-      - [打开图片增加参数](#打开图片增加参数)
-      - [JSSDK状态清理提案](#jssdk状态清理提案)
-        - [动机](#动机)
-        - [处理策略: 异常回退](#处理策略-异常回退)
-        - [处理策略: 状态清理](#处理策略-状态清理)
-      - [新接口规范](#新接口规范)
-    - [1.4.0](#140)
-      - [选择会话(selectSession)优化](#选择会话selectsession优化)
-  - [5. 历史记录](#5-历史记录)
+    - [1. 概述](#1-概述)
+    - [2. 接口规范](#2-接口规范)
+        - [1.1 请求数据](#11-请求数据)
+        - [1.2 返回数据](#12-返回数据)
+        - [1.3 示例](#13-示例)
+    - [3. 正式接口列表](#3-正式接口列表)
+        - [设置标题(setTitle)](#设置标题settitle)
+        - [打电话(makecalltonumber)](#打电话makecalltonumber)
+        - [发短信](#发短信)
+        - [发送邮件(openMail)](#发送邮件openmail)
+        - [打开链接(openUrl)](#打开链接openurl)
+        - [打开名片(openContactItem)](#打开名片opencontactitem)
+        - [选择联系人(openContact)](#选择联系人opencontact)
+        - [设置状态栏颜色(setBarColor)](#设置状态栏颜色setbarcolor)
+        - [显示和隐藏状态栏(showBar)](#显示和隐藏状态栏showbar)
+        - [设置状态栏(setBar)](#设置状态栏setbar)
+        - [退出Web App 应用(exitWebApp)](#退出web-app-应用exitwebapp)
+        - [获取当前位置(getLocation)](#获取当前位置getlocation)
+        - [导航](#导航)
+        - [获取应用信息(apiList)](#获取应用信息apilist)
+        - [获取应用当前语言(getLanguage)](#获取应用当前语言getlanguage)
+        - [扫码(scanQRCode)](#扫码scanqrcode)
+        - [分享(shareTo)](#分享shareto)
+        - [打开会话框(openDialog)](#打开会话框opendialog)
+        - [选择会话(selectSession)](#选择会话selectsession)
+        - [图片选择器(chooseImg)](#图片选择器chooseimg)
+        - [图片预览接口](#图片预览接口)
+        - [文件打开接口](#文件打开接口)
+        - [自定义‘更多’按钮菜单](#自定义更多按钮菜单)
+    - [4. 更新计划/进度](#4-更新计划进度)
+        - [1.1.1](#111)
+            - [获取当前环境信息](#获取当前环境信息)
+        - [1.2.0](#120)
+            - [打开视频](#打开视频)
+        - [1.3.0](#130)
+            - [打开图片增加参数](#打开图片增加参数)
+            - [JSSDK状态清理提案](#jssdk状态清理提案)
+                - [动机](#动机)
+                - [处理策略: 异常回退](#处理策略-异常回退)
+                - [处理策略: 状态清理](#处理策略-状态清理)
+            - [新接口规范](#新接口规范)
+        - [1.4.0](#140)
+            - [选择会话(selectSession)优化](#选择会话selectsession优化)
+        - [1.5.0](#150)
+            - [选择联系人扩展(openContact)](#选择联系人扩展opencontact)
+    - [5. 历史记录](#5-历史记录)
 
 <!-- /TOC -->
 
@@ -1175,6 +1177,75 @@ call('selectSession', {
 
 [⬆返回顶部](#gzb-jssdk-接口协议)
 
+### 1.5.0
+
+#### 选择联系人扩展(openContact)
+
+* 名称: openContact
+* 描述: 打开联系人选择器
+* 平台: `ios` | `android` | `PC`
+* 请求：
+```
+{
+	user: Array<{id: string, name: string}>,  // 当前已选中的联系人
+	tenementId: string,                       // 企业id
+	limit: number,                            // 选择的上限， 只有multiple为true时有效
+	unselect: boolean,                        // 表示是否可以取消已选择的联系人
+	type: 'single' | 'multiple',              // 选择模式， multiple为多选模式
+  // 扩展字段, 用于支持选择自定义结构
+  items: SelectableItem[]
+}
+
+/* 类型定义*/
+
+// 用户, 注意这里没有传递图标，需要客户端自行获取
+interface User {
+  id: string
+  name: string
+  order: number
+}
+
+// 分组
+interface Group {
+  id: string
+  name: string
+  order: number
+  children: User[]
+}
+
+interface SelectableItem {
+  id: string
+  name: string
+  order: number, // 排序号
+  groups: Group[]
+}
+
+
+```
+* 响应: 
+```
+array<{
+  id: string                                // 用户id
+  name: string                              // 用户名
+  avatar: string	                          // 用户头像链接
+}>
+
+（提议）响应：
+{
+  "result": "true",     // -> 字符串类型，'true'表示成功 'false'表示失败
+  "errCode": number,    // -> 错误码, 待协定
+  "errMsg": string,     // -> 错误信息，待协定
+	"data": array<{
+  id: string            // 用户id
+  name: string          // 用户名
+  avatar: string        // 用户头像链接
+}>
+}
+```
+
+[⬆返回顶部](#gzb-jssdk-接口协议)
+
+---
 
 ## 5. 历史记录
 
@@ -1196,5 +1267,7 @@ call('selectSession', {
   * 选择会话新增publicaccount类型
 + 1.4.0: 2018.6.7
   * 选择会话接口优化
++ 1.5.0: 2018.7.13
+  * 选择联系人扩展
 
 [⬆返回顶部](#gzb-jssdk-接口协议)

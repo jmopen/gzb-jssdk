@@ -3,7 +3,7 @@
  * @module
  */ /** */
 // tslint:disable:no-any
-import { findIndex, debug } from './utils'
+import { debug } from './utils'
 export type Callback = (data: any) => any
 interface ListenerInner {
   callback: Callback
@@ -147,13 +147,12 @@ export default class EventEmitter {
     }
     const listeners = this.listeners[eventType]
     if (listeners && listeners.length) {
-      const index = findIndex<ListenerInner>(
-        listeners,
-        ({ callback: cb, context: ctx }) => cb === callback && ctx === context,
-      )
-      if (index !== -1) {
-        listeners.splice(index, 1)
-        return true
+      for (let index = 0; index < listeners.length; index++) {
+        const { callback: cb, context: ctx } = listeners[index]
+        if (cb === callback && ctx === context) {
+          listeners.splice(index, 1)
+          return true
+        }
       }
     }
     return false
