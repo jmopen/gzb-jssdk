@@ -218,6 +218,26 @@ export interface DialogParams {
   messageId?: string
 }
 
+export interface ExtendedContact {
+  id: string
+  name: string
+  order: number
+  groups: ExtendedContactGroup[]
+}
+
+export interface ExtendedContactGroup {
+  id: string
+  name: string
+  order: number
+  children: ExtendedContactUser[]
+}
+
+export interface ExtendedContactUser {
+  id: string
+  name: string
+  order: number
+}
+
 /**
  * 选择联系人请求参数
  */
@@ -232,7 +252,7 @@ export interface SelectContactParams {
   /**
    * 企业id
    */
-  tenementId: string
+  tenementId?: string
   /**
    * 限制数，只有在type为multple时有效
    */
@@ -245,6 +265,10 @@ export interface SelectContactParams {
    * 选择类型
    */
   type?: 'single' | 'multiple'
+  /**
+   * 扩展的可选项
+   */
+  items?: ExtendedContact[]
 }
 
 /**
