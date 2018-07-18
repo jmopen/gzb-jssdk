@@ -40,7 +40,8 @@ export {
 }
 
 export function api() {
-  const DefaultAPI = Device.mobile() ? MobileApi : DesktopApi
+  const DefaultAPI =
+    Device.ios() || Device.android() || Device.mobile() ? MobileApi : DesktopApi
   return DefaultAPI.getInstance()
 }
 export default api
