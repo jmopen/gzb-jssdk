@@ -37,7 +37,7 @@ export class DeviceDector {
       if (this.windows()) {
         return resolve((this.isBridgeAvailable = window.HandleEvent != null))
       }
-      if (this.mobile()) {
+      if (this.mobile() || this.ipad()) {
         if (window.WebViewJavascriptBridge != null) {
           resolve((this.isBridgeAvailable = true))
         } else {

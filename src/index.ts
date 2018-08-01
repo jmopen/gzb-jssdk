@@ -22,7 +22,7 @@ declare global {
   }
 }
 
-const VERSION = '1.5.1'
+const VERSION = '1.5.3'
 
 export {
   Api,

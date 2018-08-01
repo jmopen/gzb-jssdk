@@ -326,6 +326,10 @@ export interface SelectSessionParams {
    */
   unselect?: boolean
   tenementId?: string
+  /**
+   * 自定义选择结构
+   */
+  items?: ExtendedContact[]
 }
 
 /**
