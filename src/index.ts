@@ -22,7 +22,7 @@ declare global {
   }
 }
 
-const VERSION = '1.5.3'
+const VERSION = '1.5.7'
 
 export {
   Api,
@@ -40,8 +40,7 @@ export {
 }
 
 export function api() {
-  const DefaultAPI =
-    Device.ios() || Device.android() || Device.mobile() ? MobileApi : DesktopApi
+  const DefaultAPI = Device.windows() ? DesktopApi : MobileApi
   return DefaultAPI.getInstance()
 }
 export default api

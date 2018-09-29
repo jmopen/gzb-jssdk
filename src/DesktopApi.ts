@@ -30,7 +30,9 @@ export default class DesktopApi extends Api {
   }
 
   public setUpBridge(callback: (bridge: Bridge) => void): void {
-    callback(this.bridge)
+    window.setTimeout(() => {
+      callback(this.bridge)
+    }, 0)
   }
 
   protected setupEventWatcher(eventName: string, callback: () => void) {

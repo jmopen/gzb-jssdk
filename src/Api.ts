@@ -803,7 +803,10 @@ export default abstract class Api extends EventEmitter {
     title: string,
     callback: (err: BridgeResponseError | null) => void,
   ) {
-    if (process.env.NODE_ENV === 'development') {
+    if (
+      process.env.NODE_ENV === 'development' ||
+      process.env.JM_DEBUG === 'true'
+    ) {
       if (title in this.menuItems) {
         console.warn(`[GZB-JSSDK]: 菜单项 ${title} 已存在`)
       }
@@ -812,7 +815,10 @@ export default abstract class Api extends EventEmitter {
   }
 
   public removeMenuItem(title: string) {
-    if (process.env.NODE_ENV === 'development') {
+    if (
+      process.env.NODE_ENV === 'development' ||
+      process.env.JM_DEBUG === 'true'
+    ) {
       if (!(title in this.menuItems)) {
         console.warn(`[GZB-JSSDK]: 菜单项 ${title} 不存在`)
       }

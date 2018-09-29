@@ -18,7 +18,6 @@ import { MobileBridge } from './Bridge'
 
 export class DeviceDector {
   private userAgent: string
-  private isBridgeAvailable: boolean
   /**
    * 检测是否是webkit
    */
@@ -26,34 +25,29 @@ export class DeviceDector {
     return this.find('applewebkit')
   }
 
+  public isGZB() {
+    return this.find('gzb')
+  }
+
   /**
    * 检测桥接是否可用
    */
   public bridgeAvailable(): Promise<boolean> {
     return new Promise(resolve => {
-      if (this.isBridgeAvailable != null) {
-        return resolve(this.isBridgeAvailable)
-      }
-      if (this.windows()) {
-        return resolve((this.isBridgeAvailable = window.HandleEvent != null))
-      }
-      if (this.mobile() || this.ipad()) {
+      if (this.isGZB()) {
+        resolve(true)
+      } else if (this.windows()) {
+        return resolve(window.HandleEvent != null)
+      } else if (this.ios() || this.android() || this.mac()) {
         if (window.WebViewJavascriptBridge != null) {
-          resolve((this.isBridgeAvailable = true))
+          resolve(true)
         } else {
-          let called = false
-          const resolved = () => {
-            resolve((this.isBridgeAvailable = called = true))
-          }
-          const cancelled = () => {
-            if (!called) {
-              called = true
-              resolve((this.isBridgeAvailable = false))
-            }
-          }
-          MobileBridge.getInstance().setUpBridge(resolved)
-          setTimeout(cancelled, 1500)
+          MobileBridge.getInstance().setUpBridge(bridge => {
+            resolve(true)
+          })
         }
+      } else {
+        resolve(false)
       }
     })
   }
@@ -128,6 +122,10 @@ export class DeviceDector {
    */
   public androidTablet() {
     return this.android() && !this.find('mobile')
+  }
+
+  public mac() {
+    return this.find('macintosh')
   }
 
   /**

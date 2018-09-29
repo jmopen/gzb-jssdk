@@ -184,7 +184,10 @@ export default class DesktopBridge {
       let callbackId
       if (typeof responseCallback === 'function') {
         callbackId = this.addCallback(handlerName, (receivedData: R) => {
-          if (process.env.NODE_ENV === 'development') {
+          if (
+            process.env.NODE_ENV === 'development' ||
+            process.env.JM_DEBUG === 'true'
+          ) {
             debug(
               `[Window Bridge]: >> 回调 ${handlerName} with data: \n`,
               '-- payload: ',
@@ -193,7 +196,10 @@ export default class DesktopBridge {
           }
           responseCallback(_options.afterReceived(receivedData))
         })
-      } else if (process.env.NODE_ENV === 'development') {
+      } else if (
+        process.env.NODE_ENV === 'development' ||
+        process.env.JM_DEBUG === 'true'
+      ) {
         // 始终传入回调, 以便调试
         callbackId = this.addCallback(handlerName, (receivedData: R) => {
           debug(
@@ -207,7 +213,10 @@ export default class DesktopBridge {
         _options.bridgeHandleName ||
         (_options.preserveName ? handlerName : `On${upperFirst(handlerName)}`)
       const payload = _options.beforeSend(data)
-      if (process.env.NODE_ENV === 'development') {
+      if (
+        process.env.NODE_ENV === 'development' ||
+        process.env.JM_DEBUG === 'true'
+      ) {
         debug(
           `[Window Bridge]: << 调用 Handler ${handlerName} -> ${bridgeHandlerName}\n`,
           '-- payload: ',

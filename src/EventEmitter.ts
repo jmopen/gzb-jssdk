@@ -96,7 +96,10 @@ export default class EventEmitter {
       context,
       once,
     }
-    if (process.env.NODE_ENV === 'development') {
+    if (
+      process.env.NODE_ENV === 'development' ||
+      process.env.JM_DEBUG === 'true'
+    ) {
       debug(`[EventEmitter]: addListener ${eventType}`)
     }
     this.listeners[eventType] = listeners.concat(listener)
@@ -126,7 +129,10 @@ export default class EventEmitter {
    * @returns 返回被移除的订阅者数量
    */
   public removeAllListener(eventType: string) {
-    if (process.env.NODE_ENV === 'development') {
+    if (
+      process.env.NODE_ENV === 'development' ||
+      process.env.JM_DEBUG === 'true'
+    ) {
       debug(`[EventEmitter]: removeAllListener ${eventType}`)
     }
     const length = (this.listeners[eventType] || []).length
@@ -142,7 +148,10 @@ export default class EventEmitter {
    * @return 返回boolean值，表示是否从队列中被删除
    */
   public removeListener(eventType: string, callback: Callback, context?: any) {
-    if (process.env.NODE_ENV === 'development') {
+    if (
+      process.env.NODE_ENV === 'development' ||
+      process.env.JM_DEBUG === 'true'
+    ) {
       debug(`[EventEmitter]: removeListener ${eventType}`)
     }
     const listeners = this.listeners[eventType]
@@ -166,7 +175,10 @@ export default class EventEmitter {
    * @returns 返回一个数组，表示所有订阅者回调中返回的值
    */
   public emit(eventType: string, data?: any) {
-    if (process.env.NODE_ENV === 'development') {
+    if (
+      process.env.NODE_ENV === 'development' ||
+      process.env.JM_DEBUG === 'true'
+    ) {
       debug(`[EventEmitter]: emit ${eventType}\n ---payload: `, data)
     }
     const listeners = this.listeners[eventType]
@@ -193,7 +205,10 @@ export default class EventEmitter {
         results.push(rtn)
       }
     }
-    if (process.env.NODE_ENV === 'development') {
+    if (
+      process.env.NODE_ENV === 'development' ||
+      process.env.JM_DEBUG === 'true'
+    ) {
       debug(`[EventEmitter]: callback results ${eventType}\n : `, results)
     }
     return results

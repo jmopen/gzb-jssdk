@@ -21,12 +21,14 @@ const BANNER = `
  * Copyright(c) ${new Date().getFullYear()} ${pkg.author}
  */`
 
-const entries = [
-  {
+const entries = [{
     entry: './lib/index.js',
     name: FILE_NAME,
   },
-  { entry: './lib/rpc.js', name: 'rpc' },
+  {
+    entry: './lib/rpc.js',
+    name: 'rpc'
+  },
 ]
 
 export default entries
@@ -87,6 +89,7 @@ export default entries
           'process.env.NODE_ENV': JSON.stringify(
             process.env.NODE_ENV || 'production',
           ),
+          'process.env.JM_DEBUG': JSON.stringify('false'),
         }),
         resolve(RESOLVE_CONFIG),
         commonJS(),

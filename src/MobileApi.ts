@@ -104,7 +104,9 @@ export default class MobileApi extends Api {
   }
 
   public setUpBridge(callback: (bridge: Bridge) => void): void {
-    this.mobileBridge.setUpBridge(callback)
+    window.setTimeout(() => {
+      this.mobileBridge.setUpBridge(callback)
+    }, 0)
   }
 
   private setBarButtonVisible(visible: boolean, name: string) {

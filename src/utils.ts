@@ -7,6 +7,7 @@
 declare var process: {
   env: {
     'NODE_ENV': 'production' | 'development'
+    'JM_DEBUG': 'true' | 'false'
   }
 }
 
@@ -39,7 +40,10 @@ export function bigStringTransform(arg: any): any {
  * 代替console.log, 这个函数只有在`process.env.NODE_ENV`为`true`时输出到终端
  */
 export function debug(...args: any[]) {
-  if (process.env.NODE_ENV === 'development') {
+  if (
+    process.env.NODE_ENV === 'development' ||
+    process.env.JM_DEBUG === 'true'
+  ) {
     const _args = args.map(bigStringTransform)
     console.log(..._args) // tslint:disable-line:no-console
   }
@@ -49,7 +53,10 @@ export function debug(...args: any[]) {
  * 代替console.warn, 这个函数只有在`process.env.NODE_ENV`为`true`时输出到终端
  */
 export function warn(...args: any[]) {
-  if (process.env.NODE_ENV === 'development') {
+  if (
+    process.env.NODE_ENV === 'development' ||
+    process.env.JM_DEBUG === 'true'
+  ) {
     console.warn(...args) // tslint:disable-line:no-console
   }
 }

@@ -44,11 +44,17 @@ export default class MobileBridge {
         payload: any,
         responseCallback?: (data: any) => void,
       ) => {
-        if (process.env.NODE_ENV === 'development') {
+        if (
+          process.env.NODE_ENV === 'development' ||
+          process.env.JM_DEBUG === 'true'
+        ) {
           debug(`[Mobile Bridge]: << 调用 Handler ${type}\n -- payload`, payload)
         }
         const _responseCallback = (data: any) => {
-          if (process.env.NODE_ENV === 'development') {
+          if (
+            process.env.NODE_ENV === 'development' ||
+            process.env.JM_DEBUG === 'true'
+          ) {
             debug(`[Mobile Bridge]: >> Handler 响应 ${type} \n -- payload`, data)
           }
           if (data && typeof data === 'string') {
