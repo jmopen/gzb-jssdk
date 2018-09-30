@@ -208,7 +208,7 @@ export default class RPC {
   }
 
   private constructor() {
-    if (Device.mobile() || Device.ipad()) {
+    if (!Device.windows()) {
       this.bridge = MobileBridge.getInstance()
     } else {
       this.bridge = {
