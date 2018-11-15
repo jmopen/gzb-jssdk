@@ -3,7 +3,8 @@
  */
 /* tslint:disable: no-any no-namespace */
 export default interface Bridge {
-  init?: () => void
+  // 兼容旧版
+  init: () => void
   callHandler(
     type: string,
     payload: any,

@@ -3,7 +3,7 @@
  * @module
  */ /** */
 /* tslint:disable:no-any no-namespace */
-import { debug, identity, upperFirst } from '../utils'
+import { debug, identity, upperFirst, warn } from '../utils'
 import Bridge from './Bridge'
 
 export type ResponseCallback = (responseData: any) => void
@@ -70,6 +70,9 @@ export default class DesktopBridge {
     const instance = this.getInstance()
     if (this.normalizedBridge == null) {
       return (this.normalizedBridge = {
+        init: () => {
+          warn('bridge.init 已废弃')
+        },
         callHandler: (
           handlerName: string,
           data: any,

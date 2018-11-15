@@ -137,6 +137,14 @@ export default abstract class Api extends EventEmitter {
   }
 
   /**
+   * 兼容旧版
+   * @deprecated 旧版暴露的公开接口
+   */
+  public call(cb: (bridge: Bridge) => void) {
+    this.setUpBridge(cb)
+  }
+
+  /**
    * 设置标题
    * @platform `Windows` | `Android` | `IOS` | `Web`
    */
@@ -279,7 +287,7 @@ export default abstract class Api extends EventEmitter {
       user: [],
       type: 'multiple',
       unselect: true,
-      limit: 10,
+      limit: 10000,
       ...params,
     }
 
@@ -442,6 +450,11 @@ export default abstract class Api extends EventEmitter {
         this.setUpBridge(bridge => {
           bridge.callHandler(Handlers.GET_LOCATION, _options, res => {
             try {
+              const rawData = parse(res)
+              // 成功返回是一个数组
+              if (!Array.isArray(rawData)) {
+                throw new BridgeResponseError(rawData.errCode, '获取位置失败')
+              }
               const data: {
                 longitude: string
                 latitude: string
