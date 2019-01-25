@@ -59,9 +59,98 @@
 - JSSDK 是工作宝向网页开发者提供的基于工作宝客户端的网页开发工具包。
 - 通过使用 JSSDK，网页开发者可借助工作宝客户端高效地使用拍照、选图、位置等手机系统的能力，为工作宝用户提供更优质的网页体验。
 
+---
+
 ## 2. 接口规范
 
-### 1.1 请求数据
+### JSONRPC 接口规范(Since 1.3)
+
+> 1.3 之后新增的接口，都使用JSONRPC规范，旧接口保持不变
+
+由于历史原因，目前的接口协议非常不规范，为了简化后续的开发和维护，所有接口的请求和响应必须按照[`JSONRpc 2.0`](http://wiki.geekdream.com/Specification/json-rpc_2.0.html)规范进行。定义如下:
+
+> 注意：
+>
+> - 旧接口暂时保持不变
+> - JSONRPC 不考虑批量调用协议
+
+- 名称: rpc
+- 描述: 使用 JSONRPC 2.0 协议进行接口调用
+- 平台: `ios` | `android` | `PC`
+- 请求：
+
+```
+{
+  "jsonrpc": "2.0",      // 这个始终为2.0，属于JSONRPC的规范，客户端可以暂时忽略. 方便以后JSONRPC协议版本管理
+  "method": string,      // 方法名或事件名
+  "params"?: any         // 请求携带参数， 任意值
+  "id"?: string | number // 请求id, 标志一次请求。可选，如果没有传递，则表明为事件，这时候不需要响应
+}
+示例：
+
+1. 事件通知形式:
+{
+  "jsonrpc": "2.0",
+  "method": "notification.deviceBind",
+  "params":{
+    "success": true
+  }
+}
+
+2. 普通模式
+{
+  "jsonrpc": "2.0",
+  "method": "ping",
+  "params": {
+    "foo": "bar"
+  },
+  "id": xxxx
+}
+```
+
+- 响应：
+
+```
+1. 成功的响应:
+{
+  "jsonrpc": "2.0",        // 始终为2.0
+  "result": any            // 成功时必须包含，如果没有响应，为{}
+  "id": xxxx               // 必须包含, 而且必须要请求的id一致
+}
+
+2. 异常的响应
+{
+  "jsonrpc": "2.0",        // 始终为2.0
+  "id": xxxx               // 必须包含, 而且必须要请求的id一致
+  "error": {               // 失败时，必须包含
+    code: number,          // 异常代码
+    message: string        // 错误提示
+    data?: any             // 错误附带数据，可选，任意
+  }
+}
+```
+
+JSONRpc 定义了若干个内置错误代码，客户端提供的接口也要遵循这个规范. 我们可以使用 JSONRPC 预定已范围之外的数值作为自定义错误。目前暂定为 `700 - 800`作为自定义错误代码区间
+
+[rpc 调试页面](https://gdjiami.github.io/gzb-jssdk-demo/index.html#/rpc)
+
+底层桥接调用示例：
+
+```
+// 普通方法, 有id时，才有callbackId
+HandleEvent('rpc', '{ "jsonrpc": "2.0", "id": "xxx", "method": "ssologin", "params":{} }', callbackId)
+
+// 单向事件, 没有id，也没有CallbackId
+HandleEvent('rpc', '{ "jsonrpc": "2.0", "method": "setTitle", "params": "标题名" }')
+
+// 订阅事件模式, 没有id, 有callbackId， 当事件触发时调用callbackId
+HandleEvent('rpc', '{ "jsonrpc": "2.0", "method": "onSsoLoginCancel", "params": {} }', callbackId)
+```
+
+---
+
+### Legacy
+#### 1.1 请求数据
 
 `JSON`字符串数据，例如:
 
@@ -72,7 +161,7 @@
 }
 ```
 
-### 1.2 返回数据
+#### 1.2 返回数据
 
 返回 json 字符串数据，里面的具体内容如下
 
@@ -85,7 +174,7 @@
 }
 ```
 
-### 1.3 示例
+#### 1.3 示例
 
 ```js
 /*
@@ -135,6 +224,8 @@ WebViewJavascriptBridge.callHandler(
 | 701             | 选择失败         | 未知异常错误       |
 | 704             | 取消选择         | 用户主动取消了选择 |
 
+---
+
 ## 3. 正式接口列表
 
 ### 设置标题(setTitle)
@@ -146,7 +237,7 @@ WebViewJavascriptBridge.callHandler(
 
 ```
 {
-	title: string // 标题名
+  title: string // 标题名
 }
 ```
 
@@ -165,7 +256,7 @@ WebViewJavascriptBridge.callHandler(
 
 ```
 {
-	callnumber: string // 电话号码
+  callnumber: string // 电话号码
 }
 ```
 
@@ -192,8 +283,8 @@ WebViewJavascriptBridge.callHandler(
 
 ```
 {
-	callnumber: string | string[] // 电话号码, (提议)callNumber 支持传入数组，以支持群发功能
-	content: string,              // (提议) 允许自定义消息内容
+  callnumber: string | string[] // 电话号码, (提议)callNumber 支持传入数组，以支持群发功能
+  content: string,              // (提议) 允许自定义消息内容
 }
 ```
 
@@ -220,10 +311,10 @@ WebViewJavascriptBridge.callHandler(
 
 ```
 {
-	email: string | string[]      // 电话号码, (提议)支持传入数组，以支持群发
-	cc: string[],                 // (提议) 支持抄送
-	subject: string,              // (提议) 支持设置主题
-	content: string,              // (提议) 允许自定义消息内容
+  email: string | string[]      // 电话号码, (提议)支持传入数组，以支持群发
+  cc: string[],                 // (提议) 支持抄送
+  subject: string,              // (提议) 支持设置主题
+  content: string,              // (提议) 允许自定义消息内容
 }
 ```
 
@@ -250,8 +341,8 @@ WebViewJavascriptBridge.callHandler(
 
 ```
 {
-	url: string,                // URL 链接
-	showMode: 'outer' | 'inner' // 打开方式， outer 使用系统自带浏览器打开， inner新建工作宝窗口打开
+  url: string,                // URL 链接
+  showMode: 'outer' | 'inner' // 打开方式， outer 使用系统自带浏览器打开， inner新建工作宝窗口打开
 }
 ```
 
@@ -270,7 +361,7 @@ WebViewJavascriptBridge.callHandler(
 
 ```
 {
-	id: string      // 用户id
+  id: string      // 用户id
 }
 ```
 
@@ -297,11 +388,37 @@ WebViewJavascriptBridge.callHandler(
 
 ```
 {
-	user: Array<{id: string, name: string}>,  // 当前已选中的联系人
-	tenementId: string,                       // 企业id
-	limit: number,                            // 选择的上限， 只有multiple为true时有效
-	unselect: boolean,                        // 表示是否可以取消已选择的联系人
-	type: 'single' | 'multiple',              // 选择模式， multiple为多选模式
+  user: Array<{id: string, name: string}>,  // 当前已选中的联系人
+  tenementId: string,                       // 企业id
+  limit: number,                            // 选择的上限， 只有multiple为true时有效
+  unselect: boolean,                        // 表示是否可以取消已选择的联系人
+  type: 'single' | 'multiple',              // 选择模式， multiple为多选模式
+  // 新增(since 1.5) 扩展字段, 用于支持选择自定义结构
+  items: SelectableItem[]
+}
+
+/* 类型定义*/
+
+// 用户, 注意这里没有传递图标，需要客户端自行获取
+interface User {
+  id: string
+  name: string
+  order: number
+}
+
+// 分组
+interface Group {
+  id: string
+  name: string
+  order: number
+  children: User[]
+}
+
+interface SelectableItem {
+  id: string
+  name: string
+  order: number, // 排序号
+  groups: Group[]
 }
 ```
 
@@ -311,7 +428,7 @@ WebViewJavascriptBridge.callHandler(
 array<{
   id: string                                // 用户id
   name: string                              // 用户名
-  avatar: string	                          // 用户头像链接
+  avatar: string                            // 用户头像链接
 }>
 
 （提议）响应：
@@ -319,11 +436,11 @@ array<{
   "result": "true",     // -> 字符串类型，'true'表示成功 'false'表示失败
   "errCode": number,    // -> 错误码, 待协定
   "errMsg": string,     // -> 错误信息，待协定
-	"data": array<{
-  id: string            // 用户id
-  name: string          // 用户名
-  avatar: string        // 用户头像链接
-}>
+  "data": array<{
+    id: string            // 用户id
+    name: string          // 用户名
+    avatar: string        // 用户头像链接
+  }>
 }
 ```
 
@@ -340,7 +457,7 @@ array<{
 
 ```
 {
-	color: string,       // 颜色值，(提议)目前只支持#HEX格式的颜色值， 提议支持rgb，rgba， color name等颜色值
+  color: string,       // 颜色值，(提议)目前只支持#HEX格式的颜色值， 提议支持rgb，rgba， color name等颜色值
 }
 ```
 
@@ -359,7 +476,7 @@ array<{
 
 ```
 {
-	flag: boolean,      // flag 为false时隐藏
+  flag: boolean,      // flag 为false时隐藏
 }
 ```
 
@@ -379,11 +496,11 @@ array<{
 ```
 type ButtonId = 'close' | 'goback'
 {
-	hideMoreBtn: 'true' | 'false', // 显示和隐藏更多按钮，（已知问题）, 设置为false，或true会导致应用崩溃
-	left: [ButtonId, ButtonId],    // 显示和隐藏返回和关闭按钮，（已知问题）close, goback 只能同时关闭一个
-	onlyCallback: ButtonId[],      // 绑定goback或close点击回调
-	gobackUrl: string,             // 返回按钮绑定的url
-	right: string,                 // 右边按钮 替换文字
+  hideMoreBtn: 'true' | 'false', // 显示和隐藏更多按钮，（已知问题）, 设置为false，或true会导致应用崩溃
+  left: [ButtonId, ButtonId],    // 显示和隐藏返回和关闭按钮，（已知问题）close, goback 只能同时关闭一个
+  onlyCallback: ButtonId[],      // 绑定goback或close点击回调
+  gobackUrl: string,             // 返回按钮绑定的url
+  right: string,                 // 右边按钮 替换文字
 }
 ```
 
@@ -391,9 +508,9 @@ type ButtonId = 'close' | 'goback'
 
 ```
 {
-	"result": "true" | "false",    // 状态，(已知问题) 描述不清晰
-	"buttonId": ButtonId,          // 触发事件的按钮
-	"buttonName": string,          // 按钮名， (提议)移除
+  "result": "true" | "false",    // 状态，(已知问题) 描述不清晰
+  "buttonId": ButtonId,          // 触发事件的按钮
+  "buttonName": string,          // 按钮名， (提议)移除
 }
 ```
 
@@ -414,6 +531,7 @@ type ButtonId = 'close' | 'goback'
 [⬆ 返回顶部](#gzb-jssdk-接口协议)
 
 ---
+[⬆ 返回顶部](#gzb-jssdk-接口协议)
 
 ### 获取当前位置(getLocation)
 
@@ -424,10 +542,10 @@ type ButtonId = 'close' | 'goback'
 
 ```
 {
-	enableHignAccuracy: boolean // (提议) 启用高精度
-	timeout: number,            // (提议) 超时，毫秒
+  enableHignAccuracy: boolean // (提议) 启用高精度
+  timeout: number,            // (提议) 超时，毫秒
   watch: boolean,             // (Since 1.1.0) 监视模式(为true时进入监视模式，浏览器端会持续进行请求， 原生可以对其进行针对性优化), 默认为false
-	// 其他
+  // 其他
 }
 ```
 
@@ -446,11 +564,11 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
   "result": "true",     // (提议) 字符串类型，'true'表示成功 'false'表示失败
   "errCode": number,    // (提议) 错误码, 待协定
   "errMsg": string,     // (提议) 错误信息，待协定
-	latitude: number,
-	longitude: number,
-	coordType: CoordType, // 坐标类型(Since 1.1.0)
-	accuracy: number,     // 精度(Since 1.1.0)
-	address: string,      // 反向解析的中文地址
+  latitude: number,
+  longitude: number,
+  coordType: CoordType, // 坐标类型(Since 1.1.0)
+  accuracy: number,     // 精度(Since 1.1.0)
+  address: string,      // 反向解析的中文地址
   speed: number,        // 速度(Since 1.1.0)
 }
 ```
@@ -461,11 +579,13 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 | 402    | 超时       |
 | 403    | 位置不可用 |
 
+> Note: Android端coordType没有按照规范返回，例如百度坐标，返回的是bd09
+
 [⬆ 返回顶部](#gzb-jssdk-接口协议)
 
 ---
 
-### 导航
+### 导航(geoNavigate)
 
 - 名称: geoNavigate
 - 支持版本：`1.1.0`
@@ -525,9 +645,9 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 
 ```
 {
-	platform: 'ios' | 'pc' | 'android' | 'macos', // (提议) 平台名
-	version: string,                              // (提议) 当前版本
-	apiList: string[],                            // (提议) 支持API列表
+  platform: 'ios' | 'pc' | 'android' | 'macos', // (提议) 平台名
+  version: string,                              // (提议) 当前版本
+  apiList: string[],                            // (提议) 支持API列表
 }
 ```
 
@@ -568,7 +688,7 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 
 ```
 {
-	needResult: boolean, // 是否返回结果
+  needResult: boolean, // 是否返回结果
 }
 ```
 
@@ -576,7 +696,7 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 
 ```
 {
-	content: string,     // 返回结果
+  content: string,     // 返回结果
 }
 ```
 
@@ -632,26 +752,66 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 - 名称: selectSession
 - 描述: 会话选择器
 - 平台: `ios` | `android` | `PC`
+- **类型定义**:
+
+```typescript
+// 会话类型定义
+// - user: 最近联系人(用户), 组织架构, 我的好友
+// - chatroom: 最近联系人(群组), 常用群组
+// - publicAccount(扩展): 联系Tab中的公共账号(客服小宝等)
+// - localContacts(扩展): 手机联系人
+// - visitor(扩展): 最近联系人(访客)
+type SessionType =
+  | 'user'
+  | 'chatroom'
+  | 'publicAccount'
+  | 'localContact'
+  | 'visitor'
+
+// 会话
+interface Session {
+  sessionId: string
+  // * 会话类型: 1.4版本扩展了publicAccount, localContact, visitor
+  sessionType: SessionType
+  // * 新增(since 1.4):会话图标
+  icon?: string
+  // * 新增(since 1.4): 会话名称
+  name?: string
+}
+```
+
 - 请求：
 
-```
+```typescript
 {
   multiple: boolean      // 表示是否允许多选
   title: string          // 对话框title
+  // * 新增(since 1.4): 用于限定可选择会话的类型。
+  // 可选. 该字段是数组类型，支持传入多个会话类型限定。
+  // ['user', 'chatroom']
+  sessionType?: SessionType[]
+  // * 新增(since 1.4): 可选，限定可选择的上限，只有multiple为true时有效. 默认不限
+  limit?: number,
+  // * 新增(since 1.4)：可选, 已选择的会话, 默认为[]
+  selected?: Session[],
+  // * 新增(since 1.4): 可选, 表示是否可以取消已选择的会话(即selected指定的), 默认为true
+  unselect?: boolean,
+  // * 新增(since 1.4): 可选，限定公司范围；仅当sessionType为user时有效
+  tenementId?: string
+  // * 新增(since 1.4): 用于支持选择自定义结构, 详见openContact接口
+  items: SelectableItem[]
 }
 ```
 
 - 响应：
 
-```
+```js
 {
   "result": "true",     // 字符串类型，'true'表示成功 'false'表示失败
   "errCode": number,    // 错误码
   "errMsg": string,     // 错误信息
-  "session": Array<{    // 返回结果
-    sessionId: string,  // 会话id
-    sessionType: 'user' | 'chatroom'  // 会话类型
-  }>
+  // 选择会话结果, 扩展见Session类型定义
+  "session": Session[],
 }
 ```
 
@@ -661,6 +821,44 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 | -------------- | --------------- | -------------------------- |
 | 701            | 选择失败        | 未知异常时提示             |
 | 704            | 用户取消选择    | 用户主动取消选择会话时提示 |
+
+- 请求示例:
+
+```typescript
+// 选择88901公司下的最近联系人, 最多选择10个
+call('selectSession', {
+  sessionType: ['user'],
+  multiple: true,
+  title: '选择用户',
+  limit: 10,
+  tenementId: '88901',
+})
+
+// 用户选择器
+call('selectSession', {
+  sessionType: ['user'],
+  title: '用户选择器',
+  multiple: true,
+  unselect: false, // 不能取消选择
+  selected: [
+    {
+      sessionId: 'u123143',
+      sessionType: 'user',
+    },
+    {
+      sessionId: 'u123146',
+      sessionType: 'user',
+    },
+  ],
+})
+
+// 群单选
+call('selectSession', {
+  sessionType: ['chatroom'],
+  title: '群单选',
+  multiple: false,
+})
+```
 
 [⬆ 返回顶部](#gzb-jssdk-接口协议)
 
@@ -724,9 +922,12 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 | 705     | 图片压缩失败                     | quality 有设置,进行压缩失败时提示 |
 | 706     | 图片缩放失败                     | 进行缩放失败时提示                |
 
+
 [⬆ 返回顶部](#gzb-jssdk-接口协议)
 
-### 图片预览接口
+---
+
+### 图片预览接口(previewImg)
 
 - 名称: previewImg
 - 描述: 打开原生图片预览窗口， 预览指定图片
@@ -758,7 +959,32 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 | 701     | 请求数据格式错误， 比如不是合法的链接 |
 | 702     | 其他错误, 原生内部错误                |
 
-### 文件打开接口
+[⬆ 返回顶部](#gzb-jssdk-接口协议)
+
+---
+
+### 打开视频(openVideo)
+
+- 名称: openVideo
+- 支持版本: 1.2
+- 描述：播放指定视频
+- 平台: `ios` | `android` | `pc`
+- 请求：
+
+```
+  {
+    url: string,      // 视频链接
+    extType?: string, // 扩展名(如.mp4), 可选，默认为.mp4
+  }
+```
+
+- 响应：无， 由客户端自行提示
+
+[⬆ 返回顶部](#gzb-jssdk-接口协议)
+
+---
+
+### 文件打开接口(openFile)
 
 - 名称: openFile
 - 描述：打开原生文件预览程序，下载和预览指定文件
@@ -789,9 +1015,11 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 | 703     | 无法预览，比如没有合适的程序打开文件       |
 | 704     | 用户取消                                   |
 
+[⬆ 返回顶部](#gzb-jssdk-接口协议)
+
 ---
 
-### 自定义‘更多’按钮菜单
+### 自定义‘更多’按钮菜单(addMenuItem)
 
 添加按钮
 
@@ -861,6 +1089,8 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 
 - 响应: 无
 
+[⬆ 返回顶部](#gzb-jssdk-接口协议)
+
 ---
 
 ## 4. 更新计划/进度
@@ -883,25 +1113,9 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 }
 ```
 
-### 1.2.0
-
-#### 打开视频
-
-- 名称: openVideo
-- 描述：播放指定视频
-- 平台: `ios` | `android` | `pc`
-- 请求：
-
-```
-  {
-    url: string,      // 视频链接
-    extType?: string, // 扩展名(如.mp4), 可选，默认为.mp4
-  }
-```
-
-- 响应：无， 由客户端自行提示
-
 [⬆ 返回顶部](#gzb-jssdk-接口协议)
+
+---
 
 ### 1.3.0
 
@@ -967,6 +1181,8 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 | 706     | 图片缩放失败                     | 进行缩放失败时提示                |
 
 [⬆ 返回顶部](#gzb-jssdk-接口协议)
+
+---
 
 #### JSSDK 状态清理提案
 
@@ -1058,273 +1274,44 @@ JSSDK 状态对于每一个页面都应该是私有的，状态清理是最简�
 
 [⬆ 返回顶部](#gzb-jssdk-接口协议)
 
-#### 新接口规范
+---
 
-由于历史原因，目前的接口协议非常不规范，为了简化后续的开发和维护，所有接口的请求和响应必须按照[`JSONRpc 2.0`](http://wiki.geekdream.com/Specification/json-rpc_2.0.html)规范进行。定义如下:
+### 1.6
 
-> 注意：
->
-> - 旧接口暂时保持不变
-> - JSONRPC 不考虑批量调用协议
+#### 小视频录制
 
-- 名称: rpc
-- 描述: 使用 JSONRPC 2.0 协议进行接口调用
-- 平台: `ios` | `android` | `PC`
-- 请求：
-
-```
-{
-  "jsonrpc": "2.0",      // 这个始终为2.0，属于JSONRPC的规范，客户端可以暂时忽略. 方便以后JSONRPC协议版本管理
-  "method": string,      // 方法名或事件名
-  "params"?: any         // 请求携带参数， 任意值
-  "id"?: string | number // 请求id, 标志一次请求。可选，如果没有传递，则表明为事件，这时候不需要响应
-}
-示例：
-
-1. 事件通知形式:
-{
-  "jsonrpc": "2.0",
-  "method": "notification.deviceBind",
-  "params":{
-    "success": true
+- 协议类型: JSONRPC
+- 名称: video.upload
+- 描述: 请求客户端进行小视频录制，并上传到服务器
+- 平台: `ios` | `android`
+- 请求:
+  ```typescript
+  {
+    maxLength: number    //视频最大长度,默认10秒
+    minLength: number    //视频最小长度,默认3秒
   }
-}
-
-2. 普通模式
-{
-  "jsonrpc": "2.0",
-  "method": "ping",
-  "params": {
-    "foo": "bar"
-  },
-  "id": xxxx
-}
-```
-
-- 响应：
-
-```
-1. 成功的响应:
-{
-  "jsonrpc": "2.0",        // 始终为2.0
-  "result": any            // 成功时必须包含，如果没有响应，为{}
-  "id": xxxx               // 必须包含, 而且必须要请求的id一致
-}
-
-2. 异常的响应
-{
-  "jsonrpc": "2.0",        // 始终为2.0
-  "id": xxxx               // 必须包含, 而且必须要请求的id一致
-  "error": {               // 失败时，必须包含
-    code: number,          // 异常代码
-    message: string        // 错误提示
-    data?: any             // 错误附带数据，可选，任意
-  }
-}
-```
-
-JSONRpc 定义了若干个内置错误代码，客户端提供的接口也要遵循这个规范. 我们可以使用 JSONRPC 预定已范围之外的数值作为自定义错误。目前暂定为 `700 - 800`作为自定义错误代码区间
-
-[rpc 调试页面](https://gdjiami.github.io/gzb-jssdk-demo/index.html#/rpc)
-
-底层桥接调用示例：
-
-```
-// 普通方法, 有id时，才有callbackId
-HandleEvent('rpc', '{ "jsonrpc": "2.0", "id": "xxx", "method": "ssologin", "params":{} }', callbackId)
-
-// 单向事件, 没有id，也没有CallbackId
-HandleEvent('rpc', '{ "jsonrpc": "2.0", "method": "setTitle", "params": "标题名" }')
-
-// 订阅事件模式, 没有id, 有callbackId， 当事件触发时调用callbackId
-HandleEvent('rpc', '{ "jsonrpc": "2.0", "method": "onSsoLoginCancel", "params": {} }', callbackId)
-```
-
-[⬆ 返回顶部](#gzb-jssdk-接口协议)
-
-### 1.4.0
-
-#### 选择会话(selectSession)优化
-
-- 名称: selectSession
-- 描述: 会话选择器
-- 平台: `ios` | `android` | `PC`
-- **类型定义**:
-
-```typescript
-// 会话类型定义
-// - user: 最近联系人(用户), 组织架构, 我的好友
-// - chatroom: 最近联系人(群组), 常用群组
-// - publicAccount(扩展): 联系Tab中的公共账号(客服小宝等)
-// - localContacts(扩展): 手机联系人
-// - visitor(扩展): 最近联系人(访客)
-type SessionType =
-  | 'user'
-  | 'chatroom'
-  | 'publicAccount'
-  | 'localContact'
-  | 'visitor'
-
-// 会话
-interface Session {
-  sessionId: string
-  // * 会话类型: 扩展了publicAccount, localContact, visitor
-  sessionType: SessionType
-  // * 新增:会话图标
-  icon?: string
-  // * 新增: 会话名称
-  name?: string
-}
-```
-
-- 请求：
-
-```typescript
-{
-  multiple: boolean      // 表示是否允许多选
-  title: string          // 对话框title
-  // * 新增: 用于限定可选择会话的类型。
-  // 可选. 该字段是数组类型，支持传入多个会话类型限定。
-  // ['user', 'chatroom']
-  sessionType?: SessionType[]
-  // * 新增: 可选，限定可选择的上限，只有multiple为true时有效. 默认不限
-  limit?: number,
-  // * 新增：可选, 已选择的会话, 默认为[]
-  selected?: Session[],
-  // * 新增: 可选, 表示是否可以取消已选择的会话(即selected指定的), 默认为true
-  unselect?: boolean,
-  // * 新增: 可选，限定公司范围；仅当sessionType为user时有效
-  tenementId?: string
-  // * 新增: 用于支持选择自定义结构, 详见openContact接口
-  items: SelectableItem[]
-}
-```
-
-- 响应：
-
-```js
-{
-  "result": "true",     // 字符串类型，'true'表示成功 'false'表示失败
-  "errCode": number,    // 错误码
-  "errMsg": string,     // 错误信息
-  // 选择会话结果, 扩展见Session类型定义
-  "session": Session[],
-}
-```
-
-错误码说明:
-
-| 错误码 errCode | 错误信息 errMsg | 描述                       |
-| -------------- | --------------- | -------------------------- |
-| 701            | 选择失败        | 未知异常时提示             |
-| 704            | 用户取消选择    | 用户主动取消选择会话时提示 |
-
-- 请求示例:
-
-```typescript
-// 选择88901公司下的最近联系人, 最多选择10个
-call('selectSession', {
-  sessionType: ['user'],
-  multiple: true,
-  title: '选择用户',
-  limit: 10,
-  tenementId: '88901',
-})
-
-// 用户选择器
-call('selectSession', {
-  sessionType: ['user'],
-  title: '用户选择器',
-  multiple: true,
-  unselect: false, // 不能取消选择
-  selected: [
-    {
-      sessionId: 'u123143',
-      sessionType: 'user',
-    },
-    {
-      sessionId: 'u123146',
-      sessionType: 'user',
-    },
-  ],
-})
-
-// 群单选
-call('selectSession', {
-  sessionType: ['chatroom'],
-  title: '群单选',
-  multiple: false,
-})
-```
-
-[⬆ 返回顶部](#gzb-jssdk-接口协议)
-
-### 1.5.0
-
-#### 选择联系人扩展(openContact)
-
-- 名称: openContact
-- 描述: 打开联系人选择器
-- 平台: `ios` | `android` | `PC`
-- 请求：
-
-```
-{
-	user: Array<{id: string, name: string}>,  // 当前已选中的联系人
-	tenementId: string,                       // 企业id
-	limit: number,                            // 选择的上限， 只有multiple为true时有效
-	unselect: boolean,                        // 表示是否可以取消已选择的联系人
-	type: 'single' | 'multiple',              // 选择模式， multiple为多选模式
-  // 扩展字段, 用于支持选择自定义结构
-  items: SelectableItem[]
-}
-
-/* 类型定义*/
-
-// 用户, 注意这里没有传递图标，需要客户端自行获取
-interface User {
-  id: string
-  name: string
-  order: number
-}
-
-// 分组
-interface Group {
-  id: string
-  name: string
-  order: number
-  children: User[]
-}
-
-interface SelectableItem {
-  id: string
-  name: string
-  order: number, // 排序号
-  groups: Group[]
-}
-```
-
+  ```
 - 响应:
+  ```typescript
+  {
+    videoId: string
+    size: number,         // 视频大小（字节）
+    length: number        // 视频长度（秒）
+    thumbnailId: string   // 缩略图id
+    thumbnailSize: number 
+    thumbnailWidth: number
+    thumbnailHeight: number
+  }
+  ```
+- 错误代码
+  |  code | Message | 描述|
+  |-------|---------|-----|
+  |400    | parameter error| 客户端不理解web请求参数的语法（如：最小录制时长大于最大录制时长）。 |
+  | 403| privilege grant failed| 客户端无取得系统权限|
+  | 406| not allowed | 当前客户端环境不允许执行。例如低于Android 5.0系统版本不支持该功能|
+  | 503| request error| 客户端请求上传文件，可是服务器没有响应或者返回错误。|
+  | 504| network timeout| 网络超时。客户端上传文件过程中，没有及时从服务器收到响应，上传文件失败。|
 
-```
-array<{
-  id: string                                // 用户id
-  name: string                              // 用户名
-  avatar: string	                          // 用户头像链接
-}>
-
-（提议）响应：
-{
-  "result": "true",     // -> 字符串类型，'true'表示成功 'false'表示失败
-  "errCode": number,    // -> 错误码, 待协定
-  "errMsg": string,     // -> 错误信息，待协定
-	"data": array<{
-  id: string            // 用户id
-  name: string          // 用户名
-  avatar: string        // 用户头像链接
-}>
-}
-```
 
 [⬆ 返回顶部](#gzb-jssdk-接口协议)
 
@@ -1351,6 +1338,8 @@ array<{
 - 1.4.0: 2018.6.7
   - 选择会话接口优化
 - 1.5.0: 2018.7.13
-  - 选择联系人扩展
+  - 选择联系人扩展items字段
+- 1.6.0
+  - 增加小视频录制
 
 [⬆ 返回顶部](#gzb-jssdk-接口协议)
