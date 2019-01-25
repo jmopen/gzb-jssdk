@@ -6,7 +6,7 @@
  */ /** */
 // tslint:disable:member-ordering no-empty max-file-line-count no-any
 import Device from './DeviceDetector'
-import { outOfChina, deprecated } from './utils'
+import { deprecated } from './utils'
 import * as Handlers from './handlers'
 import * as Events from './events'
 import { Bridge, BridgeResponseError } from './Bridge'
@@ -37,6 +37,7 @@ import {
   PreviewImgResponse,
   SetNativeMenuItemParams,
   GeoNavigateParams,
+  CoordType,
 } from './protocol'
 
 export type Callback = (payload: any) => any
@@ -480,10 +481,9 @@ export default abstract class Api extends EventEmitter {
                 address,
                 speed,
                 accuracy,
+                // FIXME: android这里返回的是bd09ll
                 coordType:
-                  coordType === 'bd09ll'
-                    ? 'BD09'
-                    : outOfChina(latitude, longitude) ? 'WGS84' : 'BD09',
+                  coordType === 'bd09ll' ? 'BD09' : coordType as CoordType,
               }
               if (typeof _callback === 'function') {
                 deprecatedLegacyCallback('getLocation')

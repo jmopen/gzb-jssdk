@@ -1,7 +1,7 @@
 {
   "name": "@gdjiami/gzb-jssdk",
-  "version": "1.5.9",
-  "description": "MyGZB JSSDK",
+  "version": "1.5.10",
+  "description": "MyGZB Webview JSSDK",
   "main": "dist/gzb-jssdk.js",
   "umd:main": "dist/gzb-jssdk.umd.js",
   "module": "dist/gzb-jssdk.module.js",
