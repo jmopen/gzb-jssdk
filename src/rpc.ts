@@ -3,6 +3,7 @@
  */
 import Device from './DeviceDetector'
 import { Bridge, DesktopBridge, MobileBridge } from './Bridge'
+/* tslint:disable:no-any */
 
 interface Bridger {
   setUpBridge(callback: (bridge: Bridge) => void): void
@@ -55,6 +56,11 @@ export interface JSONRPCResponseError {
   error: JSONRPCError
 }
 
+export enum JSONRPCErrorCode {
+  NotFound = 404,
+  ClientError = 500,
+}
+
 /**
  * 响应
  */
@@ -62,9 +68,12 @@ export type JSONRPCResponse<T> =
   | JSONRPCResponseSuccess<T>
   | JSONRPCResponseError
 
-const METHOD_NAME = 'rpc'
+export const METHOD_NAME = 'rpc'
 export const PROTOCOL_ERROR = 0
 
+/**
+ * request 错误
+ */
 export class RPCError extends Error {
   public code: number
   public error?: JSONRPCError
@@ -76,10 +85,26 @@ export class RPCError extends Error {
   }
 }
 
+/**
+ * 响应给客户端的错误对象
+ */
+export class RPCHandlerError extends Error {
+  public constructor(public code: number, msg: string, public data: any) {
+    super(msg)
+    Object.setPrototypeOf(this, RPCHandlerError.prototype)
+  }
+}
+
 export default class RPC {
   private static instance: RPC
   private bridge: Bridger
   private uid: number = 0
+  // JS端回调
+  private handlers: {
+    [method: string]: {
+      callback: Array<(params: any) => any>
+    }
+  } = {}
 
   public static getInstance() {
     if (this.instance) {
@@ -207,6 +232,55 @@ export default class RPC {
     this.raw(payload as JSONRPCEvent<P>)
   }
 
+  /**
+   * 提供方法给原生调用
+   * @param methods 
+   */
+  public registerHandler<P, R>(
+    method: string,
+    handler: (params: P) => Promise<R>,
+  ) {
+    if (
+      this.handlers[method] &&
+      this.handlers[method].callback &&
+      this.handlers[method].callback.length
+    ) {
+      throw new Error(`[gzb-jssdk]: ${method} 方法已存在处理器`)
+    }
+    this.handlers[method] = { callback: [handler] }
+
+    return () => this.removeHandler(method, handler)
+  }
+
+  /**
+   * 监听原生客户端的事件调用
+   * @param method 
+   * @param handler 
+   */
+  public registerEventHandler<P>(method: string, handler: (params: P) => void) {
+    if (this.handlers[method] && this.handlers[method].callback) {
+      this.handlers[method].callback.push(handler)
+    } else {
+      this.handlers[method] = { callback: [handler] }
+    }
+
+    return () => this.removeHandler(method, handler)
+  }
+
+  /**
+   * 移除原生客户端调用处理器
+   * @param method 
+   * @param handler 
+   */
+  public removeHandler(method: string, handler: (params: any) => any) {
+    if (this.handlers[method] && this.handlers[method].callback) {
+      const idx = this.handlers[method].callback.indexOf(handler)
+      if (idx !== -1) {
+        this.handlers[method].callback.splice(idx, 1)
+      }
+    }
+  }
+
   private constructor() {
     if (!Device.windows()) {
       this.bridge = MobileBridge.getInstance()
@@ -218,5 +292,76 @@ export default class RPC {
       }
       DesktopBridge.getInstance().registerHandler(METHOD_NAME)
     }
+
+    // 侦听客户端调用
+    this.setupClientHandlers()
+  }
+
+  private _callHandler = async (
+    request: JSONRPCRequest<any>,
+    callback: (data: any) => void,
+  ) => {
+    if (
+      process.env.NODE_ENV === 'development' ||
+      process.env.JM_DEBUG === 'true'
+    ) {
+      // tslint:disable-next-line:no-console
+      console.log(`[gzb-jssdk] 客户端调用 ${METHOD_NAME}:`, request)
+    }
+
+    const { id, params, method } = request
+    const isEvent = id == null
+
+    const handler = this.handlers[method]
+    const resolve = (data: any) => {
+      const res: JSONRPCResponseSuccess<any> = {
+        jsonrpc: '2.0',
+        id,
+        result: data,
+      }
+      callback!(res)
+    }
+
+    const reject = (code: number, message: string, data?: any) => {
+      const res: JSONRPCResponseError = {
+        jsonrpc: '2.0',
+        id,
+        error: {
+          code,
+          message,
+          data,
+        },
+      }
+      callback!(res)
+    }
+
+    if (!isEvent && handler.callback.length !== 1) {
+      console.warn(`[gzb-jssdk]: 未注册${method}供客户端调用`)
+      reject(JSONRPCErrorCode.NotFound, '接口未注册')
+      return
+    }
+
+    if (isEvent) {
+      handler.callback.forEach(i => {
+        i(params)
+      })
+    } else {
+      try {
+        const res = await handler.callback[0](params)
+        resolve(res)
+      } catch (err) {
+        if (err instanceof RPCHandlerError) {
+          reject(err.code, err.message, err.data)
+        } else {
+          reject(JSONRPCErrorCode.ClientError, err.message)
+        }
+      }
+    }
+  }
+
+  private setupClientHandlers() {
+    this.bridge.setUpBridge(bridge => {
+      bridge.registerHandler(METHOD_NAME, this._callHandler)
+    })
   }
 }
