@@ -32,6 +32,11 @@ export default class MobileBridge {
    * ```
    */
   public setUpBridge(callback: (bridge: Bridge) => void): void {
+    if (Device.miniprogram()) {
+      console.warn('小程序不支持gzb-jssdk')
+      return
+    }
+
     let _callback = callback
 
     // 猴补丁， 用于输出debug信息

@@ -361,7 +361,11 @@ export default class RPC {
 
   private setupClientHandlers() {
     this.bridge.setUpBridge(bridge => {
-      bridge.registerHandler(METHOD_NAME, this._callHandler)
+      if (bridge.registerHandler) {
+        bridge.registerHandler(METHOD_NAME, this._callHandler)
+      } else {
+        console.warn('客户端未提供registerHandler')
+      }
     })
   }
 }

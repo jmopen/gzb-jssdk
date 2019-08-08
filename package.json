@@ -1,6 +1,10 @@
 {
   "name": "@gdjiami/gzb-jssdk",
-  "version": "1.6.0",
+  "version": "1.6.2",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
   "description": "MyGZB Webview JSSDK",
   "main": "dist/gzb-jssdk.js",
   "umd:main": "dist/gzb-jssdk.umd.js",

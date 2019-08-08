@@ -149,6 +149,10 @@ export class DeviceDector {
     return this.blackberry() && this.find('tablet')
   }
 
+  public miniprogram() {
+    return this.find('miniprogram')
+  }
+
   /**
    * 检测是否是手机
    */
