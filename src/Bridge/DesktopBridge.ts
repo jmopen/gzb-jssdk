@@ -199,17 +199,6 @@ export default class DesktopBridge {
           }
           responseCallback(_options.afterReceived(receivedData))
         })
-      } else if (
-        process.env.NODE_ENV === 'development' ||
-        process.env.JM_DEBUG === 'true'
-      ) {
-        // 始终传入回调, 以便调试
-        callbackId = this.addCallback(handlerName, (receivedData: R) => {
-          debug(
-            `[Window Bridge]: >> Handler 响应 ${handlerName}\n-- payload: `,
-            receivedData,
-          )
-        })
       }
 
       const bridgeHandlerName =

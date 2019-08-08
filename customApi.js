@@ -1,5 +1,5 @@
 /**
- * @gdjiami/gzb-jssdk - 1.6.1
+ * @gdjiami/gzb-jssdk - 1.6.3
  * https://github.com/jmopen/gzb-jssdk#readme
  * Copyright(c) 2019 ivan
  */
