@@ -238,6 +238,13 @@ export interface ExtendedContactUser {
   order: number
 }
 
+export enum RecentContactsController {
+  Hidden,
+  User,
+  Group,
+  UserAndGroup,
+}
+
 /**
  * 选择联系人请求参数
  */
@@ -269,6 +276,10 @@ export interface SelectContactParams {
    * 扩展的可选项
    */
   items?: ExtendedContact[]
+  /**
+   * 最近联系人, 0 或 undefined 表示不显示; 1 表示只显示联系人; 2 表示只显示群组; 3 表示显示群组 + 人。 默认为undefined。
+   */
+  recentContacts?: RecentContactsController
 }
 
 /**
@@ -330,6 +341,10 @@ export interface SelectSessionParams {
    * 自定义选择结构
    */
   items?: ExtendedContact[]
+  /**
+   * 最近联系人, 0 或 undefined 表示不显示; 1 表示只显示联系人; 2 表示只显示群组; 3 表示显示群组 + 人。 默认为undefined。
+   */
+  recentContacts?: RecentContactsController
 }
 
 /**
