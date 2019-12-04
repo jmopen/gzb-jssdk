@@ -392,7 +392,14 @@ WebViewJavascriptBridge.callHandler(
   tenementId: string,                       // 企业id
   limit: number,                            // 选择的上限， 只有multiple为true时有效
   unselect: boolean,                        // 表示是否可以取消已选择的联系人
-  recentContacts?: 0 | 1 | 2 | 3,           // 最近联系人, 0 或 undefined 表示不显示; 1 表示只显示联系人; 2 表示只显示群组; 3 表示显示群组 + 人。 默认为undefined。
+  // 最近联系人, 0 或 undefined 表示不显示; 默认为undefined。
+  // 0x01 表示显示用户; 
+  // 0x02 表示显示群组; 
+  // 0x04 表示显示访客
+  // 0x08 表示手机通讯录
+  // 0xff 表示全部显示
+  // 可以通过二进程操作符来合并需要展示的类型 
+  recentContacts?: 0x00 | 0x01 | 0x02 | 0x04 | 0x08 | 0xff,
   type: 'single' | 'multiple',              // 选择模式， multiple为多选模式
   // 新增(since 1.5) 扩展字段, 用于支持选择自定义结构
   items: SelectableItem[]
@@ -801,7 +808,14 @@ interface Session {
   tenementId?: string
   // * 新增(since 1.4): 用于支持选择自定义结构, 详见openContact接口
   items: SelectableItem[]
-  recentContacts?: 0 | 1 | 2 | 3,  // 最近联系人, 0 或 undefined 表示不显示; 1 表示只显示联系人; 2 表示只显示群组; 3 表示显示群组 + 人。 默认为undefined。
+  // 最近联系人, 0 或 undefined 表示不显示; 默认为undefined。
+  // 0x01 表示显示用户; 
+  // 0x02 表示显示群组; 
+  // 0x04 表示显示访客
+  // 0x08 表示手机通讯录
+  // 0xff 表示全部显示
+  // 可以通过二进程操作符来合并需要展示的类型 
+  recentContacts?: 0x00 | 0x01 | 0x02 | 0x04 | 0x08 | 0xff,
 }
 ```
 
