@@ -50,6 +50,8 @@
       - [小视频录制](#%e5%b0%8f%e8%a7%86%e9%a2%91%e5%bd%95%e5%88%b6)
     - [1.7](#17)
       - [投屏功能](#%e6%8a%95%e5%b1%8f%e5%8a%9f%e8%83%bd)
+    - [1.9](#17)
+      - [新增视频会议](#%E6%96%B0%E5%A2%9E%E8%A7%86%E9%A2%91%E4%BC%9A%E8%AE%AE)
   - [5. 历史记录](#5-%e5%8e%86%e5%8f%b2%e8%ae%b0%e5%bd%95)
 
 <!-- /TOC -->
@@ -65,7 +67,7 @@
 
 ### JSONRPC 接口规范(Since 1.3)
 
-> 1.3 之后新增的接口，都使用JSONRPC规范，旧接口保持不变
+> 1.3 之后新增的接口，都使用 JSONRPC 规范，旧接口保持不变
 
 由于历史原因，目前的接口协议非常不规范，为了简化后续的开发和维护，所有接口的请求和响应必须按照[`JSONRpc 2.0`](http://wiki.geekdream.com/Specification/json-rpc_2.0.html)规范进行。定义如下:
 
@@ -150,6 +152,7 @@ HandleEvent('rpc', '{ "jsonrpc": "2.0", "method": "onSsoLoginCancel", "params": 
 ---
 
 ### Legacy
+
 #### 1.1 请求数据
 
 `JSON`字符串数据，例如:
@@ -178,39 +181,39 @@ HandleEvent('rpc', '{ "jsonrpc": "2.0", "method": "onSsoLoginCancel", "params": 
 
 ```js
 /*
-   * selectSession
-   * 选择会话（单聊，群聊）
-   *
-   * Parameters:
-   *  @param multiple boolean 是否可以多选，true多选，false单选 默认false
-   *  @param title string 选择会话界面的标题 为空时默认值“请选择目标”
-   *
-   * Return Value:
-   * 成功
-   * {
-   *   "result":"true",
-   *   "session":[
-   *     {"sessionId":"u151855","sessionType":"user"},
-   *     {"sessionId":"jf-mai","sessionType":"user"},
-   *     {"sessionId":"1437103167643903556_room","sessionType":"chatroom"}
-   *   ]
-   * }
-   *
-   * 取消选择时
-   * {"errCode":704,"errMsg":"","result":"false","session":null}
-   * 错误码具体看下面表格说明
-   *
-   * 具体实现例子如下;
-   */
+ * selectSession
+ * 选择会话（单聊，群聊）
+ *
+ * Parameters:
+ *  @param multiple boolean 是否可以多选，true多选，false单选 默认false
+ *  @param title string 选择会话界面的标题 为空时默认值“请选择目标”
+ *
+ * Return Value:
+ * 成功
+ * {
+ *   "result":"true",
+ *   "session":[
+ *     {"sessionId":"u151855","sessionType":"user"},
+ *     {"sessionId":"jf-mai","sessionType":"user"},
+ *     {"sessionId":"1437103167643903556_room","sessionType":"chatroom"}
+ *   ]
+ * }
+ *
+ * 取消选择时
+ * {"errCode":704,"errMsg":"","result":"false","session":null}
+ * 错误码具体看下面表格说明
+ *
+ * 具体实现例子如下;
+ */
 WebViewJavascriptBridge.callHandler(
-  'selectSession',
+  "selectSession",
   {
     multiple: true,
-    title: '',
+    title: "",
   },
   function(response) {
     let re
-    if (typeof response === 'string') {
+    if (typeof response === "string") {
       re = JSON.Parse(response)
     } else {
       re = response
@@ -393,12 +396,12 @@ WebViewJavascriptBridge.callHandler(
   limit: number,                            // 选择的上限， 只有multiple为true时有效
   unselect: boolean,                        // 表示是否可以取消已选择的联系人
   // 最近联系人, 0 或 undefined 表示不显示; 默认为undefined。
-  // 0x01 表示显示用户; 
-  // 0x02 表示显示群组; 
+  // 0x01 表示显示用户;
+  // 0x02 表示显示群组;
   // 0x04 表示显示访客
   // 0x08 表示手机通讯录
   // 0xff 表示全部显示
-  // 可以通过二进程操作符来合并需要展示的类型 
+  // 可以通过二进程操作符来合并需要展示的类型
   recentContacts?: 0x00 | 0x01 | 0x02 | 0x04 | 0x08 | 0xff,
   type: 'single' | 'multiple',              // 选择模式， multiple为多选模式
   // 新增(since 1.5) 扩展字段, 用于支持选择自定义结构
@@ -539,6 +542,7 @@ type ButtonId = 'close' | 'goback'
 [⬆ 返回顶部](#gzb-jssdk-接口协议)
 
 ---
+
 [⬆ 返回顶部](#gzb-jssdk-接口协议)
 
 ### 获取当前位置(getLocation)
@@ -587,7 +591,7 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 | 402    | 超时       |
 | 403    | 位置不可用 |
 
-> Note: Android端coordType没有按照规范返回，例如百度坐标，返回的是bd09
+> Note: Android 端 coordType 没有按照规范返回，例如百度坐标，返回的是 bd09
 
 [⬆ 返回顶部](#gzb-jssdk-接口协议)
 
@@ -770,11 +774,11 @@ type CoordType = 'WGS84' | 'GCJ02' | 'BD09'
 // - localContacts(扩展): 手机联系人
 // - visitor(扩展): 最近联系人(访客)
 type SessionType =
-  | 'user'
-  | 'chatroom'
-  | 'publicAccount'
-  | 'localContact'
-  | 'visitor'
+  | "user"
+  | "chatroom"
+  | "publicAccount"
+  | "localContact"
+  | "visitor"
 
 // 会话
 interface Session {
@@ -809,12 +813,12 @@ interface Session {
   // * 新增(since 1.4): 用于支持选择自定义结构, 详见openContact接口
   items: SelectableItem[]
   // 最近联系人, 0 或 undefined 表示不显示; 默认为undefined。
-  // 0x01 表示显示用户; 
-  // 0x02 表示显示群组; 
+  // 0x01 表示显示用户;
+  // 0x02 表示显示群组;
   // 0x04 表示显示访客
   // 0x08 表示手机通讯录
   // 0xff 表示全部显示
-  // 可以通过二进程操作符来合并需要展示的类型 
+  // 可以通过二进程操作符来合并需要展示的类型
   recentContacts?: 0x00 | 0x01 | 0x02 | 0x04 | 0x08 | 0xff,
 }
 ```
@@ -842,36 +846,36 @@ interface Session {
 
 ```typescript
 // 选择88901公司下的最近联系人, 最多选择10个
-call('selectSession', {
-  sessionType: ['user'],
+call("selectSession", {
+  sessionType: ["user"],
   multiple: true,
-  title: '选择用户',
+  title: "选择用户",
   limit: 10,
-  tenementId: '88901',
+  tenementId: "88901",
 })
 
 // 用户选择器
-call('selectSession', {
-  sessionType: ['user'],
-  title: '用户选择器',
+call("selectSession", {
+  sessionType: ["user"],
+  title: "用户选择器",
   multiple: true,
   unselect: false, // 不能取消选择
   selected: [
     {
-      sessionId: 'u123143',
-      sessionType: 'user',
+      sessionId: "u123143",
+      sessionType: "user",
     },
     {
-      sessionId: 'u123146',
-      sessionType: 'user',
+      sessionId: "u123146",
+      sessionType: "user",
     },
   ],
 })
 
 // 群单选
-call('selectSession', {
-  sessionType: ['chatroom'],
-  title: '群单选',
+call("selectSession", {
+  sessionType: ["chatroom"],
+  title: "群单选",
   multiple: false,
 })
 ```
@@ -937,7 +941,6 @@ call('selectSession', {
 | 704     | 用户取消选择                     | 用户主动取消选择图片时提示        |
 | 705     | 图片压缩失败                     | quality 有设置,进行压缩失败时提示 |
 | 706     | 图片缩放失败                     | 进行缩放失败时提示                |
-
 
 [⬆ 返回顶部](#gzb-jssdk-接口协议)
 
@@ -1303,8 +1306,8 @@ JSSDK 状态对于每一个页面都应该是私有的，状态清理是最简�
 - 请求:
   ```typescript
   {
-    maxLength: number    //视频最大长度,默认10秒
-    minLength: number    //视频最小长度,默认3秒
+    maxLength: number //视频最大长度,默认10秒
+    minLength: number //视频最小长度,默认3秒
   }
   ```
 - 响应:
@@ -1314,20 +1317,19 @@ JSSDK 状态对于每一个页面都应该是私有的，状态清理是最简�
     size: number,         // 视频大小（字节）
     length: number        // 视频长度（秒）
     thumbnailId: string   // 缩略图id
-    thumbnailSize: number 
+    thumbnailSize: number
     thumbnailWidth: number
     thumbnailHeight: number
   }
   ```
 - 错误代码
-  |  code | Message | 描述|
+  | code | Message | 描述|
   |-------|---------|-----|
-  |400    | parameter error| 客户端不理解web请求参数的语法（如：最小录制时长大于最大录制时长）。 |
+  |400 | parameter error| 客户端不理解 web 请求参数的语法（如：最小录制时长大于最大录制时长）。 |
   | 403| privilege grant failed| 客户端无取得系统权限|
-  | 406| not allowed | 当前客户端环境不允许执行。例如低于Android 5.0系统版本不支持该功能|
+  | 406| not allowed | 当前客户端环境不允许执行。例如低于 Android 5.0 系统版本不支持该功能|
   | 503| request error| 客户端请求上传文件，可是服务器没有响应或者返回错误。|
   | 504| network timeout| 网络超时。客户端上传文件过程中，没有及时从服务器收到响应，上传文件失败。|
-
 
 [⬆ 返回顶部](#gzb-jssdk-接口协议)
 
@@ -1346,7 +1348,20 @@ JSSDK 状态对于每一个页面都应该是私有的，状态清理是最简�
     url?: string, // 投屏的链接，可选
   }
   ```
-- 响应: ```{}```
+- 响应: `{}`
+
+[⬆ 返回顶部](#gzb-jssdk-接口协议)
+
+### 1.9
+
+#### 新增视频会议
+
+- 协议类型: JSONRPC
+- 名称: conference.create
+- 描述: 新增视频会议
+- 平台: `ios` | `android` | `pc`
+- 请求: `{}`
+- 响应: `{}`
 
 [⬆ 返回顶部](#gzb-jssdk-接口协议)
 
@@ -1373,12 +1388,14 @@ JSSDK 状态对于每一个页面都应该是私有的，状态清理是最简�
 - 1.4.0: 2018.6.7
   - 选择会话接口优化
 - 1.5.0: 2018.7.13
-  - 选择联系人扩展items字段
+  - 选择联系人扩展 items 字段
 - 1.6.0
   - 增加小视频录制
 - 1.7.0
   - 增加投屏接口
 - 1.8.0
- - selectSession, openContact 新增 recentContacts 接口，用于控制最新联系人显示
+  - selectSession, openContact 新增 recentContacts 接口，用于控制最新联系人显示
+- 1.9.0
+  - 新增创建视频会议
 
 [⬆ 返回顶部](#gzb-jssdk-接口协议)
