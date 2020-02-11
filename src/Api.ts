@@ -38,6 +38,7 @@ import {
   SetNativeMenuItemParams,
   GeoNavigateParams,
   CoordType,
+  SessionType,
 } from './protocol'
 
 export type Callback = (payload: any) => any
@@ -270,9 +271,9 @@ export default abstract class Api extends EventEmitter {
    * <br/>
    * FIXME: 没有错误处理
    * @platform `Windows` | `Android` | `IOS`
-   * @param params 
-   * @param callback 
-   * @deprecated 使用selectSession 取代
+   * @param params
+   * @param callback
+   * @deprecated 使用selectSession 或 selectUser 取代
    */
   public selectContact(
     params: SelectContactParams,
@@ -312,6 +313,50 @@ export default abstract class Api extends EventEmitter {
   }
 
   /**
+   * 选择用户
+   * openContact 客户端已经不再维护，这个方法用于取代selectContact方法，返回值和参数都和
+   * selectContact保持一致, 但底层基于 selectSession
+   */
+  public async selectUser(
+    params: SelectContactParams & { title?: string },
+  ): Promise<SelectContactResponse> {
+    const {
+      type = 'multiple',
+      unselect = true,
+      limit = 10000,
+      user,
+      ...other,
+    } = params
+    const sessionType: SessionType = 'user'
+    const normalizedParams: SelectSessionParams = {
+      multiple: type === 'multiple',
+      sessionType: [sessionType],
+      selected: user
+        ? user.map(i => ({
+            sessionId: i.id,
+            sessionType,
+            icon: i.avatar,
+            name: i.name,
+          }))
+        : undefined,
+      limit,
+      unselect,
+      ...other,
+    }
+
+    const res = await this.selectSession(normalizedParams)
+    return res.map(i => {
+      const { sessionId: id, icon: avatar, name, ...other } = i
+      return {
+        id,
+        avatar: avatar!,
+        name: name!,
+        ...other,
+      }
+    })
+  }
+
+  /**
    * 设置Bar颜色
    * > 注意：目前只支持`RGB hex`格式的颜色值， 如`#FFFFFF`
    * @platform `Android` | `IOS`
@@ -326,7 +371,7 @@ export default abstract class Api extends EventEmitter {
   /**
    * 设置Bar的显示和隐藏, 也可以使用`showBar`显示， `hideBar` 隐藏
    * @platform `Android` | `IOS`
-   * @param visible 
+   * @param visible
    * @see showBar
    * @see hideBar
    */
@@ -364,8 +409,8 @@ export default abstract class Api extends EventEmitter {
    * 设置状态栏，并监听事件
    * <br/>
    * @platform `Android` | `IOS`
-   * @param params 
-   * @param callback 
+   * @param params
+   * @param callback
    * @deprecated
    */
   public settingBar(
@@ -553,7 +598,7 @@ export default abstract class Api extends EventEmitter {
    * <br/>
    * FIXME: 待测试
    * @platform *
-   * @param callback 
+   * @param callback
    * @alias getList
    */
   public apiInfos(callback: LegacyCallback<APIInfosResponseOld>): void
@@ -587,7 +632,7 @@ export default abstract class Api extends EventEmitter {
    * 获取应用和可用API信息
    * @deprecated 使用`apiInfos`代替
    * @alias apiInfos
-   * @param callback 
+   * @param callback
    */
   public getList(callback: (res: APIInfosResponseOld) => void): void {
     deprecated(deprecatedTemplate('getList', 'apiInfos'), this.apiInfos, this)(
@@ -600,7 +645,7 @@ export default abstract class Api extends EventEmitter {
    * @platform `Android` | `IOS`
    * @alias QRcode
    * @param needResult 指定是否返回结果
-   * @param callback 
+   * @param callback
    */
   public scanQRCode(
     needResult: boolean,
@@ -637,13 +682,13 @@ export default abstract class Api extends EventEmitter {
   }
 
   /**
-   * 
+   *
    * 扫二维码
    * @platform `Android` | `IOS`
    * @alias scanQRCode
    * @deprecated 使用`scanQRCode`代替
-   * @param needResult 
-   * @param callback 
+   * @param needResult
+   * @param callback
    */
   public QRcode(
     needResult: boolean,
@@ -750,7 +795,7 @@ export default abstract class Api extends EventEmitter {
 
   /**
    * 预览图片
-   * @param params 
+   * @param params
    *  + url 字符串数组，需要预览的图片url
    *  + index 当前显示的图片索引
    */
@@ -849,8 +894,8 @@ export default abstract class Api extends EventEmitter {
 
   /**
    * 控制更多按钮菜单下的原生按钮
-   * 
-   * @param {SetNativeMenuItemParams} params 
+   *
+   * @param {SetNativeMenuItemParams} params
    * @memberof Api
    */
   public setNativeMenuItem(params: SetNativeMenuItemParams) {

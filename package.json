@@ -1,6 +1,6 @@
 {
   "name": "@gdjiami/gzb-jssdk",
-  "version": "1.10.0",
+  "version": "1.10.2",
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
     "access": "public"

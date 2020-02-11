@@ -257,6 +257,8 @@ export interface SelectContactParams {
   user?: Array<{
     id: string
     name: string
+    avatar?: string
+    order?: string
   }>
   /**
    * 企业id
@@ -291,6 +293,7 @@ export type SelectContactResponse = Array<{
   id: string
   name: string
   avatar: string
+  order?: number
 }>
 
 /**
