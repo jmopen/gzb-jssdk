@@ -308,6 +308,8 @@ export interface GZBSession {
   sessionType: SessionType
   icon?: string
   name?: string
+  // since 1.10 用户排序
+  order?: number
 }
 
 /**

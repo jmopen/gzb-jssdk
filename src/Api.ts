@@ -272,6 +272,7 @@ export default abstract class Api extends EventEmitter {
    * @platform `Windows` | `Android` | `IOS`
    * @param params 
    * @param callback 
+   * @deprecated 使用selectSession 取代
    */
   public selectContact(
     params: SelectContactParams,
