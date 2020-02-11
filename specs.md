@@ -19,7 +19,7 @@
     - [发送邮件(openMail)](#%e5%8f%91%e9%80%81%e9%82%ae%e4%bb%b6openmail)
     - [打开链接(openUrl)](#%e6%89%93%e5%bc%80%e9%93%be%e6%8e%a5openurl)
     - [打开名片(openContactItem)](#%e6%89%93%e5%bc%80%e5%90%8d%e7%89%87opencontactitem)
-    - [选择联系人(openContact)](#%e9%80%89%e6%8b%a9%e8%81%94%e7%b3%bb%e4%ba%baopencontact)
+    - [选择联系人(openContact) [已废弃]](#%e9%80%89%e6%8b%a9%e8%81%94%e7%b3%bb%e4%ba%baopencontact-%e5%b7%b2%e5%ba%9f%e5%bc%83)
     - [设置状态栏颜色(setBarColor)](#%e8%ae%be%e7%bd%ae%e7%8a%b6%e6%80%81%e6%a0%8f%e9%a2%9c%e8%89%b2setbarcolor)
     - [显示和隐藏状态栏(showBar)](#%e6%98%be%e7%a4%ba%e5%92%8c%e9%9a%90%e8%97%8f%e7%8a%b6%e6%80%81%e6%a0%8fshowbar)
     - [设置状态栏(setBar)](#%e8%ae%be%e7%bd%ae%e7%8a%b6%e6%80%81%e6%a0%8fsetbar)
@@ -382,7 +382,7 @@ WebViewJavascriptBridge.callHandler(
 
 ---
 
-### 选择联系人(openContact)
+### 选择联系人(openContact) [已废弃]
 
 - 名称: openContact
 - 描述: 打开联系人选择器
@@ -415,7 +415,6 @@ interface User {
   id: string
   name: string
   order: number
-  subtitle: string
 }
 
 // 分组
@@ -792,6 +791,28 @@ interface Session {
   name?: string
   // * 新增(since 1.10): 用户排序
   order?: number
+}
+
+interface User {
+  id: string
+  name: string
+  order: number
+  subtitle: string // 副标题，比如用于显示职称
+}
+
+// 分组
+interface Group {
+  id: string
+  name: string
+  order: number
+  children: User[]
+}
+
+interface SelectableItem {
+  id: string
+  name: string
+  order: number, // 排序号
+  groups: Group[]
 }
 ```
 
@@ -1410,5 +1431,7 @@ JSSDK 状态对于每一个页面都应该是私有的，状态清理是最简�
   - 新增创建视频会议
 - 1.10.0
   - selectSession, openContact 返回值新增 order 字段
+  - selectSession 新增 contactsSupport
+  - openContact 进入废弃阶段
 
 [⬆ 返回顶部](#gzb-jssdk-接口协议)

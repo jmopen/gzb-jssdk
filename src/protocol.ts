@@ -236,6 +236,7 @@ export interface ExtendedContactUser {
   id: string
   name: string
   order: number
+  subtitle?: string
 }
 
 export enum RecentContactsController {
