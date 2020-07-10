@@ -1,3 +1,5 @@
+**项目已迁移至 https://gitee.com/jmfe/gzb-jssdk**
+
 # GZB JSSDK(v1)
 工作宝JSSDK, 是[工作宝APP](https://www.mygzb.com/)面向web应用提供的开发工具包， 
 用于在工作宝应用的webview内调用APP 服务. 目前支持`PC`, `Android`, `IOS`平台。
